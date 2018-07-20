@@ -142,13 +142,13 @@
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
 <meta property="og:description" content="一、前言作为安卓开发，天天跟Support Library打交道，动不动来个 Support Library相关类，如下： 1234implementation &apos;com.android.support:support-v4:27.0.2&apos;implementation &apos;com.android.support:appcompat-v7:27.0.2&apos;implementation &apos;com.andr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="f:/myblog/source/_posts/assets/1531990051719.png">
-<meta property="og:image" content="f:/myblog/source/_posts/assets/support.png">
-<meta property="og:updated_time" content="2018-07-19T09:52:01.403Z">
+<meta property="og:image" content="f:/myblog/source/images/1531990051719.png">
+<meta property="og:image" content="f:/myblog/source/images/support.png">
+<meta property="og:updated_time" content="2018-07-20T03:14:37.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你所知道的Support Library">
 <meta name="twitter:description" content="一、前言作为安卓开发，天天跟Support Library打交道，动不动来个 Support Library相关类，如下： 1234implementation &apos;com.android.support:support-v4:27.0.2&apos;implementation &apos;com.android.support:appcompat-v7:27.0.2&apos;implementation &apos;com.andr">
-<meta name="twitter:image" content="f:/myblog/source/_posts/assets/1531990051719.png">
+<meta name="twitter:image" content="f:/myblog/source/images/1531990051719.png">
 
 
 
@@ -356,12 +356,24 @@
                 
               
 
-              <time title="创建时间：2018-07-19 16:27:22 / 修改时间：17:52:01" itemprop="dateCreated datePublished" datetime="2018-07-19T16:27:22+08:00">2018-07-19</time>
+              <time title="创建时间：2018-07-19 16:27:22" itemprop="dateCreated datePublished" datetime="2018-07-19T16:27:22+08:00">2018-07-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-20 11:14:37" itemprop="dateModified" datetime="2018-07-20T11:14:37+08:00">2018-07-20</time>
               
             
           </span>
@@ -406,8 +418,8 @@
 <li>其他实用程序功能。</li>
 </ul>
 <h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>打开<code>sdkmanage</code>选择<code></code>Support repository`下载</p>
-<p><img src="F:\myblog\source\_posts\assets/1531990051719.png" alt=""></p>
-<p>下载后，此工具会将支持库文件安装到您现有的 Android SDK 目录中。库文件位于 SDK 的以下子目录中：<code>&lt;sdk&gt;/extras/android/m2repository/com/android/support/</code> 目录。<img src="F:\myblog\source\_posts\assets/support.png" alt=""></p>
+<p><img src="F:\myblog\source\images\1531990051719.png" alt=""></p>
+<p>下载后，此工具会将支持库文件安装到您现有的 Android SDK 目录中。库文件位于 SDK 的以下子目录中：<code>&lt;sdk&gt;/extras/android/m2repository/com/android/support/</code> 目录。<img src="F:\myblog\source\images\support.png" alt=""></p>
 <p>在将支持库添加到应用之前，确定您想要包含的功能以及希望支持的最低 Android 版本 。</p>
 <p>打开应用的<code>build.gradle</code>文件，将支持库添加到 dependencies 部分。例如，要添加 v4 core-utils 库，请添加以下行：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    compile <span class="string">"com.android.support:support-core-utils:24.2.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
