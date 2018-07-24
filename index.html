@@ -1210,7 +1210,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2016/07/15/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2016/07/15/Hello World/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="康汉斌">
@@ -1229,7 +1229,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/07/15/hello-world/" itemprop="url">
+                <a class="post-title-link" href="/2016/07/15/Hello World/" itemprop="url">
                   Hello World
                 </a>
               
@@ -1370,7 +1370,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2015/07/18/第一个博客/">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2015/07/18/带你初识Kotlin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="康汉斌">
@@ -1389,8 +1389,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/07/18/第一个博客/" itemprop="url">
-                  第一个博客
+                <a class="post-title-link" href="/2015/07/18/带你初识Kotlin/" itemprop="url">
+                  带你初识Kotlin（一）
                 </a>
               
             
@@ -1433,7 +1433,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-09 09:31:04" itemprop="dateModified" datetime="2018-07-09T09:31:04+08:00">2018-07-09</time>
+                <time title="修改时间：2018-07-24 16:21:41" itemprop="dateModified" datetime="2018-07-24T16:21:41+08:00">2018-07-24</time>
               
             
           </span>
@@ -1468,8 +1468,118 @@
       
         
           
-            <p>##我的博客标题</p>
-<p>第一个测试博客</p>
+            <h3 id="What-is-Kotlin"><a href="#What-is-Kotlin" class="headerlink" title="What is Kotlin?"></a>What is <code>Kotlin</code>?</h3><p>Kotlin是JVM和Android的实用编程语言，结合了OO和功能特性，专注于<strong>互操作性</strong>，<strong>安全性</strong>，<strong>清晰度</strong>和<strong>工具</strong>支持。 </p>
+<p>本文记录自己学习<code>kotlin</code>认为需要记录的重点，如果需要详细学习，请点击<a href="http://www.kotlindoc.cn/" target="_blank" rel="noopener">Kotlin中文文档</a>学习。</p>
+<h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><p>在 Kotlin 中，所有变量的成员方法和属性都是一个对象。一些类型是内建的，它们的实现是优化过的，但对用户来说它们就像普通的类一样。</p>
+<ul>
+<li>数值类型</li>
+</ul>
+<p>Kotlin 处理数值的方法和 java 很相似，但不是完全一样。比如，不存在隐式转换数值的精度，并且在字面上有一些小小的不同 。Kotlin 提供了如下内建数值类型(和 java 很相似)：</p>
+<table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th style="text-align:left"><strong>字宽</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double</td>
+<td style="text-align:left">64</td>
+</tr>
+<tr>
+<td>Float</td>
+<td style="text-align:left">32</td>
+</tr>
+<tr>
+<td>Long</td>
+<td style="text-align:left">64</td>
+</tr>
+<tr>
+<td>Int</td>
+<td style="text-align:left">32</td>
+</tr>
+<tr>
+<td>Short</td>
+<td style="text-align:left">16</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td style="text-align:left">8</td>
+</tr>
+</tbody>
+</table>
+<p>在<code>Kotlin</code>中，短类型，不会隐式转化为长类型，这意味着我们必须显式转换才能把 <code>Byte</code> 赋值给 <code>Int</code>。</p>
+<p>error：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> b: <span class="built_in">Byte</span> = <span class="number">1</span> <span class="comment">// OK, literals are checked statically</span></span><br><span class="line"><span class="keyword">val</span> i: <span class="built_in">Int</span> = b <span class="comment">//ERRO</span></span><br></pre></td></tr></table></figure>
+<p>right:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i: <span class="built_in">Int</span> = b.toInt()<span class="comment">//显示转换</span></span><br></pre></td></tr></table></figure>
+<p>我们可以通过显式转换把数值类型提升 。每个数值类型都支持下面的转换：</p>
+<blockquote>
+<p><code>toByte(): Byte</code></p>
+</blockquote>
+<blockquote>
+<p><code>toShort(): Short</code></p>
+</blockquote>
+<blockquote>
+<p><code>toInt(): Int</code></p>
+</blockquote>
+<blockquote>
+<p><code>toLong(): Long</code></p>
+</blockquote>
+<blockquote>
+<p><code>toFloat(): Float</code></p>
+</blockquote>
+<blockquote>
+<p><code>toDouble(): Double</code></p>
+</blockquote>
+<blockquote>
+<p><code>toChar(): Char</code></p>
+</blockquote>
+<p>Kotlin支持标准的运算表达式，关于位运算，<code>kotlin</code>没有提供特殊的操作符，只是提供了可以叫中缀形式的方法，比如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = (<span class="number">1</span> shl <span class="number">2</span>) and <span class="number">0x000FF000</span></span><br></pre></td></tr></table></figure>
+<p>下面是全部的位运算操作符(<strong>只可以用在 <code>Int</code> 和 <code>Long</code> 类型</strong>)：</p>
+<blockquote>
+<p><code>shl(bits)</code> – 带符号左移 (相当于 Java’s <code>&lt;&lt;</code>) <code>shr(bits)</code> – 带符号右移 (相当于 Java’s <code>&gt;&gt;</code>) <code>ushr(bits)</code> – 无符号右移 (相当于 Java’s <code>&gt;&gt;&gt;</code>) <code>and(bits)</code> – 按位与 <code>or(bits)</code> – 按位或 <code>xor(bits)</code> – 按位异或 <code>inv(bits)</code> – 按位翻转</p>
+</blockquote>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(<span class="number">1</span> shl <span class="number">3</span>)<span class="comment">//打印结果为8</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符类型</li>
+</ul>
+<p>字符类型用<code>Char</code>表示，不能直接当做数值使用：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">check</span><span class="params">(c: <span class="type">Char</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="number">1</span>) &#123; <span class="comment">//ERROR: 类型不匹配，这里会提示</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>字符是由单引号包裹的’1’，特殊的字符通过反斜杠\转义，下面的字符序列支持转义：\t,\b,\n,\r,’,”,\和$。编码任何其他字符，使用 Unicode 转义语法：\uFF00。</p>
+<p>我们可以将字符显示的转义为Int数字：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">decimalDigitValue</span><span class="params">(c: <span class="type">Char</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (c !<span class="keyword">in</span> <span class="string">'0'</span>..<span class="string">'9'</span>) </span><br><span class="line">		<span class="keyword">throw</span> IllegalArgumentException(<span class="string">"Out of range"</span>)</span><br><span class="line">	<span class="keyword">return</span> c.toInt() - <span class="string">'0'</span>.toInt() <span class="comment">//显示转换为数值类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>布尔值</li>
+</ul>
+<p>只有<code>true</code>和<code>false</code></p>
+<p>布尔值的内建操作包括|| – lazy disjunction &amp;&amp; – lazy conjunction</p>
+<ul>
+<li>数组</li>
+</ul>
+<p>Arrays在 Kotlin 中由 <code>Array</code> 类表示，有 <code>get</code> 和 <code>set</code> 方法(通过运算符重载可以由[]调用)，以及 <code>size</code>方法，以及一些常用的函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Array</span>&lt;<span class="type">T</span>&gt; <span class="keyword">private</span> </span>() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">size</span><span class="params">()</span></span>: <span class="built_in">Int</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">get</span><span class="params">(index: <span class="type">Int</span>)</span></span>: T</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">set</span><span class="params">(Index: <span class="type">Int</span>, value: <span class="type">T</span>)</span></span>: <span class="built_in">Unit</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: Iterator&lt;T&gt;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>给库函数 <code>arrayOf()</code> 传递每一项的值来创建Array，<code>arrayOf(1, 2, 3)</code> 创建了一个[1, 2, 3] 这样的数组。也可以使用库函数 <code>arrayOfNulls()</code> 创建一个指定大小的空Array。 或者通过指定Array大小并提供一个迭代器 </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 Array&lt;String&gt;  内容为 ["0", "1", "4", "9", "16"]</span></span><br><span class="line"><span class="keyword">val</span> asc = Array(<span class="number">5</span>, &#123;i -&gt; (i * i).toString() &#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符串</li>
+</ul>
+<p>Kotlin 有两种类型的 string ：一种是可以带分割符的，一种是可以包含新行以及任意文本的。带分割符的 string 很像 java 的 string:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">"Hello World!\n"</span></span><br></pre></td></tr></table></figure>
+<p>整行String 是由三个引号包裹的(“””),不可以包含分割符但可以包含其它字符：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> text = <span class="string">"""</span></span><br><span class="line"><span class="string">	for (c in "foo")</span></span><br><span class="line"><span class="string">		print(c)</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p>打印结果为</p>
+<pre><code>for (c in &quot;foo&quot;)
+    print(c)
+</code></pre><ul>
+<li>通配符$</li>
+</ul>
+<p>字符串可以包含模板表达式。一个模板表达式由一个 $ 开始并包含另一个简单的名称：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i = <span class="number">10</span></span><br><span class="line"><span class="keyword">val</span> s = <span class="string">"i = <span class="variable">$i</span>"</span> <span class="comment">// 识别为 "i = 10"</span></span><br></pre></td></tr></table></figure>
+<p>或者是一个带大括号的表达式：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">"abc"</span></span><br><span class="line"><span class="keyword">val</span> str = <span class="string">"<span class="variable">$s</span>.length is <span class="subst">$&#123;s.length&#125;</span>"</span> <span class="comment">//识别为 "abc.length is 3"</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1574,9 +1684,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
