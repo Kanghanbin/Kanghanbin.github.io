@@ -374,7 +374,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-20 14:07:22" itemprop="dateModified" datetime="2018-07-20T14:07:22+08:00">2018-07-20</time>
+                <time title="修改时间：2018-07-26 15:14:32" itemprop="dateModified" datetime="2018-07-26T15:14:32+08:00">2018-07-26</time>
               
             
           </span>
@@ -409,161 +409,16 @@
       
         
           
-            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>作为安卓开发，天天跟<code>Support Library</code>打交道，动不动来个 <code>Support Library</code>相关类，如下：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.android.support:support-v4:27.0.2'</span></span><br><span class="line">implementation <span class="string">'com.android.support:appcompat-v7:27.0.2'</span></span><br><span class="line">implementation <span class="string">'com.android.support:design:27.0.2'</span></span><br><span class="line">implementation <span class="string">'com.android.support:cardview-v7:27.0.2'</span></span><br></pre></td></tr></table></figure>
-<p>这样做是没错，但是有时候我们只需要用到一个小小的类，导入了一个很大的包，有点小题大做了，所以一起来了解了解<code>Support Library</code>吧!</p>
-<h2 id="二、介绍"><a href="#二、介绍" class="headerlink" title="二、介绍"></a>二、介绍</h2><p>Android 支持库提供了诸多未内置于框架的功能。这些库提供向后兼容版本的新功能、框架中未包含的实用 UI 元素，以及应用可以利用的一系列实用程序。 </p>
-<p>支持库提供一系列不同的功能：</p>
-<ul>
-<li>向后兼容版本的框架组件。</li>
-<li>用于实现建议的 Android 布局模式的 UI 元素。</li>
-<li>支持不同的设备类型。</li>
-<li>其他实用程序功能。</li>
-</ul>
-<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>打开<code>sdkmanage</code>选择<code></code>Support repository`下载</p>
-<p>下载后，此工具会将支持库文件安装到您现有的 Android SDK 目录中。库文件位于 SDK 的以下子目录中：<code>&lt;sdk&gt;/extras/android/m2repository/com/android/support/</code> 目录。</p>
-<p>在将支持库添加到应用之前，确定您想要包含的功能以及希望支持的最低 Android 版本 。</p>
-<p>打开应用的<code>build.gradle</code>文件，将支持库添加到 dependencies 部分。例如，要添加 v4 core-utils 库，请添加以下行：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    compile <span class="string">"com.android.support:support-core-utils:24.2.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为现有框架 API 提供支持的支持库类与框架类通常具有相同的名称，但前者位于 <code>android.support</code> 类软件包中，或带有 <code>*Compat</code> 后缀。 </p>
-<h2 id="四、支持库功能"><a href="#四、支持库功能" class="headerlink" title="四、支持库功能"></a>四、支持库功能</h2><p>Android 支持库软件包含可以添加至应用的多个库。每个库均支持特定范围的 Android 平台版本和功能。</p>
-<p>常用的 <code>support library</code>也就这么几个，<code>support library V4</code>,<code>support library V7</code>,<code>Design support library</code>，<code>Multidex support library</code>,其他的简单了解下就可以。。。</p>
-<h3 id="v4-支持库"><a href="#v4-支持库" class="headerlink" title="v4 支持库"></a>v4 支持库</h3><p>这些库旨在与 Android 2.3（API 级别 9）及更高版本搭配使用。与其他支持库相比，它们包含的 API 集合最大，包括对应用组件、用户界面功能、辅助功能、数据处理、网络连接以及编程实用工具的支持。</p>
-<p>如需了解有关 v4 支持库所提供类和方法的完整详细信息，请参阅 API 参考中的 <code>android.support.v4</code> 软件包。</p>
-<p><strong>注</strong>：在支持库修订版 24.2.0 之前，存在一个 v4 支持库。为了提高效率，此库拆分成多个模块。出于向后兼容的考虑，如果您在 Gradle 脚本中列出了 <code>support-v4</code>，您的 APK 将包含所有的 v4 模块。不过，要减少 APK 大小，我们建议仅列出应用需要的特定模块。</p>
-<ul>
-<li><h3 id="v4-compat-库"><a href="#v4-compat-库" class="headerlink" title="v4 compat 库"></a>v4 compat 库</h3></li>
-</ul>
-<p>为众多框架 API 提供兼容性包装器，例如 <code>Context.obtainDrawable()</code> 和 <code>View.performAccessibilityAction()</code>。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:support-compat:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v4-core-utils-库"><a href="#v4-core-utils-库" class="headerlink" title="v4 core-utils 库"></a>v4 core-utils 库</h3></li>
-</ul>
-<p>提供大量实用程序类，例如 <code>AsyncTaskLoader</code> 和 <code>PermissionChecker</code>。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:support-core-utils:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v4-core-ui-库"><a href="#v4-core-ui-库" class="headerlink" title="v4 core-ui 库"></a>v4 core-ui 库</h3></li>
-</ul>
-<p>实现各种 UI 相关组件，例如 <code>ViewPager</code>、<code>NestedScrollView</code> 和 <code>ExploreByTouchHelper</code>。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:support-core-ui:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v4-media-compat-库"><a href="#v4-media-compat-库" class="headerlink" title="v4 media-compat 库"></a>v4 media-compat 库</h3></li>
-</ul>
-<p>向后移植部分<a href="https://developer.android.google.cn/reference/android/media/package-summary.html" target="_blank" rel="noopener">媒体</a>框架，包括 <code>MediaBrowser</code> 和 <code>MediaSession</code>。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:support-media-compat:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v4-fragment-库"><a href="#v4-fragment-库" class="headerlink" title="v4 fragment 库"></a>v4 fragment 库</h3></li>
-</ul>
-<p>添加对使用<a href="https://developer.android.google.cn/guide/components/fragments.html" target="_blank" rel="noopener">片段</a>封装用户界面和功能的支持，从而使应用能够提供可以在大屏幕设备与小屏幕设备之间进行调节的布局。此模块依赖于 <a href="https://developer.android.google.cn/topic/libraries/support-library/features#v4-compat" target="_blank" rel="noopener">compat</a>、<a href="https://developer.android.google.cn/topic/libraries/support-library/features#v4-core-utils" target="_blank" rel="noopener">core-utils</a>、<a href="https://developer.android.google.cn/topic/libraries/support-library/features#v4-core-ui" target="_blank" rel="noopener">core-ui</a> 和 <a href="https://developer.android.google.cn/topic/libraries/support-library/features#v4-media-compat" target="_blank" rel="noopener">media-compat</a>。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:support-fragment:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="Dalvik-可执行文件分包支持库"><a href="#Dalvik-可执行文件分包支持库" class="headerlink" title="Dalvik 可执行文件分包支持库"></a>Dalvik 可执行文件分包支持库</h4><p>此库可以为使用多个 Dalvik Executable (DEX) 文件开发应用提供支持。引用超过 65536 个方法的应用须使用 Dalvik 可执行文件分包配置。如需了解有关使用 Dalvik 可执行文件分包的详细信息，请参阅<a href="https://developer.android.google.cn/tools/building/multidex.html" target="_blank" rel="noopener">使用超过 6.4 万种方法开发应用</a>。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:multidex:1.0.0</span><br></pre></td></tr></table></figure>
-<h4 id="v7-支持库"><a href="#v7-支持库" class="headerlink" title="v7 支持库"></a>v7 支持库</h4><p>一些库旨在与 Android 2.3（API 级别 9）及更高版本搭配使用。这些库提供了特定的功能集，并且可以单独添加到应用中，与其他库互不影响。</p>
-<ul>
-<li><h3 id="v7-appcompat-库"><a href="#v7-appcompat-库" class="headerlink" title="v7 appcompat 库"></a>v7 appcompat 库</h3></li>
-</ul>
-<p>此库添加了对<a href="https://developer.android.google.cn/guide/topics/ui/actionbar.html" target="_blank" rel="noopener">操作栏</a>用户界面<a href="https://developer.android.google.cn/design/patterns/actionbar.html" target="_blank" rel="noopener">设计模式</a>的支持。此库包含对 <a href="https://developer.android.google.cn/design/material/" target="_blank" rel="noopener">Material Design</a> 用户界面实现的支持。</p>
-<p><strong>注</strong>：此库依赖于 v4 支持库。</p>
-<p>下面是 v7 appcompat 库中包含的一些关键类：</p>
-<ul>
-<li><code>ActionBar</code> - 提供操作栏<a href="https://developer.android.google.cn/design/patterns/actionbar.html" target="_blank" rel="noopener">用户界面模式</a>的实现。如需了解有关使用操作栏的详细信息，请参阅<a href="https://developer.android.google.cn/guide/topics/ui/actionbar.html" target="_blank" rel="noopener">操作栏</a>开发者指南。</li>
-<li><code>AppCompatActivity</code> - 添加一个应用 Activity 类，此类可作为使用支持库操作栏实现的 Activity 的基础类。</li>
-<li><code>AppCompatDialog</code> - 添加一个对话框类，此类可作为 AppCompat 主题对话框的基础类。</li>
-<li><code>ShareActionProvider</code> - 包含对可以添加到操作栏中的标准化分享操作（例如电子邮件或发帖至社交应用）的支持。</li>
-</ul>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:appcompat-v7:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v7-cardview-库"><a href="#v7-cardview-库" class="headerlink" title="v7 cardview 库"></a>v7 cardview 库</h3></li>
-</ul>
-<p>此库添加了对 <code>CardView</code> 小部件的支持，让您能够在卡片内显示信息，从而使应用具备一致的外观。这些卡片对 Material Design 实现非常有用，并在电视应用布局中广为使用。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:cardview-v7:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v7-gridlayout-库"><a href="#v7-gridlayout-库" class="headerlink" title="v7 gridlayout 库"></a>v7 gridlayout 库</h3></li>
-</ul>
-<p>下载 Android 支持库后，此库可以添加对 <code>GridLayout</code> 类的支持，让您能够使用网状方格安排用户界面元素。如需了解有关 v7 gridlayout 库 API 的详细信息，请参阅 API 参考中的 <code>android.support.v7.widget</code> 软件包。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:gridlayout-v7:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v7-mediarouter-库"><a href="#v7-mediarouter-库" class="headerlink" title="v7 mediarouter 库"></a>v7 mediarouter 库</h3></li>
-</ul>
-<p>此库可以提供 <code>MediaRouter</code>、<code>MediaRouteProvider</code> 和支持 <a href="https://developers.google.cn/cast/docs/android_sender" target="_blank" rel="noopener">Google Cast</a> 的相关媒体类。</p>
-<p>一般而言，利用 v7 mediarouter 库中的 API，您可以控制当前设备到外部屏幕、扬声器和其他目标设备的媒体渠道和流的路由。此库包含的 API 可以用于发布应用特定的媒体路由提供程序、发现和选择目标设备，以及检查媒体状态，等等。如需了解有关 v7 mediarouter 库 API 的详细信息，请参阅 API 参考中的 <code>android.support.v7.media</code> 软件包。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:mediarouter-v7:24.2.0</span><br></pre></td></tr></table></figure>
-<p>支持库 r18 中引入的 v7 mediarouter 库 API 在后续版本的支持库中可能会发生更改。目前，我们建议仅使用与 <a href="https://developers.google.cn/cast/docs/android_sender" target="_blank" rel="noopener">Google Cast</a> 有关的库。</p>
-<ul>
-<li><h3 id="v7-palette-库"><a href="#v7-palette-库" class="headerlink" title="v7 palette 库"></a>v7 palette 库</h3></li>
-</ul>
-<p>v7 palette 支持库包含 <code>Palette</code> 类，此类让您可以从图像中抽取突出颜色。例如，音乐应用可以使用 <code>Palette</code> 对象从专辑封面抽取主要颜色，然后使用这些颜色创建一个色彩协调的歌曲标题卡。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:palette-v7:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v7-recyclerview-库"><a href="#v7-recyclerview-库" class="headerlink" title="v7 recyclerview 库"></a>v7 recyclerview 库</h3></li>
-</ul>
-<p>recyclerview 库添加了 <code>RecyclerView</code> 类。此类能够为 <a href="https://developer.android.google.cn/training/material/lists-cards.html" target="_blank" rel="noopener">RecyclerView</a> 小部件提供支持，RecyclerView 是一种通过提供有限的数据项窗口有效显示大数据集的视图。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:recyclerview-v7:24.2.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="v7-Preference-支持库"><a href="#v7-Preference-支持库" class="headerlink" title="v7 Preference 支持库"></a>v7 Preference 支持库</h3></li>
-</ul>
-<p><a href="https://developer.android.google.cn/reference/android/support/v7/preference/package-summary.html" target="_blank" rel="noopener">首选项</a>软件包提供的 API 支持添加 preference 对象（例如 <code>CheckBoxPreference</code> 和 <code>ListPreference</code>），方便用户修改 UI 设置。</p>
-<p>v7 Preference 库添加了对接口（例如 <code>Preference.OnPreferenceChangeListener</code> 和 <code>Preference.OnPreferenceClickListener</code>）以及类（例如 <code>CheckBoxPreference</code> 和 <code>ListPreference</code>）的支持。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:preference-v7:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="v8-支持库"><a href="#v8-支持库" class="headerlink" title="v8 支持库"></a>v8 支持库</h4><p>此库旨在与 Android 2.3（API 级别 9）及更高版本搭配使用。此库提供了特定的功能集，并且可以单独添加到应用中，与其他库互不影响。</p>
-<ul>
-<li><h3 id="v8-renderscript-库"><a href="#v8-renderscript-库" class="headerlink" title="v8 renderscript 库"></a>v8 renderscript 库</h3></li>
-</ul>
-<p>此库旨在与 Android 2.3（API 级别 9）及更高版本搭配使用。它添加了对 <a href="https://developer.android.google.cn/guide/topics/renderscript/compute.html" target="_blank" rel="noopener">RenderScript</a> 计算框架的支持。<code>android.support.v8.renderscript</code> 软件包中包含这些 API。请注意，在应用中添加这些 API 的步骤与添加其他支持库 API <em>迥然不同</em>。如需了解有关在应用中使用这些 API 的详细信息，请参阅 <a href="https://developer.android.google.cn/guide/topics/renderscript/compute.html#access-rs-apis" target="_blank" rel="noopener">RenderScript</a> 开发者指南。</p>
-<p><strong>注</strong>：Android Studio 和 Gradle 构建支持使用带支持库的 RenderScript。renderscript 库位于 <code>build-tools/$VERSION/renderscript/</code> 文件夹中。</p>
-<p>以下示例显示了此库的 Gradle 构建脚本属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">defaultConfig &#123;</span><br><span class="line">    renderscriptTargetApi 18</span><br><span class="line">    renderscriptSupportModeEnabled true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="v13-支持库"><a href="#v13-支持库" class="headerlink" title="v13 支持库"></a>v13 支持库</h4><p>此库旨在用于 Android 3.2（API 级别 13）及更高版本。它添加了对带有 (<code>FragmentCompat</code>) 类和其他片段支持类的 <a href="https://developer.android.google.cn/guide/components/fragments.html" target="_blank" rel="noopener">Fragment</a> 用户界面模式的支持。如需了解有关片段的详细信息，请参阅<a href="https://developer.android.google.cn/guide/components/fragments.html" target="_blank" rel="noopener">片段</a>开发者指南。如需了解有关 v13 支持库 API 的详细信息，请参阅 API 参考中的 <code>android.support.v13</code> 软件包。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:support-v13:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="v14-Preference-支持库"><a href="#v14-Preference-支持库" class="headerlink" title="v14 Preference 支持库"></a>v14 Preference 支持库</h4><p><code>android.support.v14.preference</code> 软件包提供的 API 添加了对首选项接口（例如 <code>PreferenceFragment.OnPreferenceStartFragmentCallback</code> 和 <code>PreferenceFragment.OnPreferenceStartScreenCallback</code>）以及类（例如 <code>MultiSelectListPreference</code> 和 <code>PreferenceFragment</code>）的支持。如需了解有关 v14 Preference 支持库 API 的详细信息，请参阅 API 参考中的<a href="https://developer.android.google.cn/reference/android/support/v14/preference/package-summary.html" target="_blank" rel="noopener">首选项</a>软件包。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:preference-v14:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="适用于电视的-v17-Preference-支持库"><a href="#适用于电视的-v17-Preference-支持库" class="headerlink" title="适用于电视的 v17 Preference 支持库"></a>适用于电视的 v17 Preference 支持库</h4><p><code>android.support.v17.preference</code> 软件包提供的 API 可以在电视设备上提供首选项接口，包括对 <code>LeanbackListPreferenceDialogFragment.ViewHolder.OnItemClickListener</code> 接口和类的支持，例如 <code>BaseLeanbackPreferenceFragment</code> 和 <code>LeanbackPreferenceFragment</code>。如需了解有关 v17 Preference 支持库 API 的详细信息，请参阅 API 参考中的<a href="https://developer.android.google.cn/reference/android/support/v17/preference/package-summary.html" target="_blank" rel="noopener">首选项</a>软件包。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:preference-leanback-v17:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="v17-Leanback-库"><a href="#v17-Leanback-库" class="headerlink" title="v17 Leanback 库"></a>v17 Leanback 库</h4><p><code>android.support.v17.leanback</code> 软件包提供的 API 支持在电视设备上构建用户界面。它为电视应用提供了一些重要的小部件。一些值得注意的类包括：</p>
-<ul>
-<li><code>BrowseFragment</code> - 一种用于创建主要布局的片段，主要布局用于浏览类别和媒体项目。</li>
-<li><code>DetailsFragment</code> - 用于 Leanback 细节屏幕的包装器片段。</li>
-<li><code>PlaybackOverlayFragment</code> - 用于显示播放控件及相关内容的 <code>DetailsFragment</code> 子类。</li>
-<li><code>SearchFragment</code> - 用于处理搜索的片段。片段可以接收用户的搜索请求并将其传递给应用提供的 <code>SearchResultProvider</code>。<code>SearchResultProvider</code> 可以将搜索结果返回给 <code>SearchFragment</code>，后者会将结果渲染到 <code>RowsFragment</code> 中。</li>
-</ul>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:leanback-v17:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="注解支持库"><a href="#注解支持库" class="headerlink" title="注解支持库"></a>注解支持库</h4><p><a href="https://developer.android.google.cn/reference/android/support/annotation/package-summary.html" target="_blank" rel="noopener">注解</a>软件包提供的 API 支持向应用中添加注解元数据。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:support-annotations:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="设计支持库"><a href="#设计支持库" class="headerlink" title="设计支持库"></a>设计支持库</h4><p><a href="https://developer.android.google.cn/reference/android/support/design/package-summary.html" target="_blank" rel="noopener">设计</a>软件包提供的 API 支持向应用中添加 Material Design 组件和模式。</p>
-<p>设计支持库添加了对应用开发者依赖的各种 Material Design 组件和模式的支持，例如抽屉式导航栏、浮动操作按钮 (<em>FAB</em>)、快捷信息栏和<a href="https://developer.android.google.cn/design/building-blocks/tabs.html" target="_blank" rel="noopener">标签页</a>。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:design:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="自定义标签页支持库"><a href="#自定义标签页支持库" class="headerlink" title="自定义标签页支持库"></a>自定义标签页支持库</h4><p><a href="https://developer.android.google.cn/reference/android/support/customtabs/package-summary.html" target="_blank" rel="noopener">自定义标签页</a>软件包提供的 API 支持向应用中添加自定义标签页并对其进行管理。</p>
-<p>自定义标签页支持库添加了对<a href="https://developer.android.google.cn/reference/android/support/customtabs/CustomTabsService.html" target="_blank" rel="noopener">自定义标签页服务</a>和<a href="https://developer.android.google.cn/reference/android/support/customtabs/CustomTabsCallback.html" target="_blank" rel="noopener">自定义标签页回调</a>等各种类的支持。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:customtabs:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="百分比支持库"><a href="#百分比支持库" class="headerlink" title="百分比支持库"></a>百分比支持库</h4><p><a href="https://developer.android.google.cn/reference/android/support/percent/package-summary.html" target="_blank" rel="noopener">百分比</a>软件包提供的 API 支持向应用中添加基于百分比的尺寸并对其进行管理。</p>
-<p>百分比支持库添加了对 <a href="https://developer.android.google.cn/reference/android/support/percent/PercentLayoutHelper.PercentLayoutParams.html" target="_blank" rel="noopener">PercentLayoutHelper.PercentLayoutParams</a> 接口和各种类的支持，例如 <a href="https://developer.android.google.cn/reference/android/support/percent/PercentFrameLayout.html" target="_blank" rel="noopener">PercentFrameLayout</a> 和<a href="https://developer.android.google.cn/reference/android/support/percent/PercentRelativeLayout.html" target="_blank" rel="noopener">PercentRelativeLayout</a>。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:percent:24.2.0</span><br></pre></td></tr></table></figure>
-<h4 id="适用于电视的应用建议支持库"><a href="#适用于电视的应用建议支持库" class="headerlink" title="适用于电视的应用建议支持库"></a>适用于电视的应用建议支持库</h4><p><a href="https://developer.android.google.cn/reference/android/support/app/recommendation/package-summary.html" target="_blank" rel="noopener">应用建议</a>软件包提供的 API 支持向电视设备上运行的应用中添加内容建议。</p>
-<p>应用库添加了对注解（例如 <a href="https://developer.android.google.cn/reference/android/support/app/recommendation/ContentRecommendation.ContentMaturity.html" target="_blank" rel="noopener">ContentRecommendation.ContentMaturity</a> 和各种类（例如 <a href="https://developer.android.google.cn/reference/android/support/app/recommendation/ContentRecommendation.html" target="_blank" rel="noopener">ContentRecommendation</a> 和<a href="https://developer.android.google.cn/reference/android/support/app/recommendation/RecommendationExtender.html" target="_blank" rel="noopener">RecommendationExtender</a>）的支持。</p>
-<p>此库的 Gradle 构建脚本依赖关系标识符如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.android.support:recommendation:24.2.0</span><br></pre></td></tr></table></figure>
-          
+          一、前言作为安卓开发，天天跟Support Library打交道，动不动来个 Support Library相关类，如下：
+1234implementation 'com.android.support:support-v4:27.0.2'implementation 'com.android.support:appcompat-v7:27.0.2'implementation 'com.andr
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/19/你所知道的Support-Library/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -713,27 +568,16 @@
       
         
           
-            <p> SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleView滚动结束时，将Item对其到某个位置。SnapHelper是个抽象类，继承了RecycleView.OnFlingListener类</p>
-<h2 id="1-recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView-mRecyclerView-，SnapHelper里方法如下："><a href="#1-recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView-mRecyclerView-，SnapHelper里方法如下：" class="headerlink" title="1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下："></a>1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attachToRecyclerView</span><span class="params">(@Nullable RecyclerView recyclerView)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">           <span class="keyword">throws</span> IllegalStateException </span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="comment">//如果之前已经附着过该recyclerView，则不作任何处理</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (mRecyclerView == recyclerView) &#123;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">return</span>; <span class="comment">// nothing to do</span></span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">//如果不一致，则清理监听</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (mRecyclerView != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">           destroyCallbacks();</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       mRecyclerView = recyclerView;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (mRecyclerView != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">           setupCallbacks();</span><br><span class="line"></span><br><span class="line">           mGravityScroller = <span class="keyword">new</span> Scroller(mRecyclerView.getContext(),</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">new</span> DecelerateInterpolator());</span><br><span class="line"></span><br><span class="line">           snapToTargetExistingView();</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>将recycleView赋值给mRecycleview，重新建立监听，创建Scroller，然后调用snapToTargetExistingView方法用于首次对齐。</p>
-<h2 id="2-snapToTargetExistingView"><a href="#2-snapToTargetExistingView" class="headerlink" title="2.snapToTargetExistingView()"></a>2.snapToTargetExistingView()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">snapToTargetExistingView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mRecyclerView == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        LayoutManager layoutManager = mRecyclerView.getLayoutManager();</span><br><span class="line">        <span class="keyword">if</span> (layoutManager == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        View snapView = findSnapView(layoutManager);</span><br><span class="line">        <span class="keyword">if</span> (snapView == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] snapDistance = calculateDistanceToFinalSnap(layoutManager, snapView);</span><br><span class="line">        <span class="keyword">if</span> (snapDistance[<span class="number">0</span>] != <span class="number">0</span> || snapDistance[<span class="number">1</span>] != <span class="number">0</span>) &#123;</span><br><span class="line">            mRecyclerView.smoothScrollBy(snapDistance[<span class="number">0</span>], snapDistance[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>该方法是通过findSnapView获得snapView，然后通过calcuteDistanceToFinalSnap（）方法计算出snapView当前坐标到目的坐标之间的举例，然后调用smoothScrollBy（）方法滑动。</p>
-<h2 id="3-setUpCallbacks（）-和-destroyCallbacks（）"><a href="#3-setUpCallbacks（）-和-destroyCallbacks（）" class="headerlink" title="3.setUpCallbacks（） 和 destroyCallbacks（）"></a>3.setUpCallbacks（） 和 destroyCallbacks（）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupCallbacks</span><span class="params">()</span> <span class="keyword">throws</span> IllegalStateException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mRecyclerView.getOnFlingListener() != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"An instance of OnFlingListener already set."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    mRecyclerView.addOnScrollListener(mScrollListener);</span><br><span class="line">    mRecyclerView.setOnFlingListener(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Called when the instance of a &#123;<span class="doctag">@link</span> RecyclerView&#125; is detached.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">destroyCallbacks</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mRecyclerView.removeOnScrollListener(mScrollListener);</span><br><span class="line">    mRecyclerView.setOnFlingListener(<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这两个方法很简单，分别是建立和移除两个回调：</p>
-<h2 id="4-OnScrollListener和OnFlingListener，OnFlingListener已经实现了，所以直接用，OnScrollListener"><a href="#4-OnScrollListener和OnFlingListener，OnFlingListener已经实现了，所以直接用，OnScrollListener" class="headerlink" title="4.OnScrollListener和OnFlingListener，OnFlingListener已经实现了，所以直接用，OnScrollListener"></a>4.OnScrollListener和OnFlingListener，OnFlingListener已经实现了，所以直接用，OnScrollListener</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> RecyclerView.OnScrollListener mScrollListener =</span><br><span class="line">          <span class="keyword">new</span> RecyclerView.OnScrollListener() &#123;</span><br><span class="line">              <span class="keyword">boolean</span> mScrolled = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">              <span class="meta">@Override</span></span><br><span class="line">              <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollStateChanged</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> newState)</span> </span>&#123;</span><br><span class="line">                  <span class="keyword">super</span>.onScrollStateChanged(recyclerView, newState);</span><br><span class="line">                  <span class="keyword">if</span> (newState == RecyclerView.SCROLL_STATE_IDLE &amp;&amp; mScrolled) &#123;</span><br><span class="line">                      mScrolled = <span class="keyword">false</span>;</span><br><span class="line">                      snapToTargetExistingView();</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">  </span><br><span class="line">              <span class="meta">@Override</span></span><br><span class="line">              <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrolled</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> dx, <span class="keyword">int</span> dy)</span> </span>&#123;</span><br><span class="line">                  <span class="keyword">if</span> (dx != <span class="number">0</span> || dy != <span class="number">0</span>) &#123;</span><br><span class="line">                      mScrolled = <span class="keyword">true</span>;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-在滚动停止的时候，调用snapToTargetExistingView方法将snapView滚到指定位置。SnapHelper实现onFling方法："><a href="#5-在滚动停止的时候，调用snapToTargetExistingView方法将snapView滚到指定位置。SnapHelper实现onFling方法：" class="headerlink" title="5.在滚动停止的时候，调用snapToTargetExistingView方法将snapView滚到指定位置。SnapHelper实现onFling方法："></a>5.在滚动停止的时候，调用snapToTargetExistingView方法将snapView滚到指定位置。SnapHelper实现onFling方法：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onFling</span><span class="params">(<span class="keyword">int</span> velocityX, <span class="keyword">int</span> velocityY)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       LayoutManager layoutManager = mRecyclerView.getLayoutManager();</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (layoutManager == <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       RecyclerView.Adapter adapter = mRecyclerView.getAdapter();</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (adapter == <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">int</span> minFlingVelocity = mRecyclerView.getMinFlingVelocity();</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> (Math.abs(velocityY) &gt; minFlingVelocity || Math.abs(velocityX) &gt; minFlingVelocity)</span><br><span class="line"></span><br><span class="line">               &amp;&amp; snapFromFling(layoutManager, velocityX, velocityY);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="6-获取最小滑动速率，判断超过速率，执行snapFromFling方法："><a href="#6-获取最小滑动速率，判断超过速率，执行snapFromFling方法：" class="headerlink" title="6.获取最小滑动速率，判断超过速率，执行snapFromFling方法："></a>6.获取最小滑动速率，判断超过速率，执行snapFromFling方法：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">snapFromFling</span><span class="params">(@NonNull LayoutManager layoutManager, <span class="keyword">int</span> velocityX, <span class="keyword">int</span> velocityY)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!(layoutManager <span class="keyword">instanceof</span> ScrollVectorProvider)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        RecyclerView.SmoothScroller smoothScroller = createSnapScroller(layoutManager);</span><br><span class="line">        <span class="keyword">if</span> (smoothScroller == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">int</span> targetPosition = findTargetSnapPosition(layoutManager, velocityX, velocityY);</span><br><span class="line">        <span class="keyword">if</span> (targetPosition == RecyclerView.NO_POSITION) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        smoothScroller.setTargetPosition(targetPosition);</span><br><span class="line">        layoutManager.startSmoothScroll(smoothScroller);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>创建滚动器SmoothScroller ，通过findTargetSnapPosition计算速率targetPosition并设置给smoothScroller，具体创建SmoothScroller如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> LinearSmoothScroller <span class="title">createSnapScroller</span><span class="params">(LayoutManager layoutManager)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(layoutManager <span class="keyword">instanceof</span> ScrollVectorProvider)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LinearSmoothScroller(mRecyclerView.getContext()) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onTargetFound</span><span class="params">(View targetView, RecyclerView.State state, Action action)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span>[] snapDistances = calculateDistanceToFinalSnap(mRecyclerView.getLayoutManager(),</span><br><span class="line">                    targetView);</span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">int</span> dx = snapDistances[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">int</span> dy = snapDistances[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">int</span> time = calculateTimeForDeceleration(Math.max(Math.abs(dx), Math.abs(dy)));</span><br><span class="line">            <span class="keyword">if</span> (time &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                action.update(dx, dy, time, mDecelerateInterpolator);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">float</span> <span class="title">calculateSpeedPerPixel</span><span class="params">(DisplayMetrics displayMetrics)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> MILLISECONDS_PER_INCH / displayMetrics.densityDpi;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>创建了一个LinearSmoothScroller滚动器，onTargetFound方法具体实现计算当前坐标与目的坐标之间距离，计算做减速时所需要的时间，然后调用update方法根据滚动事件，距离和插值器更新SmoothScroller状态。</p>
-<h2 id="最后重点方法："><a href="#最后重点方法：" class="headerlink" title="最后重点方法："></a>最后重点方法：</h2><h3 id="1-findTargetSnapPosition"><a href="#1-findTargetSnapPosition" class="headerlink" title="1.findTargetSnapPosition"></a>1.findTargetSnapPosition</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">findTargetSnapPosition</span><span class="params">(LayoutManager layoutManager, <span class="keyword">int</span> velocityX,</span></span></span><br><span class="line"><span class="function"><span class="params">        <span class="keyword">int</span> velocityY)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>该方法会根据触发Fling操作的速率（参数velocityX和参数velocityY）来找到RecyclerView需要滚动到哪个位置，该位置对应的ItemView就是那个需要进行对齐的列表项。我们把这个位置称为targetSnapPosition，对应的View称为targetSnapView。如果找不到targetSnapPosition，就返回RecyclerView.NO_POSITION。</p>
-<h3 id="2-findSnapView"><a href="#2-findSnapView" class="headerlink" title="2.findSnapView"></a>2.findSnapView</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> View <span class="title">findSnapView</span><span class="params">(LayoutManager layoutManager)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>该方法会找到当前layoutManager上最接近对齐位置的那个view，该view称为SanpView，对应的position称为SnapPosition。如果返回null，就表示没有需要对齐的View，也就不会做滚动对齐调整。</p>
-<h3 id="3-calculateDistanceToFinalSnap"><a href="#3-calculateDistanceToFinalSnap" class="headerlink" title="3.calculateDistanceToFinalSnap"></a>3.calculateDistanceToFinalSnap</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span>[] calculateDistanceToFinalSnap(<span class="meta">@NonNull</span> LayoutManager layoutManager,</span><br><span class="line">        <span class="meta">@NonNull</span> View targetView);</span><br></pre></td></tr></table></figure>
-<p>这个方法会计算第二个参数对应的ItemView当前的坐标与需要对齐的坐标之间的距离。该方法返回一个大小为2的int数组，分别对应x轴和y轴方向上的距离。</p>
-<h2 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h2><p>SnapHelper是个抽象类，可以自己实现一个自定义SnapHelper类，安卓也提供了该类的两个继承类。LininearSnapHelper和PagerSnapHelper。这两个类都可以直接拿来用。LininearSnapHelper实现了recycleview滑动后itemview居中对齐，类似一个支持快速滑动viewpager；PagerSnapHelper一次只能滑动一项，不支持快速滑动的viewpager。</p>
-
-          
+           SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleView滚动结束时，将Item对其到某个位置。SnapHelper是个抽象类，继承了RecycleView.OnFlingListener类
+1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，Sna
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/06/Recycleview的SnapHelper的理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -883,13 +727,16 @@
       
         
           
-            <p><a href="https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA" target="_blank" rel="noopener">文章链接</a>，之前确实没有接触过，我简单看了一遍，可以说，这也是相对比较完美的方案，我先简单说一下这个方案的思路，它是通过修改density值，强行把所有不同尺寸分辨率的手机的宽度dp值改成一个统一的值，这样就解决了所有的适配问题。</p>
-<p>比如，设计稿宽度是360px，那么开发这边就会把目标dp值设为360dp，在不同的设备中，动态修改density值，从而保证(手机像素宽度)px/density这个值始终是360dp,这样的话，就能保证UI在不同的设备上表现一致了。</p>
-<p>这个方案侵入性很低，而且也没有涉及私有API，应该也是极不错的方案，我暂时也想不到强行修改density是否会有其他影响，既然有今日头条的大厂在用，稳定性应当是有保证的。</p>
-<p>但是根据我的观察，这套方案对老项目是不太友好的，因为修改了系统的density值之后，整个布局的实际尺寸都会发生改变，如果想要在老项目文件中使用，恐怕整个布局文件中的尺寸都可能要重新按照设计稿修改一遍才行。因此，如果你是在维护或者改造老项目，使用这套方案就要三思了。</p>
-<h4 id="具体代码实现为："><a href="#具体代码实现为：" class="headerlink" title="具体代码实现为："></a>具体代码实现为：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 今日头条的屏幕适配方案</span></span><br><span class="line">   <span class="comment">// 通过修改density值，强行把所有不同尺寸分辨率的手机的宽度dp值改成一个统一的值，这样就解决了所有的适配问题</span></span><br><span class="line">   <span class="comment">// @param activity</span></span><br><span class="line">   <span class="comment">// @param application</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">float</span> sNoncompatDensity;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">float</span> sNoncompatScaledDensity;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setCustomDensity</span><span class="params">(@NonNull Activity activity, @NonNull <span class="keyword">final</span> Application application)</span></span>&#123;</span><br><span class="line">       DisplayMetrics appDisplayMetrics=application.getResources().getDisplayMetrics();</span><br><span class="line">       <span class="keyword">if</span> (sNoncompatDensity==<span class="number">0</span>)&#123;</span><br><span class="line">           sNoncompatDensity=appDisplayMetrics.density;</span><br><span class="line">           sNoncompatScaledDensity=appDisplayMetrics.scaledDensity;</span><br><span class="line">           application.registerComponentCallbacks(<span class="keyword">new</span> ComponentCallbacks() &#123;</span><br><span class="line">               <span class="meta">@Override</span></span><br><span class="line">               <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onConfigurationChanged</span><span class="params">(Configuration newConfig)</span> </span>&#123;</span><br><span class="line">                   <span class="keyword">if</span> (newConfig!=<span class="keyword">null</span>&amp;&amp;newConfig.fontScale&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                       sNoncompatScaledDensity=application.getResources().getDisplayMetrics().scaledDensity;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">               <span class="meta">@Override</span></span><br><span class="line">               <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLowMemory</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">               &#125;</span><br><span class="line">           &#125;);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">float</span> targetDensity=appDisplayMetrics.widthPixels/<span class="number">360</span>;</span><br><span class="line">       <span class="keyword">float</span> targetScaleDensity=targetDensity*(sNoncompatScaledDensity/sNoncompatDensity);</span><br><span class="line">       <span class="keyword">int</span> targetDensityDpi=(<span class="keyword">int</span>)(<span class="number">160</span>*targetDensity);</span><br><span class="line">       appDisplayMetrics.density=targetDensity;</span><br><span class="line">       appDisplayMetrics.scaledDensity=targetScaleDensity;</span><br><span class="line">       appDisplayMetrics.densityDpi=targetDensityDpi;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">final</span> DisplayMetrics activityDisplayMetrics=activity.getResources().getDisplayMetrics();</span><br><span class="line">       activityDisplayMetrics.density=targetDensity;</span><br><span class="line">       activityDisplayMetrics.scaledDensity=targetScaleDensity;</span><br><span class="line">       activityDisplayMetrics.densityDpi=targetDensityDpi;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-          
+          文章链接，之前确实没有接触过，我简单看了一遍，可以说，这也是相对比较完美的方案，我先简单说一下这个方案的思路，它是通过修改density值，强行把所有不同尺寸分辨率的手机的宽度dp值改成一个统一的值，这样就解决了所有的适配问题。
+比如，设计稿宽度是360px，那么开发这边就会把目标dp值设为360dp，在不同的设备中，动态修改density值，从而保证(手机像素宽度)px/density这个值始终
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/20/今日头条的安卓适配方案，值得收藏/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1039,126 +886,21 @@
       
         
           
-            <p>首先，为什么要使用<code>DataBinding</code>?</p>
-<ul>
-<li>一般写法<code>findViewById</code>  罗里吧嗦，写到想吐</li>
-<li><code>ButterKnife</code> 代替   解放<code>findViewById</code>  </li>
-<li><code>DataBinding</code>数据和UI低耦合 </li>
-</ul>
-<h3 id="一、简介："><a href="#一、简介：" class="headerlink" title="一、简介："></a>一、简介：</h3><p>The Data Binding Library is a support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.</p>
-<p><code>DataBinding</code> 是一个支持库，它允许您使用声明性格式而不是以编程方式将应用程序中的UI组件绑定到应用程序中的数据源。</p>
-<h5 id="1-1优点："><a href="#1-1优点：" class="headerlink" title="1.1优点："></a>1.1优点：</h5><p>布局文件中的绑定组件允许您在Activtiy中删除许多UI框架调用，使其更简单，更易于维护。这还可以提高应用程序的性能，并有助于防止内存泄漏和空指针异常。 </p>
-<p>常用方式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TextView textView = findViewById(R.id.sample_text);</span><br><span class="line">textView.setText(viewModel.getUserName());</span><br></pre></td></tr></table></figure>
-<p>使用<code>databinding</code>：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">"@&#123;viewmodel.userName&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>是不是简单了很多？</p>
-<h5 id="1-2-避免空指针异常"><a href="#1-2-避免空指针异常" class="headerlink" title="1.2 避免空指针异常"></a>1.2 避免空指针异常</h5><p>生成的数据绑定代码会自动检查<code>null</code>值并避免空指针异常。例如，在表达式中<code>@{user.name}</code>，如果 <code>user</code>为null，<code>user.name</code>则为其分配其默认值<code>null</code>。如果您引用<code>user.age</code>age，其中age是类型<code>int</code>，则数据绑定使用默认值<code>0</code>。</p>
-<h4 id="二、环境配置："><a href="#二、环境配置：" class="headerlink" title="二、环境配置："></a>二、环境配置：</h4><p>要开始使用数据绑定，请从Android SDK管理器中的<strong>Support Repository</strong>下载库。有关更多信息，请参阅<a href="https://developer.android.google.cn/studio/intro/update.html" target="_blank" rel="noopener">更新IDE和SDK工具</a>。要将应用程序配置为使用数据绑定，请app模块中的  <code>build.gradle</code> 文件下在将<code>dataBinding</code>该元素添加到文件中，如以下示例所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    dataBinding &#123;</span><br><span class="line">        enabled = <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="三、绑定表达式"><a href="#三、绑定表达式" class="headerlink" title="三、绑定表达式"></a>三、绑定表达式</h4><p><code>DataBinding</code> 自动生成将布局中的视图与数据对象绑定所需的类。数据绑定布局文件略有不同，以根标记开头， <code>layout</code>后跟<code>data</code>元素和<code>view</code>根元素。此视图元素是您的根在非绑定布局文件中的位置。以下代码显示了一个示例布局文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">layout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">type</span>=<span class="string">"com.example.User"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">"@&#123;user.firstName&#125;"</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">"@&#123;user.lastName&#125;"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中的<code>user</code>变量<code>data</code>描述了可在此布局中使用的属性。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">type</span>=<span class="string">"com.example.User"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>布局中的表达式使用“ <code>@{}</code>”语法写入属性中。这里，<code>TextView</code>文本设置为<code>user</code>变量的 <code>firstName</code>属性：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:text</span>=<span class="string">"@&#123;user.firstName&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>我们现在假设你有一个普通的对象来描述<code>User</code> 实体：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> String firstName;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> String lastName;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String firstName, String lastName)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">      <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种类型的对象具有永不改变的数据。在应用程序中，通常会读取一次并且之后不会更改的数据。也可以使用遵循一组约定的对象，例如访问器方法的用法，如以下示例所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String firstName;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String lastName;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String firstName, String lastName)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">      <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从数据绑定的角度来看，这两个类是等价的。<code>@{user.firstName}</code>用于该<a href="https://developer.android.google.cn/reference/android/widget/TextView.html#attr_android:text" target="_blank" rel="noopener"><code>android:text</code></a> 属性的表达式访问前一类中的字段<code>firstName</code>和 后一类中的<code>getFirstName()</code> 方法。或者，<code>firstName()</code>如果存在该方法，也可以解决。 </p>
-<h4 id="四、绑定数据"><a href="#四、绑定数据" class="headerlink" title="四、绑定数据"></a>四、绑定数据</h4><p>为每个布局文件生成绑定类。默认情况下，类的名称基于布局文件的名称，将其转换为Pascal大小写并向其添加<em>Binding</em>后缀。上面的布局文件名是 <code>activity_main.xml</code>相应生成的类 <code>MainActivityBinding</code>。此类包含布局属性（例如，<code>user</code>变量）到布局视图的所有绑定，并知道如何为绑定表达式指定值。建议绑定的推荐方法是在扩展布局时执行此操作，如图所示在以下示例中：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">   MainActivityBinding binding = DataBindingUtil.setContentView(<span class="keyword">this</span>, R.layout.activity_main);</span><br><span class="line">   User user = <span class="keyword">new</span> User(<span class="string">"Test"</span>, <span class="string">"User"</span>);</span><br><span class="line">   binding.setUser(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在运行时，应用程序在UI中显示<strong>Test</strong>用户。或者，您可以使用a获取视图<code>LayoutInflater</code>，如以下示例所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MainActivityBinding binding = MainActivityBinding.inflate(getLayoutInflater());</span><br></pre></td></tr></table></figure>
-<p>如果您在a <code>Fragment</code>， <code>ListView</code>或<code>RecyclerView</code>适配器中使用数据绑定项，则可能更喜欢使用 <a href="https://developer.android.google.cn/reference/android/databinding/DataBindingUtil.html#inflate(android.view.LayoutInflater, int, android.view.ViewGroup, boolean, android.databinding.DataBindingComponent" target="_blank" rel="noopener"><code>inflate()</code></a>) 绑定类或 <a href="https://developer.android.google.cn/reference/android/databinding/DataBindingUtil" target="_blank" rel="noopener"><code>DataBindingUtil</code></a>类的方法，如以下代码示例所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ListItemBinding binding = ListItemBinding.inflate(layoutInflater, viewGroup, <span class="keyword">false</span>);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">ListItemBinding binding = DataBindingUtil.inflate (layoutInflater, R.layout.list_item, viewGroup, <span class="keyword">false</span>）</span><br></pre></td></tr></table></figure>
-<h4 id="五、表达式运算符和关键字"><a href="#五、表达式运算符和关键字" class="headerlink" title="五、表达式运算符和关键字"></a>五、表达式运算符和关键字</h4><p>表达式运算符关键字和代码中很相似，很好理解，直接看吧。。</p>
-<ul>
-<li>数学的 <code>+ - / * %</code></li>
-<li>字符串连接 <code>+</code></li>
-<li>合乎逻辑 <code>&amp;&amp; ||</code></li>
-<li>二进制 <code>&amp; | ^</code></li>
-<li>一元 <code>+ - ! ~</code></li>
-<li>转移 <code>&gt;&gt; &gt;&gt;&gt; &lt;&lt;</code></li>
-<li>对照 <code>== &gt; &lt; &gt;= &lt;=</code></li>
-<li><code>instanceof</code></li>
-<li>分组 <code>()</code></li>
-<li>文字 - 字符，字符串，数字， <code>null</code></li>
-<li>投</li>
-<li>方法调用</li>
-<li>现场访问</li>
-<li>数组访问 <code>[]</code></li>
-<li>三元运算符 <code>?:</code></li>
-</ul>
-<p>举例：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android:text="@&#123;String.valueOf(index + 1)&#125;"</span><br><span class="line">android:visibility="@&#123;age <span class="tag">&lt; <span class="attr">13</span> ? <span class="attr">View.GONE</span> <span class="attr">:</span> <span class="attr">View.VISIBLE</span>&#125;"</span></span><br><span class="line"><span class="tag"><span class="attr">android:transitionName</span>=<span class="string">'@&#123;"image_" + id&#125;'</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>？？空结合运算           这个比较特殊，值得注意下</li>
-</ul>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:text="@&#123;user.displayName ?? user.lastName&#125;"</span><br></pre></td></tr></table></figure>
-<p>  嘛意思呢? 意思就是判断<code>user.displayName</code>是否为<code>null</code> ，不为<code>null</code>,<code>user.displayName</code>,为<code>null</code>,则<code>user.lastName</code>,等价于以下代码：</p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:text="@&#123;user.displayName != null ? user.displayName : user.lastName&#125;"</span><br></pre></td></tr></table></figure>
-<h4 id="六、集合"><a href="#六、集合" class="headerlink" title="六、集合"></a>六、集合</h4><p><code>[]</code>为方便起见，可以使用运算符访问公共集合，例如数组，列表，稀疏列表和映射。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"android.util.SparseArray"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"java.util.Map"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"java.util.List"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"list"</span> <span class="attr">type</span>=<span class="string">"List&lt;String&gt;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"sparse"</span> <span class="attr">type</span>=<span class="string">"SparseArray&lt;String&gt;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"map"</span> <span class="attr">type</span>=<span class="string">"Map&lt;String, String&gt;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">type</span>=<span class="string">"int"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"key"</span> <span class="attr">type</span>=<span class="string">"String"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line">…</span><br><span class="line">android:text="@&#123;list[index]&#125;"</span><br><span class="line">…</span><br><span class="line">android:text="@&#123;sparse[index]&#125;"</span><br><span class="line">…</span><br><span class="line">android:text="@&#123;map[key]&#125;"</span><br></pre></td></tr></table></figure>
-<h4 id="七、事件处理"><a href="#七、事件处理" class="headerlink" title="七、事件处理"></a>七、事件处理</h4><p>数据绑定允许您编写从视图调度的表达式处理事件（例如，<code>onClick()</code>方法）。事件属性名称由监听器方法的名称确定，但有一些例外。例如，<code>View.OnClickListener</code>有一个方法<code>onClick()</code>，所以这个事件的属性是<code>android:onClick</code>。</p>
-<p>对于click事件，有一些专门的事件处理程序需要除<code>android:onClick</code>避免冲突之外的属性。您可以使用以下属性来避免这些类型的冲突：</p>
-<table>
-<thead>
-<tr>
-<th>类</th>
-<th>监听器设置</th>
-<th>属性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>SearchView</code></td>
-<td><code>setOnSearchClickListener(View.OnClickListener)</code></td>
-<td><code>android:onSearchClick</code></td>
-</tr>
-<tr>
-<td><code>ZoomControls</code></td>
-<td><code>setOnZoomInClickListener(View.OnClickListener)</code></td>
-<td><code>android:onZoomIn</code></td>
-</tr>
-<tr>
-<td><code>ZoomControls</code></td>
-<td><code>setOnZoomOutClickListener(View.OnClickListener)</code></td>
-<td><code>android:onZoomOut</code></td>
-</tr>
-</tbody>
-</table>
-<p>您可以使用以下机制来处理事件：</p>
-<h5 id="7-1-方法引用"><a href="#7-1-方法引用" class="headerlink" title="7.1 方法引用"></a>7.1 方法引用</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandlers</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClickFriend</span><span class="params">(View view)</span> </span>&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>绑定表达式可以将视图的单击监听器分配给 <code>onClickFriend()</code>方法，如下所示： </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">layout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"handlers"</span> <span class="attr">type</span>=<span class="string">"com.example.MyHandlers"</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">type</span>=<span class="string">"com.example.User"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">"@&#123;user.firstName&#125;"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:onClick</span>=<span class="string">"@&#123;handlers::onClickFriend&#125;"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="7-2-监听器绑定"><a href="#7-2-监听器绑定" class="headerlink" title="7.2 监听器绑定"></a>7.2 监听器绑定</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Presenter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveClick</span><span class="params">(Task task)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后，您可以将click事件绑定到<code>onSaveClick()</code>方法，如下所示：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">layout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"task"</span> <span class="attr">type</span>=<span class="string">"com.android.example.Task"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"presenter"</span> <span class="attr">type</span>=<span class="string">"com.android.example.Presenter"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:onClick</span>=<span class="string">"@&#123;() -&gt; presenter.onSaveClick(task)&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="八、关键字-Imports-variables-and-includes"><a href="#八、关键字-Imports-variables-and-includes" class="headerlink" title="八、关键字 Imports, variables, and includes"></a>八、关键字 Imports, variables, and includes</h4><p>官方解释，简单易懂</p>
-<p>The Data Binding Library provides features such as imports, variables, and includes. Imports make easy to reference classes inside your layout files. Variables allow you to describe a property that can be used in binding expressions. Includes let you reuse complex layouts across your app.</p>
-<ul>
-<li>import</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"android.view.View"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"com.example.real.estate.View"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">alias</span>=<span class="string">"Vista"</span>/&gt;</span>//命名冲突时输入别名</span><br></pre></td></tr></table></figure>
-<p>导入<code>View</code>该类允许您从绑定表达式中引用它。以下示例显示如何引用 类的常量<code>VISIBLE</code>和<code>GONE</code>常量<code>View</code>：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">   <span class="attr">android:text</span>=<span class="string">"@&#123;user.lastName&#125;"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">android:visibility</span>=<span class="string">"@&#123;user.isAdult ? View.VISIBLE : View.GONE&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>variable </li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"android.graphics.drawable.Drawable"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">type</span>=<span class="string">"com.example.User"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"image"</span> <span class="attr">type</span>=<span class="string">"Drawable"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"note"</span> <span class="attr">type</span>=<span class="string">"String"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>生成的绑定类对于每个描述的变量都有一个setter和getter。 </p>
-<ul>
-<li>include</li>
-</ul>
-<p>变量可以从包含的布局传递到包含的布局绑定中 </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">layout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:bind</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">type</span>=<span class="string">"com.example.User"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/name"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">bind:user</span>=<span class="string">"@&#123;user&#125;"</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/contact"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">bind:user</span>=<span class="string">"@&#123;user&#125;"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="九、可观察的对象"><a href="#九、可观察的对象" class="headerlink" title="九、可观察的对象"></a>九、可观察的对象</h4><p>可观察性是指对象通知其他人数据变化的能力。数据绑定库允许您使对象，字段或集合可观察。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">BaseObservable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String firstName;</span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bindable</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.firstName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bindable</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.lastName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFirstName</span><span class="params">(String firstName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">        notifyPropertyChanged(BR.firstName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLastName</span><span class="params">(String lastName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">        notifyPropertyChanged(BR.lastName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们使用 <code>notifyPropertyChanged</code> 来进行数据改变完成通知，但我们怎么通知一个数据即将改变？我们不得不写一个 <code>@Bindable</code> 注解在 <code>getFirstName</code>。这将会自动产生一个 <code>BR.firstName</code>，这个 BR 很像我们经常使用的 R 类文件，我们通过这些注解会自动生成它。</p>
+          首先，为什么要使用DataBinding?
 
-          
+一般写法findViewById  罗里吧嗦，写到想吐
+ButterKnife 代替   解放findViewById  
+DataBinding数据和UI低耦合 
+
+一、简介：The Data Binding Library is a support library that allows you to bind UI components in y
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/23/DataBinding的用法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1273,7 +1015,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-06 17:57:18" itemprop="dateModified" datetime="2018-07-06T17:57:18+08:00">2018-07-06</time>
+                <time title="修改时间：2018-07-26 14:28:43" itemprop="dateModified" datetime="2018-07-26T14:28:43+08:00">2018-07-26</time>
               
             
           </span>
@@ -1307,18 +1049,16 @@
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/07/15/Hello World/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1433,7 +1173,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-24 16:21:41" itemprop="dateModified" datetime="2018-07-24T16:21:41+08:00">2018-07-24</time>
+                <time title="修改时间：2018-07-24 17:34:52" itemprop="dateModified" datetime="2018-07-24T17:34:52+08:00">2018-07-24</time>
               
             
           </span>
@@ -1468,120 +1208,19 @@
       
         
           
-            <h3 id="What-is-Kotlin"><a href="#What-is-Kotlin" class="headerlink" title="What is Kotlin?"></a>What is <code>Kotlin</code>?</h3><p>Kotlin是JVM和Android的实用编程语言，结合了OO和功能特性，专注于<strong>互操作性</strong>，<strong>安全性</strong>，<strong>清晰度</strong>和<strong>工具</strong>支持。 </p>
-<p>本文记录自己学习<code>kotlin</code>认为需要记录的重点，如果需要详细学习，请点击<a href="http://www.kotlindoc.cn/" target="_blank" rel="noopener">Kotlin中文文档</a>学习。</p>
-<h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><p>在 Kotlin 中，所有变量的成员方法和属性都是一个对象。一些类型是内建的，它们的实现是优化过的，但对用户来说它们就像普通的类一样。</p>
-<ul>
-<li>数值类型</li>
-</ul>
-<p>Kotlin 处理数值的方法和 java 很相似，但不是完全一样。比如，不存在隐式转换数值的精度，并且在字面上有一些小小的不同 。Kotlin 提供了如下内建数值类型(和 java 很相似)：</p>
-<table>
-<thead>
-<tr>
-<th><strong>类型</strong></th>
-<th style="text-align:left"><strong>字宽</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Double</td>
-<td style="text-align:left">64</td>
-</tr>
-<tr>
-<td>Float</td>
-<td style="text-align:left">32</td>
-</tr>
-<tr>
-<td>Long</td>
-<td style="text-align:left">64</td>
-</tr>
-<tr>
-<td>Int</td>
-<td style="text-align:left">32</td>
-</tr>
-<tr>
-<td>Short</td>
-<td style="text-align:left">16</td>
-</tr>
-<tr>
-<td>Byte</td>
-<td style="text-align:left">8</td>
-</tr>
-</tbody>
-</table>
-<p>在<code>Kotlin</code>中，短类型，不会隐式转化为长类型，这意味着我们必须显式转换才能把 <code>Byte</code> 赋值给 <code>Int</code>。</p>
-<p>error：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> b: <span class="built_in">Byte</span> = <span class="number">1</span> <span class="comment">// OK, literals are checked statically</span></span><br><span class="line"><span class="keyword">val</span> i: <span class="built_in">Int</span> = b <span class="comment">//ERRO</span></span><br></pre></td></tr></table></figure>
-<p>right:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i: <span class="built_in">Int</span> = b.toInt()<span class="comment">//显示转换</span></span><br></pre></td></tr></table></figure>
-<p>我们可以通过显式转换把数值类型提升 。每个数值类型都支持下面的转换：</p>
-<blockquote>
-<p><code>toByte(): Byte</code></p>
-</blockquote>
-<blockquote>
-<p><code>toShort(): Short</code></p>
-</blockquote>
-<blockquote>
-<p><code>toInt(): Int</code></p>
-</blockquote>
-<blockquote>
-<p><code>toLong(): Long</code></p>
-</blockquote>
-<blockquote>
-<p><code>toFloat(): Float</code></p>
-</blockquote>
-<blockquote>
-<p><code>toDouble(): Double</code></p>
-</blockquote>
-<blockquote>
-<p><code>toChar(): Char</code></p>
-</blockquote>
-<p>Kotlin支持标准的运算表达式，关于位运算，<code>kotlin</code>没有提供特殊的操作符，只是提供了可以叫中缀形式的方法，比如：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = (<span class="number">1</span> shl <span class="number">2</span>) and <span class="number">0x000FF000</span></span><br></pre></td></tr></table></figure>
-<p>下面是全部的位运算操作符(<strong>只可以用在 <code>Int</code> 和 <code>Long</code> 类型</strong>)：</p>
-<blockquote>
-<p><code>shl(bits)</code> – 带符号左移 (相当于 Java’s <code>&lt;&lt;</code>) <code>shr(bits)</code> – 带符号右移 (相当于 Java’s <code>&gt;&gt;</code>) <code>ushr(bits)</code> – 无符号右移 (相当于 Java’s <code>&gt;&gt;&gt;</code>) <code>and(bits)</code> – 按位与 <code>or(bits)</code> – 按位或 <code>xor(bits)</code> – 按位异或 <code>inv(bits)</code> – 按位翻转</p>
-</blockquote>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(<span class="number">1</span> shl <span class="number">3</span>)<span class="comment">//打印结果为8</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>字符类型</li>
-</ul>
-<p>字符类型用<code>Char</code>表示，不能直接当做数值使用：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">check</span><span class="params">(c: <span class="type">Char</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="number">1</span>) &#123; <span class="comment">//ERROR: 类型不匹配，这里会提示</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>字符是由单引号包裹的’1’，特殊的字符通过反斜杠\转义，下面的字符序列支持转义：\t,\b,\n,\r,’,”,\和$。编码任何其他字符，使用 Unicode 转义语法：\uFF00。</p>
-<p>我们可以将字符显示的转义为Int数字：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">decimalDigitValue</span><span class="params">(c: <span class="type">Char</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (c !<span class="keyword">in</span> <span class="string">'0'</span>..<span class="string">'9'</span>) </span><br><span class="line">		<span class="keyword">throw</span> IllegalArgumentException(<span class="string">"Out of range"</span>)</span><br><span class="line">	<span class="keyword">return</span> c.toInt() - <span class="string">'0'</span>.toInt() <span class="comment">//显示转换为数值类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>布尔值</li>
-</ul>
-<p>只有<code>true</code>和<code>false</code></p>
-<p>布尔值的内建操作包括|| – lazy disjunction &amp;&amp; – lazy conjunction</p>
-<ul>
-<li>数组</li>
-</ul>
-<p>Arrays在 Kotlin 中由 <code>Array</code> 类表示，有 <code>get</code> 和 <code>set</code> 方法(通过运算符重载可以由[]调用)，以及 <code>size</code>方法，以及一些常用的函数：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Array</span>&lt;<span class="type">T</span>&gt; <span class="keyword">private</span> </span>() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">size</span><span class="params">()</span></span>: <span class="built_in">Int</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">get</span><span class="params">(index: <span class="type">Int</span>)</span></span>: T</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">set</span><span class="params">(Index: <span class="type">Int</span>, value: <span class="type">T</span>)</span></span>: <span class="built_in">Unit</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: Iterator&lt;T&gt;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>给库函数 <code>arrayOf()</code> 传递每一项的值来创建Array，<code>arrayOf(1, 2, 3)</code> 创建了一个[1, 2, 3] 这样的数组。也可以使用库函数 <code>arrayOfNulls()</code> 创建一个指定大小的空Array。 或者通过指定Array大小并提供一个迭代器 </p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 Array&lt;String&gt;  内容为 ["0", "1", "4", "9", "16"]</span></span><br><span class="line"><span class="keyword">val</span> asc = Array(<span class="number">5</span>, &#123;i -&gt; (i * i).toString() &#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>字符串</li>
-</ul>
-<p>Kotlin 有两种类型的 string ：一种是可以带分割符的，一种是可以包含新行以及任意文本的。带分割符的 string 很像 java 的 string:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">"Hello World!\n"</span></span><br></pre></td></tr></table></figure>
-<p>整行String 是由三个引号包裹的(“””),不可以包含分割符但可以包含其它字符：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> text = <span class="string">"""</span></span><br><span class="line"><span class="string">	for (c in "foo")</span></span><br><span class="line"><span class="string">		print(c)</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
-<p>打印结果为</p>
-<pre><code>for (c in &quot;foo&quot;)
-    print(c)
-</code></pre><ul>
-<li>通配符$</li>
-</ul>
-<p>字符串可以包含模板表达式。一个模板表达式由一个 $ 开始并包含另一个简单的名称：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i = <span class="number">10</span></span><br><span class="line"><span class="keyword">val</span> s = <span class="string">"i = <span class="variable">$i</span>"</span> <span class="comment">// 识别为 "i = 10"</span></span><br></pre></td></tr></table></figure>
-<p>或者是一个带大括号的表达式：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">"abc"</span></span><br><span class="line"><span class="keyword">val</span> str = <span class="string">"<span class="variable">$s</span>.length is <span class="subst">$&#123;s.length&#125;</span>"</span> <span class="comment">//识别为 "abc.length is 3"</span></span><br></pre></td></tr></table></figure>
+          What is Kotlin?Kotlin是JVM和Android的实用编程语言，结合了OO和功能特性，专注于互操作性，安全性，清晰度和工具支持。 
+本文记录自己学习kotlin认为需要记录的重点，如果需要详细学习，请点击Kotlin中文文档学习。
+基本类型在 Kotlin 中，所有变量的成员方法和属性都是一个对象。一些类型是内建的，它们的实现是优化过的，但对用户来说它们就像普通的类一样。
 
-          
+数值
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/07/18/带你初识Kotlin/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
