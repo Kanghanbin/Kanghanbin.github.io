@@ -146,7 +146,7 @@
 <meta property="og:image" content="https://kanghanbin.github.io/blog/1.jpg">
 <meta property="og:image" content="https://kanghanbin.github.io/blog/3.jpg">
 <meta property="og:image" content="https://kanghanbin.github.io/blog/4.jpg">
-<meta property="og:updated_time" content="2018-07-27T08:11:13.286Z">
+<meta property="og:updated_time" content="2018-07-27T08:15:25.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git团队协作常见命令的记录">
 <meta name="twitter:description" content="一、Git简介一个分布式版本管理系统，重点在分布式，CVS和SVN都是集中式版本控制系统，那么问题来了，分布式和集中式有何区别呢？ 先说集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改">
@@ -375,7 +375,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-27 16:11:13" itemprop="dateModified" datetime="2018-07-27T16:11:13+08:00">2018-07-27</time>
+                <time title="修改时间：2018-07-27 16:15:25" itemprop="dateModified" datetime="2018-07-27T16:15:25+08:00">2018-07-27</time>
               
             
           </span>
@@ -423,65 +423,65 @@
 <p>因为我们创建Git版本库时，Git自动为我们创建了唯一一个<code>master</code>分支，所以，现在，<code>git commit</code>就是往<code>master</code>分支上提交更改。</p>
 <p>你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改</p>
 <h3 id="三、Git团队写作的一些命令"><a href="#三、Git团队写作的一些命令" class="headerlink" title="三、Git团队写作的一些命令"></a>三、<code>Git</code>团队写作的一些命令</h3><h4 id="0-远程库相关命令"><a href="#0-远程库相关命令" class="headerlink" title="0.远程库相关命令"></a>0.远程库相关命令</h4><blockquote>
-<h4 id="0-1关联远程库"><a href="#0-1关联远程库" class="headerlink" title="0.1关联远程库"></a>0.1关联远程库</h4><p>git remote add origin &lt;远程仓库连接&gt;</p>
+<h5 id="0-1关联远程库"><a href="#0-1关联远程库" class="headerlink" title="0.1关联远程库"></a>0.1关联远程库</h5><p>git remote add origin &lt;远程仓库连接&gt;</p>
 <p>git remote add origin git@server-name:path/repo-name.git </p>
 <p>将本地仓库关联远程仓库。</p>
-<h4 id="0-2推送至远程仓库"><a href="#0-2推送至远程仓库" class="headerlink" title="0.2推送至远程仓库"></a>0.2推送至远程仓库</h4><p>git push origin master</p>
+<h5 id="0-2推送至远程仓库"><a href="#0-2推送至远程仓库" class="headerlink" title="0.2推送至远程仓库"></a>0.2推送至远程仓库</h5><p>git push origin master</p>
 <p>第一次推送（git push origin - u origin master）</p>
-<h4 id="0-3克隆远程仓库至本地"><a href="#0-3克隆远程仓库至本地" class="headerlink" title="0.3克隆远程仓库至本地"></a>0.3克隆远程仓库至本地</h4><p>git clone git@server-name:path/repo-name.git </p>
+<h5 id="0-3克隆远程仓库至本地"><a href="#0-3克隆远程仓库至本地" class="headerlink" title="0.3克隆远程仓库至本地"></a>0.3克隆远程仓库至本地</h5><p>git clone git@server-name:path/repo-name.git </p>
 </blockquote>
 <h4 id="1-初始化相关命令"><a href="#1-初始化相关命令" class="headerlink" title="1.初始化相关命令"></a>1.初始化相关命令</h4><blockquote>
-<h4 id="1-1初始化仓库"><a href="#1-1初始化仓库" class="headerlink" title="1.1初始化仓库"></a>1.1初始化仓库</h4><p>git init</p>
+<h5 id="1-1初始化仓库"><a href="#1-1初始化仓库" class="headerlink" title="1.1初始化仓库"></a>1.1初始化仓库</h5><p>git init</p>
 <p>把当前目录变成Git可以管理的仓库 当前目录下会多了一个<code>.git</code>的目录 ，用来跟踪版本管理库。（注意：.git目录可能为隐藏）</p>
-<h4 id="1-2把文件添加到仓库："><a href="#1-2把文件添加到仓库：" class="headerlink" title="1.2把文件添加到仓库："></a>1.2把文件添加到仓库：</h4><p>git add 文件名：</p>
+<h5 id="1-2把文件添加到仓库："><a href="#1-2把文件添加到仓库：" class="headerlink" title="1.2把文件添加到仓库："></a>1.2把文件添加到仓库：</h5><p>git add 文件名：</p>
 <p>git add readme.txt</p>
-<h4 id="1-3把文件提交到仓库："><a href="#1-3把文件提交到仓库：" class="headerlink" title="1.3把文件提交到仓库："></a>1.3把文件提交到仓库：</h4><p>git commit -m “提交说明，方便别人看”</p>
+<h5 id="1-3把文件提交到仓库："><a href="#1-3把文件提交到仓库：" class="headerlink" title="1.3把文件提交到仓库："></a>1.3把文件提交到仓库：</h5><p>git commit -m “提交说明，方便别人看”</p>
 <p>一次可以提交多个文件</p>
-<h4 id="1-4查看提交历史记录"><a href="#1-4查看提交历史记录" class="headerlink" title="1.4查看提交历史记录"></a>1.4查看提交历史记录</h4><p>git log</p>
+<h5 id="1-4查看提交历史记录"><a href="#1-4查看提交历史记录" class="headerlink" title="1.4查看提交历史记录"></a>1.4查看提交历史记录</h5><p>git log</p>
 <p>命令显示从最近到最远的提交日志 </p>
-<h4 id="1-5查看命令历史"><a href="#1-5查看命令历史" class="headerlink" title="1.5查看命令历史"></a>1.5查看命令历史</h4><p>git reflog</p>
+<h5 id="1-5查看命令历史"><a href="#1-5查看命令历史" class="headerlink" title="1.5查看命令历史"></a>1.5查看命令历史</h5><p>git reflog</p>
 <p>可以看到提交命令的历史记录，拿到，commit id，避免回退完之后又想回来找不到 commit id。</p>
-<h4 id="1-6回退版本"><a href="#1-6回退版本" class="headerlink" title="1.6回退版本"></a>1.6回退版本</h4><p>git reset HEAD^ </p>
+<h5 id="1-6回退版本"><a href="#1-6回退版本" class="headerlink" title="1.6回退版本"></a>1.6回退版本</h5><p>git reset HEAD^ </p>
 <p>回退至上一个版本</p>
 <p>在Git中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>1094adb...</code>（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
 <p>git reset <commit id=""></commit></p>
 <p>git reseat 1094a</p>
 <p>回退至指定版本号，版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了 。</p>
-<h4 id="1-7查看状态"><a href="#1-7查看状态" class="headerlink" title="1.7查看状态"></a>1.7查看状态</h4><p>git status</p>
+<h5 id="1-7查看状态"><a href="#1-7查看状态" class="headerlink" title="1.7查看状态"></a>1.7查看状态</h5><p>git status</p>
 <p>显示当前暂存区和分支上的状态。</p>
-<h4 id="1-8查看工作区和版本库最新提交区别"><a href="#1-8查看工作区和版本库最新提交区别" class="headerlink" title="1.8查看工作区和版本库最新提交区别"></a>1.8查看工作区和版本库最新提交区别</h4><p>git diff </p>
-<h4 id="1-9丢弃工作区的修改"><a href="#1-9丢弃工作区的修改" class="headerlink" title="1.9丢弃工作区的修改"></a>1.9丢弃工作区的修改</h4><p>git checkout – <file></file></p>
+<h5 id="1-8查看工作区和版本库最新提交区别"><a href="#1-8查看工作区和版本库最新提交区别" class="headerlink" title="1.8查看工作区和版本库最新提交区别"></a>1.8查看工作区和版本库最新提交区别</h5><p>git diff </p>
+<h5 id="1-9丢弃工作区的修改"><a href="#1-9丢弃工作区的修改" class="headerlink" title="1.9丢弃工作区的修改"></a>1.9丢弃工作区的修改</h5><p>git checkout – <file></file></p>
 <p>就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。 </p>
-<h4 id="1-10撤销暂存区的修改"><a href="#1-10撤销暂存区的修改" class="headerlink" title="1.10撤销暂存区的修改"></a>1.10撤销暂存区的修改</h4><p>git reset HEAD <file></file></p>
+<h5 id="1-10撤销暂存区的修改"><a href="#1-10撤销暂存区的修改" class="headerlink" title="1.10撤销暂存区的修改"></a>1.10撤销暂存区的修改</h5><p>git reset HEAD <file></file></p>
 <p>可以把暂存区的修改撤销掉（unstage），重新放回工作 区</p>
 </blockquote>
-<h3 id="2-分支相关命令"><a href="#2-分支相关命令" class="headerlink" title="2.分支相关命令"></a>2.分支相关命令</h3><blockquote>
-<h4 id="2-1-创建分支"><a href="#2-1-创建分支" class="headerlink" title="2.1 创建分支"></a>2.1 创建分支</h4><p>git branch 新分支名</p>
+<h4 id="2-分支相关命令"><a href="#2-分支相关命令" class="headerlink" title="2.分支相关命令"></a>2.分支相关命令</h4><blockquote>
+<h5 id="2-1-创建分支"><a href="#2-1-创建分支" class="headerlink" title="2.1 创建分支"></a>2.1 创建分支</h5><p>git branch 新分支名</p>
 <p>例如，在master分之下，新开一个开发分支：</p>
 <p>git branch dev</p>
-<h4 id="2-2切换到新分支"><a href="#2-2切换到新分支" class="headerlink" title="2.2切换到新分支"></a>2.2切换到新分支</h4><p>git checkout 分支名</p>
+<h5 id="2-2切换到新分支"><a href="#2-2切换到新分支" class="headerlink" title="2.2切换到新分支"></a>2.2切换到新分支</h5><p>git checkout 分支名</p>
 <p>例如，在master分支下，切换到新开的dev：</p>
 <p>git checkout dev </p>
-<h4 id="2-3创建-切换分支-合并到一个命令"><a href="#2-3创建-切换分支-合并到一个命令" class="headerlink" title="2.3创建+切换分支 合并到一个命令"></a>2.3创建+切换分支 合并到一个命令</h4><p>git checkout -b 新分支名</p>
+<h5 id="2-3创建-切换分支-合并到一个命令"><a href="#2-3创建-切换分支-合并到一个命令" class="headerlink" title="2.3创建+切换分支 合并到一个命令"></a>2.3创建+切换分支 合并到一个命令</h5><p>git checkout -b 新分支名</p>
 <p>例如，新开一个开发分支，并立即切换到该分支： </p>
 <p>git checkout -b dev</p>
-<h4 id="2-4合并分支"><a href="#2-4合并分支" class="headerlink" title="2.4合并分支"></a>2.4合并分支</h4><p>git merge 需要合并的分支名</p>
+<h5 id="2-4合并分支"><a href="#2-4合并分支" class="headerlink" title="2.4合并分支"></a>2.4合并分支</h5><p>git merge 需要合并的分支名</p>
 <p>例如，刚刚已经切换回master，现在需要合并dev的内容：  </p>
 <p>git mearge dev</p>
-<h4 id="2-5-查看本地分支列表"><a href="#2-5-查看本地分支列表" class="headerlink" title="2.5 查看本地分支列表"></a>2.5 查看本地分支列表</h4><p>git branch -a</p>
+<h5 id="2-5-查看本地分支列表"><a href="#2-5-查看本地分支列表" class="headerlink" title="2.5 查看本地分支列表"></a>2.5 查看本地分支列表</h5><p>git branch -a</p>
 <p>例如，刚刚已经切换回master，现在需要合并dev的内容： </p>
-<h4 id="2-6查看远程分支列表"><a href="#2-6查看远程分支列表" class="headerlink" title="2.6查看远程分支列表"></a>2.6查看远程分支列表</h4><p>git branch -r</p>
-<h4 id="2-7向远程提交本地新开发的分支"><a href="#2-7向远程提交本地新开发的分支" class="headerlink" title="2.7向远程提交本地新开发的分支"></a>2.7向远程提交本地新开发的分支</h4><p>git push origin  新分支名</p>
+<h5 id="2-6查看远程分支列表"><a href="#2-6查看远程分支列表" class="headerlink" title="2.6查看远程分支列表"></a>2.6查看远程分支列表</h5><p>git branch -r</p>
+<h5 id="2-7向远程提交本地新开发的分支"><a href="#2-7向远程提交本地新开发的分支" class="headerlink" title="2.7向远程提交本地新开发的分支"></a>2.7向远程提交本地新开发的分支</h5><p>git push origin  新分支名</p>
 <p>例如，刚刚在master下新开的dev分支： </p>
 <p>git push origin dev</p>
-<h4 id="2-8删除远程分支"><a href="#2-8删除远程分支" class="headerlink" title="2.8删除远程分支"></a>2.8删除远程分支</h4><p>git push orgin :远程分支名</p>
+<h5 id="2-8删除远程分支"><a href="#2-8删除远程分支" class="headerlink" title="2.8删除远程分支"></a>2.8删除远程分支</h5><p>git push orgin :远程分支名</p>
 <p>例如：删除刚刚提交到远程的分支；</p>
 <p>git push origin:dev</p>
-<h4 id="2-9删除本地分支"><a href="#2-9删除本地分支" class="headerlink" title="2.9删除本地分支"></a>2.9删除本地分支</h4><p>git branch 分支名称 -d</p>
+<h5 id="2-9删除本地分支"><a href="#2-9删除本地分支" class="headerlink" title="2.9删除本地分支"></a>2.9删除本地分支</h5><p>git branch 分支名称 -d</p>
 <p>例如，在master分支下，删除新开的dev分支： </p>
 <p>git branch dev -d </p>
 <p>注意：如果dev的更改，push到远程，在GitLab(或者其他git系统)上面进行了merge操作，但是本地master没有pull最新的代码，会删除不成功，可以先git pull origin master，或者强制删除 git branch dev -D </p>
-<h4 id="2-10更新分支列表"><a href="#2-10更新分支列表" class="headerlink" title="2.10更新分支列表"></a>2.10更新分支列表</h4><p>git fetch -p</p>
+<h5 id="2-10更新分支列表"><a href="#2-10更新分支列表" class="headerlink" title="2.10更新分支列表"></a>2.10更新分支列表</h5><p>git fetch -p</p>
 </blockquote>
 
       
@@ -693,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Git简介"><span class="nav-number">1.</span> <span class="nav-text">一、Git简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、工作区和暂存区："><span class="nav-number">2.</span> <span class="nav-text">二、工作区和暂存区：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Git团队写作的一些命令"><span class="nav-number">3.</span> <span class="nav-text">三、Git团队写作的一些命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-远程库相关命令"><span class="nav-number">3.1.</span> <span class="nav-text">0.远程库相关命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1关联远程库"><span class="nav-number">3.2.</span> <span class="nav-text">0.1关联远程库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-2推送至远程仓库"><span class="nav-number">3.3.</span> <span class="nav-text">0.2推送至远程仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-3克隆远程仓库至本地"><span class="nav-number">3.4.</span> <span class="nav-text">0.3克隆远程仓库至本地</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-初始化相关命令"><span class="nav-number">3.5.</span> <span class="nav-text">1.初始化相关命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1初始化仓库"><span class="nav-number">3.6.</span> <span class="nav-text">1.1初始化仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2把文件添加到仓库："><span class="nav-number">3.7.</span> <span class="nav-text">1.2把文件添加到仓库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3把文件提交到仓库："><span class="nav-number">3.8.</span> <span class="nav-text">1.3把文件提交到仓库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4查看提交历史记录"><span class="nav-number">3.9.</span> <span class="nav-text">1.4查看提交历史记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5查看命令历史"><span class="nav-number">3.10.</span> <span class="nav-text">1.5查看命令历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6回退版本"><span class="nav-number">3.11.</span> <span class="nav-text">1.6回退版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7查看状态"><span class="nav-number">3.12.</span> <span class="nav-text">1.7查看状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8查看工作区和版本库最新提交区别"><span class="nav-number">3.13.</span> <span class="nav-text">1.8查看工作区和版本库最新提交区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-9丢弃工作区的修改"><span class="nav-number">3.14.</span> <span class="nav-text">1.9丢弃工作区的修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-10撤销暂存区的修改"><span class="nav-number">3.15.</span> <span class="nav-text">1.10撤销暂存区的修改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-分支相关命令"><span class="nav-number">4.</span> <span class="nav-text">2.分支相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-创建分支"><span class="nav-number">4.1.</span> <span class="nav-text">2.1 创建分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2切换到新分支"><span class="nav-number">4.2.</span> <span class="nav-text">2.2切换到新分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3创建-切换分支-合并到一个命令"><span class="nav-number">4.3.</span> <span class="nav-text">2.3创建+切换分支 合并到一个命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4合并分支"><span class="nav-number">4.4.</span> <span class="nav-text">2.4合并分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-查看本地分支列表"><span class="nav-number">4.5.</span> <span class="nav-text">2.5 查看本地分支列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6查看远程分支列表"><span class="nav-number">4.6.</span> <span class="nav-text">2.6查看远程分支列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7向远程提交本地新开发的分支"><span class="nav-number">4.7.</span> <span class="nav-text">2.7向远程提交本地新开发的分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8删除远程分支"><span class="nav-number">4.8.</span> <span class="nav-text">2.8删除远程分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-9删除本地分支"><span class="nav-number">4.9.</span> <span class="nav-text">2.9删除本地分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-10更新分支列表"><span class="nav-number">4.10.</span> <span class="nav-text">2.10更新分支列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Git简介"><span class="nav-number">1.</span> <span class="nav-text">一、Git简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、工作区和暂存区："><span class="nav-number">2.</span> <span class="nav-text">二、工作区和暂存区：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Git团队写作的一些命令"><span class="nav-number">3.</span> <span class="nav-text">三、Git团队写作的一些命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-远程库相关命令"><span class="nav-number">3.1.</span> <span class="nav-text">0.远程库相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0-1关联远程库"><span class="nav-number">3.1.1.</span> <span class="nav-text">0.1关联远程库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#0-2推送至远程仓库"><span class="nav-number">3.1.2.</span> <span class="nav-text">0.2推送至远程仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#0-3克隆远程仓库至本地"><span class="nav-number">3.1.3.</span> <span class="nav-text">0.3克隆远程仓库至本地</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-初始化相关命令"><span class="nav-number">3.2.</span> <span class="nav-text">1.初始化相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1初始化仓库"><span class="nav-number">3.2.1.</span> <span class="nav-text">1.1初始化仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2把文件添加到仓库："><span class="nav-number">3.2.2.</span> <span class="nav-text">1.2把文件添加到仓库：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3把文件提交到仓库："><span class="nav-number">3.2.3.</span> <span class="nav-text">1.3把文件提交到仓库：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4查看提交历史记录"><span class="nav-number">3.2.4.</span> <span class="nav-text">1.4查看提交历史记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5查看命令历史"><span class="nav-number">3.2.5.</span> <span class="nav-text">1.5查看命令历史</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6回退版本"><span class="nav-number">3.2.6.</span> <span class="nav-text">1.6回退版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7查看状态"><span class="nav-number">3.2.7.</span> <span class="nav-text">1.7查看状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-8查看工作区和版本库最新提交区别"><span class="nav-number">3.2.8.</span> <span class="nav-text">1.8查看工作区和版本库最新提交区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-9丢弃工作区的修改"><span class="nav-number">3.2.9.</span> <span class="nav-text">1.9丢弃工作区的修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-10撤销暂存区的修改"><span class="nav-number">3.2.10.</span> <span class="nav-text">1.10撤销暂存区的修改</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-分支相关命令"><span class="nav-number">3.3.</span> <span class="nav-text">2.分支相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-创建分支"><span class="nav-number">3.3.1.</span> <span class="nav-text">2.1 创建分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2切换到新分支"><span class="nav-number">3.3.2.</span> <span class="nav-text">2.2切换到新分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3创建-切换分支-合并到一个命令"><span class="nav-number">3.3.3.</span> <span class="nav-text">2.3创建+切换分支 合并到一个命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4合并分支"><span class="nav-number">3.3.4.</span> <span class="nav-text">2.4合并分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-查看本地分支列表"><span class="nav-number">3.3.5.</span> <span class="nav-text">2.5 查看本地分支列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6查看远程分支列表"><span class="nav-number">3.3.6.</span> <span class="nav-text">2.6查看远程分支列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7向远程提交本地新开发的分支"><span class="nav-number">3.3.7.</span> <span class="nav-text">2.7向远程提交本地新开发的分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8删除远程分支"><span class="nav-number">3.3.8.</span> <span class="nav-text">2.8删除远程分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-9删除本地分支"><span class="nav-number">3.3.9.</span> <span class="nav-text">2.9删除本地分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-10更新分支列表"><span class="nav-number">3.3.10.</span> <span class="nav-text">2.10更新分支列表</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
