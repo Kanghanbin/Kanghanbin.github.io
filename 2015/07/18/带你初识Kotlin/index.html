@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
 <meta property="og:description" content="What is Kotlin?Kotlin是JVM和Android的实用编程语言，结合了OO和功能特性，专注于互操作性，安全性，清晰度和工具支持。  本文记录自己学习kotlin认为需要记录的重点，如果需要详细学习，请点击Kotlin中文文档学习。 基本类型在 Kotlin 中，所有变量的成员方法和属性都是一个对象。一些类型是内建的，它们的实现是优化过的，但对用户来说它们就像普通的类一样。  数值">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-07T01:58:25.759Z">
+<meta property="og:updated_time" content="2018-08-07T07:39:12.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带你初识Kotlin（一）">
 <meta name="twitter:description" content="What is Kotlin?Kotlin是JVM和Android的实用编程语言，结合了OO和功能特性，专注于互操作性，安全性，清晰度和工具支持。  本文记录自己学习kotlin认为需要记录的重点，如果需要详细学习，请点击Kotlin中文文档学习。 基本类型在 Kotlin 中，所有变量的成员方法和属性都是一个对象。一些类型是内建的，它们的实现是优化过的，但对用户来说它们就像普通的类一样。  数值">
@@ -398,32 +398,39 @@
 <thead>
 <tr>
 <th><strong>类型</strong></th>
+<th></th>
 <th style="text-align:left"><strong>字宽</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Double</td>
+<td>双精度浮点数</td>
 <td style="text-align:left">64</td>
 </tr>
 <tr>
 <td>Float</td>
+<td>浮点数</td>
 <td style="text-align:left">32</td>
 </tr>
 <tr>
 <td>Long</td>
+<td>长整型</td>
 <td style="text-align:left">64</td>
 </tr>
 <tr>
 <td>Int</td>
+<td>整形</td>
 <td style="text-align:left">32</td>
 </tr>
 <tr>
 <td>Short</td>
+<td>短整型</td>
 <td style="text-align:left">16</td>
 </tr>
 <tr>
 <td>Byte</td>
+<td>字节</td>
 <td style="text-align:left">8</td>
 </tr>
 </tbody>
@@ -480,8 +487,32 @@
 </ul>
 <p>Arrays在 Kotlin 中由 <code>Array</code> 类表示，有 <code>get</code> 和 <code>set</code> 方法(通过运算符重载可以由[]调用)，以及 <code>size</code>方法，以及一些常用的函数：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Array</span>&lt;<span class="type">T</span>&gt; <span class="keyword">private</span> </span>() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">size</span><span class="params">()</span></span>: <span class="built_in">Int</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">get</span><span class="params">(index: <span class="type">Int</span>)</span></span>: T</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">set</span><span class="params">(Index: <span class="type">Int</span>, value: <span class="type">T</span>)</span></span>: <span class="built_in">Unit</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: Iterator&lt;T&gt;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>给库函数 <code>arrayOf()</code> 传递每一项的值来创建Array，<code>arrayOf(1, 2, 3)</code> 创建了一个[1, 2, 3] 这样的数组。也可以使用库函数 <code>arrayOfNulls()</code> 创建一个指定大小的空Array。 或者通过指定Array大小并提供一个迭代器 </p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 Array&lt;String&gt;  内容为 ["0", "1", "4", "9", "16"]</span></span><br><span class="line"><span class="keyword">val</span> asc = Array(<span class="number">5</span>, &#123;i -&gt; (i * i).toString() &#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>给库函数 <code>arrayOf()</code> 传递每一项的值来创建Array，<code>arrayOf(1, 2, 3)</code> 创建了一个[1, 2, 3] 这样的数组。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arr1 = arrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>) <span class="comment">//等价于[1,2,3,4,5]</span></span><br><span class="line">&gt; <span class="keyword">for</span> (v <span class="keyword">in</span> arr1)&#123;</span><br><span class="line">&gt;     print(v)</span><br><span class="line">&gt;     print(<span class="string">"\t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">var</span> arr2 = arrayOf(<span class="string">"0"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">'a'</span>,<span class="number">32.3</span>f)</span><br><span class="line">&gt; <span class="keyword">for</span> (v <span class="keyword">in</span> arr2)&#123;</span><br><span class="line">&gt;     print(v)</span><br><span class="line">&gt;     print(<span class="string">"\t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 1   2   3   4   5   </span><br><span class="line">&gt; 0   2   3   a   32.3 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>也可以使用库函数 <code>arrayOfNulls()</code> 用于创建一个指定数据类型且可以为空元素的给定元素个数的数组 。例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arr3 = arrayOfNulls&lt;<span class="built_in">Int</span>&gt;(<span class="number">3</span>)</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">//如若不予数组赋值则arr3[0]、arr3[1]、arr3[2]皆为null</span></span><br><span class="line">&gt; <span class="keyword">for</span>(v <span class="keyword">in</span> arr3)&#123;</span><br><span class="line">&gt;     print(v)</span><br><span class="line">&gt;     print(<span class="string">"\t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt; println()</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">//为数组arr3赋值</span></span><br><span class="line">&gt; arr3[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line">&gt; arr3[<span class="number">1</span>] = <span class="number">20</span></span><br><span class="line">&gt; arr3[<span class="number">2</span>] = <span class="number">30</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">for</span>(v <span class="keyword">in</span> arr3)&#123;</span><br><span class="line">&gt;     print(v)</span><br><span class="line">&gt;     print(<span class="string">"\t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; null    null    null    </span><br><span class="line">&gt; 10  20  30   </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>或者通过指定Array大小并提供一个迭代器 </p>
+<ul>
+<li>使用一个工厂函数<code>Array()</code>，它使用数组大小和返回给定其索引的每个数组元素的初始值的函数。</li>
+<li><code>Array()</code> =&gt; 第一个参数表示数组元素的个数，第二个参数则为使用其元素下标组成的表达式</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">// 创建一个 Array&lt;String&gt;  内容为 ["0", "1", "4", "9", "16"]</span></span><br><span class="line">&gt; <span class="keyword">val</span> asc = Array(<span class="number">5</span>, &#123;i -&gt; (i * i).toString() &#125;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
 <ul>
 <li>字符串</li>
 </ul>
@@ -501,17 +532,124 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">"abc"</span></span><br><span class="line"><span class="keyword">val</span> str = <span class="string">"<span class="variable">$s</span>.length is <span class="subst">$&#123;s.length&#125;</span>"</span> <span class="comment">//识别为 "abc.length is 3"</span></span><br></pre></td></tr></table></figure>
 <h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="if-表达式"><a href="#if-表达式" class="headerlink" title="if 表达式"></a>if 表达式</h4><p>if除了除了传统的用法之外，还可以用作表达式</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传统用法</span></span><br><span class="line"><span class="keyword">var</span> max = a</span><br><span class="line"><span class="keyword">if</span> (a &lt; b)</span><br><span class="line">	max = b</span><br><span class="line"></span><br><span class="line"><span class="comment">//带 else </span></span><br><span class="line"><span class="keyword">var</span> max: <span class="built_in">Int</span></span><br><span class="line"><span class="keyword">if</span> (a &gt; b)</span><br><span class="line">	max = a</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	max = b</span><br><span class="line"></span><br><span class="line"><span class="comment">//作为表达式</span></span><br><span class="line"><span class="keyword">val</span> max = <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
+<p>原来在java中的写法，在<code>kotlin</code>中报错</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numA = <span class="number">2</span> </span><br><span class="line"><span class="keyword">var</span> numB: <span class="built_in">Int</span> = (numA &gt; <span class="number">2</span>) ? <span class="number">3</span> : <span class="number">5</span></span><br><span class="line"><span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
 <h4 id="when-表达式"><a href="#when-表达式" class="headerlink" title="when 表达式"></a>when 表达式</h4><p>when取代了 C 风格语言的 switch 。最简单的用法像下面这样 </p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">	<span class="number">1</span> -&gt; print(<span class="string">"x == 1"</span>)</span><br><span class="line">	<span class="number">2</span> -&gt; print(<span class="string">"x == 2"</span>)</span><br><span class="line">	<span class="keyword">else</span> -&gt; &#123; <span class="comment">//Note the block</span></span><br><span class="line">		print(<span class="string">"x is neither 1 nor 2"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在其它分支都不匹配的时候默认匹配 else 分支。如果把 when 做为表达式的话 else 分支是强制的，除非编译器可以提供所有覆盖所有可能的分支条件。</p>
-<p>如果有分支可以用同样的方式处理的话，分支条件可以连在一起：</p>
+<p>如果有分支可以用同样的方式处理的话，分支条件可以连在一起，相当于<code>switch</code>语句中不适用<code>break</code>跳转语句：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">	<span class="number">0</span>,<span class="number">1</span> -&gt; print(<span class="string">"x == 0 or x == 1"</span>)</span><br><span class="line">	<span class="keyword">else</span> -&gt; print(<span class="string">"otherwise"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>when 可以用任意表达式作为分支的条件，也可以用in或！in判断是否在一个集合当中，用is判断是否是某个类型。</p>
+<p>when 可以用<strong>任意表达式</strong>作为分支的条件，也可以用in或！in判断是否在一个集合当中，只适用于数值类型，用is判断是否是某个类型。</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">describe</span><span class="params">(obj: <span class="type">Any</span>)</span></span>: String =</span><br><span class="line">        <span class="keyword">when</span> (obj) &#123;</span><br><span class="line">            <span class="number">1</span> -&gt; <span class="string">"one"</span></span><br><span class="line">            <span class="string">"hello"</span> -&gt; <span class="string">"gretting"</span></span><br><span class="line">            <span class="keyword">is</span> <span class="built_in">Long</span> -&gt; <span class="string">"long"</span></span><br><span class="line">            !<span class="keyword">is</span> String -&gt; <span class="string">"Not a string"</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span> -&gt; <span class="string">"unknown"</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 <h4 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h4><p>for 循环通过任何提供的迭代器进行迭代。语法是下面这样的：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (item <span class="keyword">in</span> collection)</span><br><span class="line">	print(item)</span><br></pre></td></tr></table></figure>
 <p>内容可以是一个语句块</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (item: <span class="built_in">Int</span> <span class="keyword">in</span> ints)&#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新增规则，去满足for（初始值；条件；增减步长）</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>递增：until          <code>until</code> [n,m）= &gt;即<code>大于等于n,小于m</code> </p>
+<p>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;      <span class="comment">// 循环5次，且步长为1的递增</span></span><br><span class="line">&gt;      <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until <span class="number">5</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>   输出结果为</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;    i =&gt; 0  i =&gt; 1  i =&gt; 2  i =&gt; 3  i =&gt; 4</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li><p>递减：<code>downTo</code>            <code>downTo[n,m]</code> =&gt; 即<code>小于等于n,大于等于m ,n &gt; m</code> </p>
+<p>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;    <span class="comment">// 循环5次，且步长为1的递减</span></span><br><span class="line">&gt;    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">15</span> downTo <span class="number">11</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>   输出结果为：</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;    i =&gt; 15     i =&gt; 14     i =&gt; 13     i =&gt; 12     i =&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li><p>递增：符号<code>..</code>                 <code>..[n,m]</code>=&gt; 即<code>大于等于n，小于等于m</code> </p>
+<p>和<code>until</code>的区别，一个包区间，一个闭区间，<code>..</code>更简单吧！</p>
+<p>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;    print(<span class="string">"使用 符号`..`的打印结果\n"</span>)</span><br><span class="line">&gt;    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">20</span> .. <span class="number">25</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;    </span><br><span class="line">&gt;    println()</span><br><span class="line">&gt;    </span><br><span class="line">&gt;    print(<span class="string">"使用until的打印结果\n"</span>)</span><br><span class="line">&gt;    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">20</span> until <span class="number">25</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>   输出结果为：</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;    使用 符号`..`的打印结果</span><br><span class="line">&gt;    i =&gt; 20     i =&gt; 21     i =&gt; 22     i =&gt; 23     i =&gt; 24     i =&gt; 25     </span><br><span class="line">&gt;    使用until的打印结果</span><br><span class="line">&gt;    i =&gt; 20     i =&gt; 21     i =&gt; 22     i =&gt; 23     i =&gt; 24 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li><p>步长：step</p>
+<p>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">10</span> until <span class="number">16</span> step <span class="number">2</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>   输出结果为：</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;    i =&gt; 10     i =&gt; 12     i =&gt; 14 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>迭代</li>
+</ul>
+<blockquote>
+<p><strong>使用数组的indices属性遍历</strong></p>
+<p>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListTwo = arrayOf(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>)</span><br><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> arrayListTwo.indices)&#123;</span><br><span class="line">&gt;     println(<span class="string">"arrayListTwo[<span class="variable">$i</span>] =&gt; "</span> + arrayListTwo[i])</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; arrayListTwo[0] =&gt; 1</span><br><span class="line">&gt; arrayListTwo[1] =&gt; 3</span><br><span class="line">&gt; arrayListTwo[2] =&gt; 5</span><br><span class="line">&gt; arrayListTwo[3] =&gt; 7</span><br><span class="line">&gt; arrayListTwo[4] =&gt; 9</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>使用数组的withIndex()方法遍历</strong></p>
+<p>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListTwo = arrayOf(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>)</span><br><span class="line">&gt; <span class="keyword">for</span> ((index,value) <span class="keyword">in</span> arrayListTwo.withIndex())&#123;</span><br><span class="line">&gt;     println(<span class="string">"index =&gt; <span class="variable">$index</span> \t value =&gt; <span class="variable">$value</span>"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; index =&gt; 0   value =&gt; 1</span><br><span class="line">&gt; index =&gt; 1   value =&gt; 3</span><br><span class="line">&gt; index =&gt; 2   value =&gt; 5</span><br><span class="line">&gt; index =&gt; 3   value =&gt; 7</span><br><span class="line">&gt; index =&gt; 4   value =&gt; 9</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>使用列表或数组的扩展函数遍历</strong></p>
+<blockquote>
+<ul>
+<li>数组或列表有一个成员或扩展函数<code>iterator()</code>实现了<code>Iterator&lt;T&gt;</code>接口，且该接口提供了<code>next()</code>与<code>hasNext()</code>两个成员或扩展函数</li>
+<li>其一般和<code>while</code>循环一起使用</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>可以查看<code>Array.kt</code>这个类。可以看见其中的<code>iterator()</code>函数，而这个函数实现了<code>Iterator</code>接口。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;     <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;       *   Creates an iterator for iterating over the elements of the array.</span></span><br><span class="line"><span class="comment">&gt;       */</span></span><br><span class="line">&gt;     <span class="keyword">public</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: Iterator&lt;T&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li><p>查看<code>Iterator.kt</code>这个接口类，这个接口提供了<code>hasNext()</code>函数和<code>next()</code>函数。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;     <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="type">out T</span>&gt; </span>&#123;</span><br><span class="line">&gt;    </span><br><span class="line">&gt;     <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;       * Returns the next element in the iteration.</span></span><br><span class="line"><span class="comment">&gt;       */</span></span><br><span class="line">&gt;     <span class="keyword">public</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">next</span><span class="params">()</span></span>: T</span><br><span class="line">&gt;    </span><br><span class="line">&gt;     <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;       * Returns `true` if the iteration has more elements.</span></span><br><span class="line"><span class="comment">&gt;       */</span></span><br><span class="line">&gt;     <span class="keyword">public</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">hasNext</span><span class="params">()</span></span>: <span class="built_in">Boolean</span></span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListThree = arrayOf(<span class="number">2</span>,<span class="string">'a'</span>,<span class="number">3</span>,<span class="literal">false</span>,<span class="number">9</span>)</span><br><span class="line">&gt; <span class="keyword">var</span> iterator: Iterator&lt;Any&gt; = arrayListThree.iterator()</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">&gt;     println(iterator.next())</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 2</span><br><span class="line">&gt; a</span><br><span class="line">&gt; 3</span><br><span class="line">&gt; false</span><br><span class="line">&gt; 9</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>终上所述就是<code>for</code>循环语句常用的用法。</p>
+</blockquote>
 <h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><p>while 和 do…while 像往常那样</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">	x--</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">	<span class="keyword">val</span> y = retrieveData()</span><br><span class="line">&#125; <span class="keyword">while</span> (y != <span class="literal">null</span>) <span class="comment">// y 在这是可见的</span></span><br></pre></td></tr></table></figure>
 <h4 id="在循环中使用-break-和-continue"><a href="#在循环中使用-break-和-continue" class="headerlink" title="在循环中使用 break 和 continue"></a>在循环中使用 break 和 continue</h4>
@@ -582,8 +720,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/03/为何要用Fragment的newInstance/" rel="prev" title="为何要用Fragment的newInstance">
-                为何要用Fragment的newInstance <i class="fa fa-chevron-right"></i>
+              <a href="/2015/08/07/带你初识Kotlin-二/" rel="prev" title="带你初识Kotlin(二)">
+                带你初识Kotlin(二) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -683,7 +821,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
