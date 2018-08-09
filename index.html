@@ -559,9 +559,9 @@
       
         
           
-           
+          
 SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleView滚动结束时，将Item对其到某个位置。SnapHelper是个抽象类，继承了RecycleView.OnFlingListener类
-1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下：1234567891011121314151617181920212223242526272829303132333435public void attachToRecyclerView(@Nullable RecyclerView recyclerView)           throws IllegalStateException &#123;       //如果之前已经附着过该recyclerView，则不作任何处理       if (mRecyclerView == recyclerView) &#123;           return; // n
+1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下：1234567891011121314151617181920212223242526272829303132333435public void attachToRecyclerView(@Nullable RecyclerView recyclerView)           throws IllegalStateException &#123;       //如果之前已经附着过该recyclerView，则不作任何处理       if (mRecyclerView == recyclerView) &#123;           return; // no
           ...
           <!--noindex-->
           <div class="post-button text-center">
