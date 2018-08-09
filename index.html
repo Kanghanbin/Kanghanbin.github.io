@@ -559,8 +559,9 @@
       
         
           
-           SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleView滚动结束时，将Item对其到某个位置。SnapHelper是个抽象类，继承了RecycleView.OnFlingListener类
-1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下：1234567891011121314151617181920212223242526272829303132333435public void attachToRecyclerView(@Nullable RecyclerView recyclerView)           throws IllegalStateException &#123;       //如果之前已经附着过该recyclerView，则不作任何处理       if (mRecyclerView == recyclerView) &#123;           return; // no
+           
+SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleView滚动结束时，将Item对其到某个位置。SnapHelper是个抽象类，继承了RecycleView.OnFlingListener类
+1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下：1234567891011121314151617181920212223242526272829303132333435public void attachToRecyclerView(@Nullable RecyclerView recyclerView)           throws IllegalStateException &#123;       //如果之前已经附着过该recyclerView，则不作任何处理       if (mRecyclerView == recyclerView) &#123;           return; // n
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -848,7 +849,8 @@
       
         
           
-          首先，为什么要使用DataBinding?
+          
+首先，为什么要使用DataBinding?
 
 一般写法findViewById  罗里吧嗦，写到想吐
 ButterKnife 代替   解放findViewById  
@@ -858,7 +860,7 @@ DataBinding数据和UI低耦合
 DataBinding 是一个支持库，它允许您使用声明性格式而不是以编程方式将应用程序中的UI组件绑定到应用程序中的数据源。
 1.1优点：布局文件中的绑定组件允许您在Activtiy中删除许多UI框架调用，使其更简单，更易于维护。这还可以提高应用程序的性能，并有助于防止内存泄漏和空指针异常。 
 常用方式：
-12TextView textView = findViewById(R.id.sample_te
+12TextView textView = findViewById(R.id.sample_t
           ...
           <!--noindex-->
           <div class="post-button text-center">
