@@ -143,7 +143,7 @@
 <meta property="og:description" content="Qusetion1:开发中一直在用Fragment,使用Fragment接受参数是经常遇到的问题，为什么不用构造方法，而用newInstance呢？，构造方法不是更快更省事么？Androidstudio中右键直接创建Fragment:  Answer1：默认会生成如下: 1234567891011121314151617181920212223242526272829303132333435363">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://Kanghanbin.github.io/blog/5.png">
-<meta property="og:updated_time" content="2018-08-03T03:38:06.314Z">
+<meta property="og:updated_time" content="2018-08-10T07:29:37.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为何要用Fragment的newInstance">
 <meta name="twitter:description" content="Qusetion1:开发中一直在用Fragment,使用Fragment接受参数是经常遇到的问题，为什么不用构造方法，而用newInstance呢？，构造方法不是更快更省事么？Androidstudio中右键直接创建Fragment:  Answer1：默认会生成如下: 1234567891011121314151617181920212223242526272829303132333435363">
@@ -417,6 +417,8 @@
 <p><code>FragmentPagerAdapter</code>：对于不再需要的<code>fragment</code>，选择调用detach方法，仅销毁视图，并不会销毁fragment实例。</p>
 <p><code>FragmentStatePagerAdapter</code>：会销毁不再需要的fragment，当当前事务提交以后，会彻底的将<code>fragment</code>从当前Activity的<code>FragmentManager</code>中移除，<code>state</code>标明，销毁时，会将其<code>onSaveInstanceState(Bundle outState)</code>中的<code>bundle</code>信息保存下来，当用户切换回来，可以通过该<code>bundle</code>恢复生成新的<code>fragment</code>，也就是说，你可以在<code>onSaveInstanceState(Bundle outState)</code>方法中保存一些数据，在<code>onCreate</code>中进行恢复创建。</p>
 <p>如上所说，使用<code>FragmentStatePagerAdapter</code>当然更省内存，但是销毁新建也是需要时间的。一般情况下，如果你是制作主页面，就3、4个Tab，那么可以选择使用<code>FragmentPagerAdapter</code>，如果你是用于<code>ViewPager</code>展示数量特别多的条目时，那么建议使用<code>FragmentStatePagerAdapter</code>。</p>
+<p>参考链接：</p>
+<p><a href="http://blog.csdn.net/lmj623565791/article/details/42628537" target="_blank" rel="noopener">Android Fragment 你应该知道的一切</a></p>
 
       
     </div>
@@ -569,7 +571,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -594,7 +596,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
