@@ -134,18 +134,21 @@
 
 
 
-  <meta name="description" content="Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因">
+  <meta name="description" content="Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因。当我看一些开源项目在使用dagger2 时，我停止了前进的步伐，查阅了网上一些层差不齐的资料后，感觉还是懵逼状态，正当我感受到了从入门到放弃的状态时，看到了一篇相对好理解一写的博文，我又开始踏上了从放弃到入门之路。 背景（日常念经，了解一下）Dagger ，鼎鼎大名的Squar">
 <meta name="keywords" content="依赖注入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神兵利器Dragger2学习篇">
 <meta property="og:url" content="https://kanghanbin.github.io/2018/08/23/神兵利器Dragger2学习篇/index.html">
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
-<meta property="og:description" content="Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因">
+<meta property="og:description" content="Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因。当我看一些开源项目在使用dagger2 时，我停止了前进的步伐，查阅了网上一些层差不齐的资料后，感觉还是懵逼状态，正当我感受到了从入门到放弃的状态时，看到了一篇相对好理解一写的博文，我又开始踏上了从放弃到入门之路。 背景（日常念经，了解一下）Dagger ，鼎鼎大名的Squar">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-23T07:17:51.313Z">
+<meta property="og:image" content="https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/blog/11.png?raw=true">
+<meta property="og:image" content="https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/blog/12.png?raw=true">
+<meta property="og:updated_time" content="2018-08-23T09:44:55.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神兵利器Dragger2学习篇">
-<meta name="twitter:description" content="Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因">
+<meta name="twitter:description" content="Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因。当我看一些开源项目在使用dagger2 时，我停止了前进的步伐，查阅了网上一些层差不齐的资料后，感觉还是懵逼状态，正当我感受到了从入门到放弃的状态时，看到了一篇相对好理解一写的博文，我又开始踏上了从放弃到入门之路。 背景（日常念经，了解一下）Dagger ，鼎鼎大名的Squar">
+<meta name="twitter:image" content="https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/blog/11.png?raw=true">
 
 
 
@@ -403,7 +406,36 @@
       
 
       
-        <p>Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因</p>
+        <p>Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因。当我看一些开源项目在使用<code>dagger2</code> 时，我停止了前进的步伐，查阅了网上一些层差不齐的资料后，感觉还是懵逼状态，正当我感受到了从入门到放弃的状态时，<a href="https://www.jianshu.com/p/cd2c1c9f68d4" target="_blank" rel="noopener">看到了一篇相对好理解一写的博文</a>，我又开始踏上了从放弃到入门之路。</p>
+<h3 id="背景（日常念经，了解一下）"><a href="#背景（日常念经，了解一下）" class="headerlink" title="背景（日常念经，了解一下）"></a>背景（日常念经，了解一下）</h3><p>Dagger ，鼎鼎大名的Square公司 开发的，光听Square，就知道肯定不简单(<code>okhttp</code>，Picasso，<code>leakcanary</code>，等等等等）起初Square公司受到<code>Guice</code>的启发而开发了Dagger，但是Dagger这种半静态半运行时的框架还是有些性能问题（虽说依赖注入是完全静态的，但是其有向无环图(Directed Acyclic Graph)还是基于反射来生成的，这无论在大型的服务端应用还是在Android应用上都不是最优方案）。因此Google工程师Fork了Dagger项目，对它进行了改造。于是变演变出了今天我们要讨论的Dagger2，所以说Dagger2其实就是高配版的Dagger。 </p>
+<p>Dagger2 基于Java注解来实现的完全在编译阶段完成<strong>依赖注入</strong>的开源库，主要用于模块间解耦、提高代码的健壮性和可维护性。Dagger2在编译阶段通过apt利用Java注解自动生成Java代码，然后结合手写的代码来自动帮我们完成依赖注入的工作。 </p>
+<h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><p>上文中提到了Dagger2 是解决Android或java中依赖注入的一个类库（Dependency Injection类库） ，通过注解在编译期生成代码的方式实现注入。那为什么要用依赖注入呢？首先看个例子</p>
+<p><img src="https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/blog/11.png?raw=true" alt="无依赖注入"></p>
+<p><img src="https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/blog/12.png?raw=true" alt="有依赖注入"></p>
+<p>上面两张图很形象的说明了使用依赖的差别，只不过用的是构造函数传参给成员变量赋值，实现注入（后面简称构造注入）。前者在编码中肯定不提倡，因为Major和 Student耦合性太高。当然，除了构造函数注入还有接口注入：实现接口方法，同样以传参的方式实现注入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Injection</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">inject</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Injection</span>&lt;<span class="title">Engine</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Major major;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inject</span><span class="params">(Major major)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.major = major;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>重点来了</strong>当然，前两者注入方式需要编写大量代码，Dagger2是通过Java注解在编译期来实现依赖注入的 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建时间：2018/8/23</span></span><br><span class="line"><span class="comment"> * 编写人：kanghb</span></span><br><span class="line"><span class="comment"> * 功能描述：学生</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Inject</span></span><br><span class="line">    Major major;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Student&#123;"</span> +</span><br><span class="line">                <span class="string">"major="</span> + major +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Dagger2注解"><a href="#Dagger2注解" class="headerlink" title="Dagger2注解"></a>Dagger2注解</h3><p>开篇我们就提到Dagger2是基于Java注解来实现依赖注入的，那么在正式使用之前我们需要先了解下Dagger2中的注解。Dagger2使用过程中我们通常接触到的注解主要包括：@Inject, @Module, @Provides, @Component, @Qulifier, @Scope, @Singleten。 </p>
+<ul>
+<li><p>@Inject：@Inject有两个作用，一是用来标记需要依赖的变量，以此告诉Dagger2为它提供依赖；二是用来标记构造函数，Dagger2通过@Inject注解可以在需要这个类实例的时候来找到这个构造函数并把相关实例构造出来，以此来为被@Inject标记了的变量提供依赖；</p>
+</li>
+<li><p>@Module：@Module用于标注提供依赖的类。你可能会有点困惑，上面不是提到用@Inject标记构造函数就可以提供依赖了么，为什么还需要@Module？很多时候我们需要提供依赖的构造函数是第三方库的，我们没法给它加上@Inject注解，又比如说提供以来的构造函数是带参数的，如果我们之所简单的使用@Inject标记它，那么他的参数又怎么来呢？@Module正是帮我们解决这些问题的。</p>
+</li>
+<li><p>@Provides：@Provides用于标注Module所标注的类中的方法，该方法在需要提供依赖时被调用，从而把预先提供好的对象当做依赖给标注了@Inject的变量赋值；</p>
+</li>
+<li><p>@Component：@Component用于标注接口，是依赖需求方和依赖提供方之间的桥梁。被Component标注的接口在编译时会生成该接口的实现类（如果@Component标注的接口为StudentComponent，则编译期生成的实现类为DaggerStudentComponent）,我们通过调用这个实现类的方法完成注入；</p>
+</li>
+<li><p>@Qulifier：@Qulifier用于自定义注解，也就是说@Qulifier就如同Java提供的几种基本元注解一样用来标记注解类。我们在使用@Module来标注提供依赖的方法时，方法名我们是可以随便定义的（虽然我们定义方法名一般以provide开头，但这并不是强制的，只是为了增加可读性而已）。那么Dagger2怎么知道这个方法是为谁提供依赖呢？答案就是返回值的类型，Dagger2根据返回值的类型来决定为哪个被@Inject标记了的变量赋值。但是问题来了，一旦有多个一样的返回类型Dagger2就懵逼了。@Qulifier的存在正式为了解决这个问题，我们使用@Qulifier来定义自己的注解，然后通过自定义的注解去标注提供依赖的方法和依赖需求方（也就是被@Inject标注的变量），这样Dagger2就知道为谁提供依赖了。—-一个更为精简的定义：当类型不足以鉴别一个依赖的时候，我们就可以使用这个注解标示；</p>
+</li>
+<li><p>@Scope：@Scope同样用于自定义注解，我能可以通过@Scope自定义的注解来限定注解作用域，实现局部的单例；</p>
+</li>
+<li><p>@Singleton：@Singleton其实就是一个通过@Scope定义的注解，我们一般通过它来实现全局单例。但实际上它并不能t体现全局单例，是否能提供全局单例还要取决于对应的Component是否为一个全局对象。</p>
+</li>
+</ul>
+<p>  我们提到@Inject和@Module都可以提供依赖，那如果我们即在构造函数上通过标记@Inject提供依赖，有通过@Module提供依赖Dagger2会如何选择呢？具体规则如下： </p>
+<h2 id="Dagger2使用入门"><a href="#Dagger2使用入门" class="headerlink" title="Dagger2使用入门"></a>Dagger2使用入门</h2><p>前面长篇大论的基本都在介绍概念，下面我们看看Dagger2的基本应用。关于Dagger2的依赖配置就不在这里占用篇幅去描述了，大家可以到它的github主页下去查看官方教程<a href="https://github.com/google/dagger" target="_blank" rel="noopener">https://github.com/google/dagger</a>。接下来我们还是拿前面的Car和Engine来举例。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Add Dagger dependencies</span></span><br><span class="line">dependencies &#123;</span><br><span class="line">  compile <span class="string">'com.google.dagger:dagger:2.x'</span></span><br><span class="line">  annotationProcessor <span class="string">'com.google.dagger:dagger-compiler:2.x'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -523,8 +555,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -609,6 +650,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景（日常念经，了解一下）"><span class="nav-number">1.</span> <span class="nav-text">背景（日常念经，了解一下）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖注入"><span class="nav-number">2.</span> <span class="nav-text">依赖注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dagger2注解"><span class="nav-number">3.</span> <span class="nav-text">Dagger2注解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dagger2使用入门"><span class="nav-number"></span> <span class="nav-text">Dagger2使用入门</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
