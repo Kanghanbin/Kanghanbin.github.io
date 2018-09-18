@@ -134,18 +134,23 @@
 
 
 
-  <meta name="description" content="夜路走多了，总会遇到鬼">
-<meta name="keywords" content="北京">
+  <meta name="description" content="一、CoordinatorLayout 是一个ViewGroup，遵循Material 风格，包含在 support Library中，结合AppbarLayout, CollapsingToolbarLayout等 可 产生各种炫酷的折叠悬浮效果。  二、AppBarLayout 是一个vertical的LinearLayout，其子View应通过下面两种方式来提供他们的Behavior。  1">
+<meta name="keywords" content="Material Design">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoordinatorLayout打造折叠悬浮效果">
 <meta property="og:url" content="https://kanghanbin.github.io/2018/09/18/CoordinatorLayout打造折叠悬浮效果/index.html">
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
-<meta property="og:description" content="夜路走多了，总会遇到鬼">
+<meta property="og:description" content="一、CoordinatorLayout 是一个ViewGroup，遵循Material 风格，包含在 support Library中，结合AppbarLayout, CollapsingToolbarLayout等 可 产生各种炫酷的折叠悬浮效果。  二、AppBarLayout 是一个vertical的LinearLayout，其子View应通过下面两种方式来提供他们的Behavior。  1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-18T06:43:36.209Z">
+<meta property="og:image" content="https://kanghanbin.github.io/blog/exitunticollapsed.gif">
+<meta property="og:image" content="https://kanghanbin.github.io/blog/enteralways.gif">
+<meta property="og:image" content="https://kanghanbin.github.io/blog/enteralwayscollapsed.gif">
+<meta property="og:image" content="https://kanghanbin.github.io/blog/snap.gif">
+<meta property="og:updated_time" content="2018-09-18T09:26:55.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoordinatorLayout打造折叠悬浮效果">
-<meta name="twitter:description" content="夜路走多了，总会遇到鬼">
+<meta name="twitter:description" content="一、CoordinatorLayout 是一个ViewGroup，遵循Material 风格，包含在 support Library中，结合AppbarLayout, CollapsingToolbarLayout等 可 产生各种炫酷的折叠悬浮效果。  二、AppBarLayout 是一个vertical的LinearLayout，其子View应通过下面两种方式来提供他们的Behavior。  1">
+<meta name="twitter:image" content="https://kanghanbin.github.io/blog/exitunticollapsed.gif">
 
 
 
@@ -403,7 +408,80 @@
       
 
       
-        
+        <h3 id="一、CoordinatorLayout"><a href="#一、CoordinatorLayout" class="headerlink" title="一、CoordinatorLayout"></a>一、CoordinatorLayout</h3><p> 是一个<code>ViewGroup</code>，遵循Material 风格，包含在 support Library中，结合<code>AppbarLayout</code>, <code>CollapsingToolbarLayout</code>等 可 产生各种炫酷的折叠悬浮效果。 </p>
+<h3 id="二、AppBarLayout"><a href="#二、AppBarLayout" class="headerlink" title="二、AppBarLayout"></a>二、AppBarLayout</h3><p> 是一个vertical的<code>LinearLayout</code>，其子View应通过下面两种方式来提供他们的<code>Behavior</code>。 </p>
+<p>1.代码方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setScrollFlags(<span class="keyword">int</span>)</span><br></pre></td></tr></table></figure>
+<p>2.xmL方式:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app:layout_scrollFlags</span><br></pre></td></tr></table></figure>
+<p>具体的<code>app:layout_scrollFlags</code>有这么几个： <code>scroll</code>, <code>exitUntilCollapsed</code>, <code>enterAlways</code>, <code>enterAlwaysCollapsed</code>, snap </p>
+<table>
+<thead>
+<tr>
+<th>常量</th>
+<th>常数值</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCROLL_FLAG_ENTER_ALWAYS</td>
+<td>4（0x00000004）</td>
+<td>当进入（在屏幕上滚动）时，无论滚动视图是否也在滚动，视图都将滚动任何向下滚动事件。这通常被称为“快速返回”模式。</td>
+</tr>
+<tr>
+<td>SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED</td>
+<td>8（0x00000008）</td>
+<td><code>enterAlways</code>的另一个标志，它修改返回的视图，最初只回滚到它的折叠高度。一旦滚动视图到达其滚动范围的末尾，该视图的其余部分将滚动到视图中。折叠高度由视图的最小高度定义。</td>
+</tr>
+<tr>
+<td>SCROLL_FLAG_EXIT_UNTIL_COLLAPSED</td>
+<td>2（0x00000002）</td>
+<td>退出（滚动屏幕）时，视图将滚动直到“折叠”。折叠高度由视图的最小高度定义。</td>
+</tr>
+<tr>
+<td>SCROLL_FLAG_SCROLL</td>
+<td>1（0x00000001）</td>
+<td>视图将滚动与滚动事件直接相关。需要设置此标志才能使任何其他标志生效。如果在此之前的任何兄弟视图没有此标志，则此值无效</td>
+</tr>
+<tr>
+<td>SCROLL_FLAG_SNAP</td>
+<td>16（0x00000010）</td>
+<td>在滚动结束时，如果视图仅部分可见，则它将被捕捉并滚动到其最近的边缘。例如，如果视图仅显示其底部25％，则它将完全滚出屏幕。相反，如果它的底部75％是可见的，那么它将完全滚动到视图中。</td>
+</tr>
+</tbody>
+</table>
+<p>上面解释是官方翻译的，不好理解，可以直接看运行效果演示gif。</p>
+<p>他必须严格地是<code>CoordinatorLayout</code>的子View，不然他一点作用都发挥不出来。</p>
+<h3 id="三、AppBarLayout下方的滑动控件"><a href="#三、AppBarLayout下方的滑动控件" class="headerlink" title="三、AppBarLayout下方的滑动控件"></a>三、AppBarLayout下方的滑动控件</h3><p>比如<code>RecyclerView</code>，<code>NestedScrollView</code>（与<code>AppBarLayout</code>同属于<code>CoordinatorLayout</code>的子View,并列的关系）,必须严格地通过在xml中指出其滑动<code>Behavior</code>来与<code>AppBarLayout</code>进行绑定。通常这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app:layout_behavior=\"@string/appbar_scrolling_view_behavior\"</span><br></pre></td></tr></table></figure>
+<h3 id="四、CollapsingToolbarLayout"><a href="#四、CollapsingToolbarLayout" class="headerlink" title="四、CollapsingToolbarLayout"></a>四、CollapsingToolbarLayout</h3><p>是一个专门用来包裹<code>Toolbar</code>的控件，里面可以放置一个<code>imageView</code>和一个<code>toolbar</code>然后轻松地实现：随着滑动，图片和toolbar的标题也有动画。 </p>
+<p>内部的子View一般都要加上属性：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app:layout_collapseMode=""</span><br></pre></td></tr></table></figure>
+<p>常用的是parallax，pin。</p>
+<p>parallax是视差滚动，用在<code>imageView</code>, pin是固定，用在toolbar。 </p>
+<p>用<code>setContentScrimColor(int)</code>或者<code>setContentScrim(drawable)</code>来设置内容纱布，就是当折叠到只剩下Toolbar的时候，用一个另外的图片或者颜色来设置toolbar的背景。 </p>
+<h3 id="五、Toolbar"><a href="#五、Toolbar" class="headerlink" title="五、Toolbar"></a>五、Toolbar</h3><p>他的title如果需要带有<code>CollapsingToolbarLayout</code>的动画的话，就要用<code>collapsingToolbarLayout.setTitle()</code>; 否则是没有动画的，其他的和toolbar平时一样。</p>
+<h3 id="六、代码"><a href="#六、代码" class="headerlink" title="六、代码"></a>六、代码</h3><p>下面通过代码的方式看看效果</p>
+<p>首先看看xml布局</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">".MainActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/appbar"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.CollapsingToolbarLayout</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/collapsingToolbar"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:contentScrim</span>=<span class="string">"@color/colorPrimary"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:statusBarScrim</span>=<span class="string">"@color/colorPrimary"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_scrollFlags</span>=<span class="string">"scroll|exitUntilCollapsed"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag"></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_height</span>=<span class="string">"250dp"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:scaleType</span>=<span class="string">"centerCrop"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:src</span>=<span class="string">"@drawable/kobe"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">app:layout_collapseMode</span>=<span class="string">"parallax"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:minHeight</span>=<span class="string">"?attr/actionBarSize"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">app:title</span>=<span class="string">"科比"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">app:titleTextColor</span>=<span class="string">"@color/colorPrimary"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">app:layout_collapseMode</span>=<span class="string">"pin"</span></span></span><br><span class="line"><span class="tag">                &gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;/<span class="name">android.support.v7.widget.Toolbar</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">android.support.design.widget.CollapsingToolbarLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/rv_main"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_behavior</span>=<span class="string">"@string/appbar_scrolling_view_behavior"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"@string/textContent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textSize</span>=<span class="string">"20sp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>activity里面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Toolbar toolbar;</span><br><span class="line">    <span class="keyword">private</span> CollapsingToolbarLayout collapsingToolbarLayout;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> savedInstanceState</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        toolbar = findViewById(R.id.toolbar);</span><br><span class="line">        collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);</span><br><span class="line">        toolbar.setNavigationIcon(R.drawable.back);</span><br><span class="line">        collapsingToolbarLayout.setTitle(<span class="string">"科比背打科比哈哈哈哈哈哈哈"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="七、运行效果"><a href="#七、运行效果" class="headerlink" title="七、运行效果"></a>七、运行效果</h3><ol>
+<li><p>app:layout_scrollFlags=”scroll|exitUntilCollapsed”</p>
+<p><img src="https://kanghanbin.github.io/blog/exitunticollapsed.gif" alt=""></p>
+</li>
+<li><p>app:layout_scrollFlags=”scroll|enterAlways”</p>
+<p><img src="https://kanghanbin.github.io/blog/enteralways.gif" alt=""></p>
+</li>
+<li><p>app:layout_scrollFlags=”scroll|enterAlwaysCollapsed”</p>
+<p><img src="https://kanghanbin.github.io/blog/enteralwayscollapsed.gif" alt=""></p>
+</li>
+<li><p>app:layout_scrollFlags=”scroll|snap”</p>
+<p><img src="https://kanghanbin.github.io/blog/snap.gif" alt=""></p>
+</li>
+</ol>
+
       
     </div>
 
@@ -449,6 +527,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Material-Design/" rel="tag"># Material Design</a>
+          
+        </div>
       
 
       
@@ -516,8 +600,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -567,7 +660,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -602,6 +697,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、CoordinatorLayout"><span class="nav-number">1.</span> <span class="nav-text">一、CoordinatorLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、AppBarLayout"><span class="nav-number">2.</span> <span class="nav-text">二、AppBarLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、AppBarLayout下方的滑动控件"><span class="nav-number">3.</span> <span class="nav-text">三、AppBarLayout下方的滑动控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、CollapsingToolbarLayout"><span class="nav-number">4.</span> <span class="nav-text">四、CollapsingToolbarLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、Toolbar"><span class="nav-number">5.</span> <span class="nav-text">五、Toolbar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、代码"><span class="nav-number">6.</span> <span class="nav-text">六、代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、运行效果"><span class="nav-number">7.</span> <span class="nav-text">七、运行效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

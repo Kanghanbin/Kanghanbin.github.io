@@ -409,8 +409,30 @@
       
         
           
-          
-          
+          一、CoordinatorLayout 是一个ViewGroup，遵循Material 风格，包含在 support Library中，结合AppbarLayout, CollapsingToolbarLayout等 可 产生各种炫酷的折叠悬浮效果。 
+二、AppBarLayout 是一个vertical的LinearLayout，其子View应通过下面两种方式来提供他们的Behavior。 
+1.代码方式：
+1setScrollFlags(int)
+2.xmL方式:
+1app:layout_scrollFlags
+具体的app:layout_scrollFlags有这么几个： scroll, exitUntilCollapsed, enterAlways, enterAlwaysCollapsed, snap 
+
+
+
+常量
+常数值
+解释
+
+
+
+
+SCROLL_FLAG_ENTER_ALWAYS
+4（0x00000004）
+当进入（在屏幕上滚动）时，无论滚动视图是否也在滚动，视图都将滚动任何向下滚动事件。这通常被称为“快速返回”模式。
+
+
+SCROLL_FLAG_ENTER_ALWAY
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/18/CoordinatorLayout打造折叠悬浮效果/#more" rel="contents">
@@ -1867,7 +1889,9 @@ B. SI Project初体验与窗口布局介绍：　　新建工程之后是add and
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
