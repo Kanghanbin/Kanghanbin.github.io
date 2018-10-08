@@ -431,7 +431,7 @@ DataBinding数据和UI低耦合
 DataBinding 是一个支持库，它允许您使用声明性格式而不是以编程方式将应用程序中的UI组件绑定到应用程序中的数据源。
 1.1优点：布局文件中的绑定组件允许您在Activtiy中删除许多UI框架调用，使其更简单，更易于维护。这还可以提高应用程序的性能，并有助于防止内存泄漏和空指针异常。 
 常用方式：
-12TextView textView = findViewById(R.id.sample_t
+TextView textView = findViewById(R.id.sample_tex
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -867,7 +867,8 @@ B. SI Project初体验与窗口布局介绍：　　新建工程之后是add and
       
         
           <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1012,7 +1013,17 @@ B. SI Project初体验与窗口布局介绍：　　新建工程之后是add and
           Qusetion1:开发中一直在用Fragment,使用Fragment接受参数是经常遇到的问题，为什么不用构造方法，而用newInstance呢？，构造方法不是更快更省事么？Androidstudio中右键直接创建Fragment:
 
 Answer1：默认会生成如下:
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100/** * A simple &#123;@link Fragment&#125; subclass. * Activities that contain this fragment must implement the * &#123;@link BlankFragment.OnFragmentInteractionListener&#12
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link BlankFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link BlankFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class BlankFragment extends Fragment {
+    // TO
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1162,11 +1173,21 @@ val: 用此关键字声明的变量表示不可变变量，即可读且不可写
 
 1.1基础用法：关键字 变量名：数据类型 = xxx  
 eg:
-123456789//立即初始化var var_a: Int = 10 //推导出类型var var_b = 5//没有初始化的时候，必须声明类型var var_c :Floatvar_c = 12.4fprintln("var_a =&gt; $var_a \t var_b =&gt; $var_b \t var_a =&gt; $var_c")//$符号表示引用的意思
+//立即初始化
+var var_a: Int = 10 
+//推导出类型
+var var_b = 5
+//没有初始化的时候，必须声明类型
+var var_c :Float
+var_c = 12.4f
+println("var_a => $var_a \t var_b => $var_b \t var_a => $var_c")
+//$符号表示引用的意思
+
 注意：在类中声明变量时，必须初始化，如果不初始化，需要使用lateinit关键字
 1.2声明可空变量：
 在声明的时候一定用标准的声明格式定义。不能用可推断类型的简写。
-变量类型后面的?符号不能省略。不然就和普通的
+变量类型后面的?符号不能省略。不然就和普通的变量没区别了。
+其
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1358,7 +1379,7 @@ Byte
 
 在Kotlin中，短类型，不会隐式转化为长类型，这意味着我们必须显式转换才能把 Byte 赋值给 Int。
 error：
-12val b: Byte = 1 // OK, literals ar
+val b: Byte = 1 // OK, literals are 
           ...
           <!--noindex-->
           <div class="post-button text-center">

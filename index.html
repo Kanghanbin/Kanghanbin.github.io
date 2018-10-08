@@ -421,7 +421,14 @@
         
           
            使用RecyclerView搭配StaggeredGridLayoutManager实现瀑布流时，一般会在Adapter的onBindViewHolder()方法里给每一个item随机生成一个高度，使得item的排布错落有致，不死板。
-12345678910111213141516171819202122232425262728293031323334@Override   public void onBindViewHolder(final ViewHolder holder, int position) &#123;       //存在记录的高度时先Layout再异步加载图片       if (mList.get(holder.getAdapterPosition()).getHeight() &gt; 0) &#123;           ViewGroup.LayoutParams layoutParams = holder.ivGirl.getLayoutParams();           layoutParams.height = mList.get(holde
+ @Override
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        //存在记录的高度时先Layout再异步加载图片
+        if (mList.get(holder.getAdapterPosition()).getHeight() > 0) {
+            ViewGroup.LayoutParams layoutParams = holder.ivGirl.getLayoutParams();
+            layoutParams.height = mList.get(holder.getAdapterPosition()).getHeight();
+        }
+        Glide.
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -567,7 +574,14 @@
 二、思路分析首先，上效果图，这样的评论界面很常见，日常新闻，社交等类的app中都有评论功能，今天就来看看怎么实现？
 实现这种效果并不难，首先最外层肯定是Recycleview，然后设置他的Adapter来实现，重点在于Adapter的实现。
 三、准备1.首先，得有一个评论javaBean类，用来封装评论信息，当然这些信息在开发中都是从服务器端获取的，这个类为CommentBean，代码如下：
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134
+public class CommentBean {
+
+    /**
+     * author : xiaowei
+     * content : 正解啊，比如中午登机，早上不吃空腹上，到时候飞机餐就算是两个圆圆的小面包都吃得有滋有味！开始怀疑，到底是飞机旅行、真是高大上呀！??哈哈…我见不少人特意留着飞机上发的食物带回去，落地后送人吃，很拽的来一句：飞机食品哦！…笑得不行鸟
+     * avatar : http://pic1.zhimg.com/da8e974dc_im.jpg
+     * time : 1413603692
+     * reply_to : {"c
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -712,9 +726,11 @@
           一、CoordinatorLayout 是一个ViewGroup，遵循Material 风格，包含在 support Library中，结合AppbarLayout, CollapsingToolbarLayout等 可 产生各种炫酷的折叠悬浮效果。 
 二、AppBarLayout 是一个vertical的LinearLayout，其子View应通过下面两种方式来提供他们的Behavior。 
 1.代码方式：
-1setScrollFlags(int)
+setScrollFlags(int)
+
 2.xmL方式:
-1app:layout_scrollFlags
+app:layout_scrollFlags
+
 具体的app:layout_scrollFlags有这么几个： scroll, exitUntilCollapsed, enterAlways, enterAlwaysCollapsed, snap 
 
 
@@ -879,7 +895,14 @@ SCROLL_FLAG_ENTER_ALWAY
 动态效果：
 
 具体实现对应xml代码如下，不多做解释：
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611711811912012112212312412512612712812913013113213313413513613713813914014114214314414514614714814915
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tabbgcolor2"
+    andr
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1464,14 +1487,17 @@ Binder 之复杂远远不是一篇文章就能说清楚的，本文想站在一�
         
           
           一、前言作为安卓开发，天天跟Support Library打交道，动不动来个 Support Library相关类，如下：
-1234implementation 'com.android.support:support-v4:27.0.2'implementation 'com.android.support:appcompat-v7:27.0.2'implementation 'com.android.support:design:27.0.2'implementation 'com.android.support:cardview-v7:27.0.2'
+    implementation 'com.android.support:support-v4:27.0.2'
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:design:27.0.2'
+    implementation 'com.android.support:cardview-v7:27.0.2'
+
 这样做是没错，但是有时候我们只需要用到一个小小的类，导入了一个很大的包，有点小题大做了，所以一起来了解了解Support Library吧!
 二、介绍Android 支持库提供了诸多未内置于框架的功能。这些库提供向后兼容版本的新功能、框架中未包含的实用 UI 元素，以及应用可以利用的一系列实用程序。 
 支持库提供一系列不同的功能：
 
 向后兼容版本的框架组件。
-用于实现建议的 Android 布局模式的 UI 元素。
-支持不同的设备类
+用于实现建议的 Android 布局模式的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1615,7 +1641,21 @@ Binder 之复杂远远不是一篇文章就能说清楚的，本文想站在一�
           
           
 SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleView滚动结束时，将Item对其到某个位置。SnapHelper是个抽象类，继承了RecycleView.OnFlingListener类
-1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下：1234567891011121314151617181920212223242526272829303132333435public void attachToRecyclerView(@Nullable RecyclerView recyclerView)           throws IllegalStateException &#123;       //如果之前已经附着过该recyclerView，则不作任何处理       if (mRecyclerView == recyclerView) &#123;           return; // no
+1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下： public void attachToRecyclerView(@Nullable RecyclerView recyclerView)
+
+            throws IllegalStateException {
+
+        //如果之前已经附着过该recyclerView，则不作任何处理
+
+        if (mRecyclerView == recyclerView) {
+
+            return; // nothing to do
+
+        }
+
+        //如果不一致，则清理监听
+
+        if 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1761,7 +1801,8 @@ SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleV
 比如，设计稿宽度是360px，那么开发这边就会把目标dp值设为360dp，在不同的设备中，动态修改density值，从而保证(手机像素宽度)px/density这个值始终是360dp,这样的话，就能保证UI在不同的设备上表现一致了。
 这个方案侵入性很低，而且也没有涉及私有API，应该也是极不错的方案，我暂时也想不到强行修改density是否会有其他影响，既然有今日头条的大厂在用，稳定性应当是有保证的。
 但是根据我的观察，这套方案对老项目是不太友好的，因为修改了系统的density值之后，整个布局的实际尺寸都会发生改变，如果想要在老项目文件中使用，恐怕整个布局文件中的尺寸都可能要重新按照设计稿修改一遍才行。因此，如果你是在维护或者改造老项目，使用这套方案就要三思了。
-具体代码实现为：1234567891011121314151617181920212223242
+具体代码实现为：    // 今日头条的屏幕适配方案
+    // 通过修改density值，强
           ...
           <!--noindex-->
           <div class="post-button text-center">

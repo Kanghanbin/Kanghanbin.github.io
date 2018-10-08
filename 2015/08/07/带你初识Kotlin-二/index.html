@@ -424,7 +424,16 @@
 </ul>
 <h4 id="1-1基础用法："><a href="#1-1基础用法：" class="headerlink" title="1.1基础用法："></a>1.1基础用法：</h4><p>关键字 变量名：数据类型 = xxx  </p>
 <p>eg:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//立即初始化</span></span><br><span class="line"><span class="keyword">var</span> var_a: <span class="built_in">Int</span> = <span class="number">10</span> </span><br><span class="line"><span class="comment">//推导出类型</span></span><br><span class="line"><span class="keyword">var</span> var_b = <span class="number">5</span></span><br><span class="line"><span class="comment">//没有初始化的时候，必须声明类型</span></span><br><span class="line"><span class="keyword">var</span> var_c :<span class="built_in">Float</span></span><br><span class="line">var_c = <span class="number">12.4</span>f</span><br><span class="line">println(<span class="string">"var_a =&gt; <span class="variable">$var_a</span> \t var_b =&gt; <span class="variable">$var_b</span> \t var_a =&gt; <span class="variable">$var_c</span>"</span>)</span><br><span class="line"><span class="comment">//$符号表示引用的意思</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">//立即初始化</span>
+<span class="token keyword">var</span> var_a<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">10</span> 
+<span class="token comment" spellcheck="true">//推导出类型</span>
+<span class="token keyword">var</span> var_b <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token comment" spellcheck="true">//没有初始化的时候，必须声明类型</span>
+<span class="token keyword">var</span> var_c <span class="token operator">:</span>Float
+var_c <span class="token operator">=</span> <span class="token number">12.4f</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"var_a => <span class="token interpolation variable">$var_a</span> \t var_b => <span class="token interpolation variable">$var_b</span> \t var_a => <span class="token interpolation variable">$var_c</span>"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//$符号表示引用的意思</span>
+</code></pre>
 <p>注意：在类中声明变量时，必须初始化，如果不初始化，需要使用<code>lateinit</code>关键字<img src="https://Kanghanbin.github.io/blog/7.png" alt="IntelliJ IEDA中爆红并提示"></p>
 <h4 id="1-2声明可空变量："><a href="#1-2声明可空变量：" class="headerlink" title="1.2声明可空变量："></a>1.2声明可空变量：</h4><ul>
 <li>在声明的时候一定用标准的声明格式定义。不能用可推断类型的简写。</li>
@@ -434,7 +443,9 @@
 <p>定义：</p>
 <p><code>var/val</code> 变量名 ： 类型？ = null/确定的值</p>
 <p>eg：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> var_a : <span class="built_in">Int</span>? = <span class="number">0</span></span><br><span class="line"><span class="keyword">val</span> val_a : <span class="built_in">Int</span>? = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin">  <span class="token keyword">var</span> var_a <span class="token operator">:</span> Int<span class="token operator">?</span> <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">val</span> val_a <span class="token operator">:</span> Int<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword">null</span>
+</code></pre>
 <h4 id="1-3后期初始化"><a href="#1-3后期初始化" class="headerlink" title="1.3后期初始化"></a>1.3后期初始化</h4><p>前面提到在类中定义一个变量（属性）时是必须初始化的，但是在平时<code>Android</code>开发中我们对组件变量的声明是不需要直接初始化，这。。。。，<code>Kotlin</code>中后期初始化满足了你。</p>
 <ul>
 <li>使用<code>lateinit</code>关键字</li>
@@ -444,17 +455,41 @@
 <li>声明后，在使用该变量前必须赋值，不然会抛出<code>UninitializedPropertyAccessException</code>异常</li>
 </ul>
 <p>eg：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin">
+</code></pre>
 <h4 id="1-4延迟初始化"><a href="#1-4延迟初始化" class="headerlink" title="1.4延迟初始化"></a>1.4延迟初始化</h4><p>程序第一次使用到这个变量（属性）时再初始化</p>
 <ul>
 <li>使用<code>lazy{}</code>高阶函数，不能用于类型推断。且该函数在变量的数据类型后面，用<code>by</code>链接。</li>
 <li>必须是只读变量，即用<code>val</code>声明的变量。</li>
 </ul>
 <p>eg：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明一个延迟初始化的字符串数组变量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> mTitles : Array&lt;String&gt; <span class="keyword">by</span> lazy &#123;</span><br><span class="line">    arrayOf(</span><br><span class="line">            ctx.getString(R.string.tab_title_android),</span><br><span class="line">            ctx.getString(R.string.tab_title_ios),</span><br><span class="line">            ctx.getString(R.string.tab_title_h5)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明一个延迟初始化的字符串</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> mStr : String <span class="keyword">by</span> lazy&#123;</span><br><span class="line">    <span class="string">"我是延迟初始化字符串变量"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">// 声明一个延迟初始化的字符串数组变量</span>
+<span class="token keyword">private</span> <span class="token keyword">val</span> mTitles <span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span> <span class="token keyword">by</span> lazy <span class="token punctuation">{</span>
+    <span class="token function">arrayOf</span><span class="token punctuation">(</span>
+            ctx<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>string<span class="token punctuation">.</span>tab_title_android<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            ctx<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>string<span class="token punctuation">.</span>tab_title_ios<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            ctx<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>string<span class="token punctuation">.</span>tab_title_h5<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 声明一个延迟初始化的字符串</span>
+<span class="token keyword">private</span> <span class="token keyword">val</span> mStr <span class="token operator">:</span> String <span class="token keyword">by</span> lazy<span class="token punctuation">{</span>
+    <span class="token string">"我是延迟初始化字符串变量"</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="二、Kotlin注释"><a href="#二、Kotlin注释" class="headerlink" title="二、Kotlin注释"></a>二、<code>Kotlin</code>注释</h3><p><code>kotlin</code>中注释和java基本一样，只是多了个多行注释（嵌套多行注释），个人觉得没卵用，只是看起来有点层次感</p>
 <p>eg：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">   第一层块注释</span></span><br><span class="line"><span class="comment">   /*</span></span><br><span class="line"><span class="comment">       第二层块注释</span></span><br><span class="line"><span class="comment">       /*</span></span><br><span class="line"><span class="comment">           第三层快注释</span></span><br><span class="line"><span class="comment">           这种注释方式在java中是不支持的，但是在kotlin中是支持的。算是一个亮点吧（貌似意义不大）。</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    */</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin">  <span class="token comment" spellcheck="true">/*
+    第一层块注释
+    /*
+        第二层块注释
+        /*
+            第三层快注释
+            这种注释方式在java中是不支持的，但是在kotlin中是支持的。算是一个亮点吧（貌似意义不大）。
+         */</span>
+     <span class="token operator">*</span><span class="token operator">/</span>
+ <span class="token operator">*</span><span class="token operator">/</span>
+</code></pre>
 <p>其他注释和java一个样</p>
 <h3 id="三、进制数"><a href="#三、进制数" class="headerlink" title="三、进制数"></a>三、进制数</h3><ul>
 <li>二进制数</li>
@@ -463,7 +498,12 @@
 <li>十六进制数</li>
 </ul>
 <p>eg：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> g = <span class="number">0x0F</span>            <span class="comment">//十六进制数</span></span><br><span class="line"><span class="keyword">var</span> h = <span class="number">0</span>b00001011      <span class="comment">//二进制数</span></span><br><span class="line"><span class="keyword">var</span> k = <span class="number">123</span>             <span class="comment">//十进制数</span></span><br><span class="line"><span class="comment">// ps：Kotlin不支持八进制数</span></span><br><span class="line">println(<span class="string">" g =&gt; <span class="variable">$g</span> \n h =&gt; <span class="variable">$h</span> \n k =&gt; <span class="variable">$k</span>);</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">var</span> g <span class="token operator">=</span> <span class="token number">0x0F</span>            <span class="token comment" spellcheck="true">//十六进制数</span>
+<span class="token keyword">var</span> h <span class="token operator">=</span> <span class="token number">0b00001011</span>      <span class="token comment" spellcheck="true">//二进制数</span>
+<span class="token keyword">var</span> k <span class="token operator">=</span> <span class="token number">123</span>             <span class="token comment" spellcheck="true">//十进制数</span>
+<span class="token comment" spellcheck="true">// ps：Kotlin不支持八进制数</span>
+<span class="token function">println</span><span class="token punctuation">(</span>" g <span class="token operator">=</span><span class="token operator">></span> $g \n h <span class="token operator">=</span><span class="token operator">></span> $h \n k <span class="token operator">=</span><span class="token operator">></span> $k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>输出结果：</p>
 <p>g =&gt; 15  h =&gt; 11  k =&gt; 123  </p>
 

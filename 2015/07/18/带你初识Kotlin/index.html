@@ -464,9 +464,12 @@
 </table>
 <p>在<code>Kotlin</code>中，短类型，不会隐式转化为长类型，这意味着我们必须显式转换才能把 <code>Byte</code> 赋值给 <code>Int</code>。</p>
 <p>error：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> b: <span class="built_in">Byte</span> = <span class="number">1</span> <span class="comment">// OK, literals are checked statically</span></span><br><span class="line"><span class="keyword">val</span> i: <span class="built_in">Int</span> = b <span class="comment">//ERRO</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> b<span class="token operator">:</span> Byte <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment" spellcheck="true">// OK, literals are checked statically</span>
+<span class="token keyword">val</span> i<span class="token operator">:</span> Int <span class="token operator">=</span> b <span class="token comment" spellcheck="true">//ERRO</span>
+</code></pre>
 <p>right:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i: <span class="built_in">Int</span> = b.toInt()<span class="comment">//显示转换</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> i<span class="token operator">:</span> Int <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//显示转换</span>
+</code></pre>
 <p>我们可以通过显式转换把数值类型提升 。每个数值类型都支持下面的转换：</p>
 <blockquote>
 <p><code>toByte(): Byte</code></p>
@@ -490,20 +493,32 @@
 <p><code>toChar(): Char</code></p>
 </blockquote>
 <p>Kotlin支持标准的运算表达式，关于位运算，<code>kotlin</code>没有提供特殊的操作符，只是提供了可以叫中缀形式的方法，比如：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = (<span class="number">1</span> shl <span class="number">2</span>) and <span class="number">0x000FF000</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> x <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">shl</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token number">0x000FF000</span>
+</code></pre>
 <p>下面是全部的位运算操作符(<strong>只可以用在 <code>Int</code> 和 <code>Long</code> 类型</strong>)：</p>
 <blockquote>
 <p><code>shl(bits)</code> – 带符号左移 (相当于 Java’s <code>&lt;&lt;</code>) <code>shr(bits)</code> – 带符号右移 (相当于 Java’s <code>&gt;&gt;</code>) <code>ushr(bits)</code> – 无符号右移 (相当于 Java’s <code>&gt;&gt;&gt;</code>) <code>and(bits)</code> – 按位与 <code>or(bits)</code> – 按位或 <code>xor(bits)</code> – 按位异或 <code>inv(bits)</code> – 按位翻转</p>
 </blockquote>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(<span class="number">1</span> shl <span class="number">3</span>)<span class="comment">//打印结果为8</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"> <span class="token function">println</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">shl</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//打印结果为8</span>
+</code></pre>
 <ul>
 <li>字符类型</li>
 </ul>
 <p>字符类型用<code>Char</code>表示，不能直接当做数值使用：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">check</span><span class="params">(c: <span class="type">Char</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="number">1</span>) &#123; <span class="comment">//ERROR: 类型不匹配，这里会提示</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">check</span><span class="token punctuation">(</span>c<span class="token operator">:</span> Char<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//ERROR: 类型不匹配，这里会提示</span>
+        <span class="token comment" spellcheck="true">//...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>字符是由单引号包裹的’1’，特殊的字符通过反斜杠\转义，下面的字符序列支持转义：\t,\b,\n,\r,’,”,\和$。编码任何其他字符，使用 Unicode 转义语法：\uFF00。</p>
 <p>我们可以将字符显示的转义为Int数字：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">decimalDigitValue</span><span class="params">(c: <span class="type">Char</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (c !<span class="keyword">in</span> <span class="string">'0'</span>..<span class="string">'9'</span>) </span><br><span class="line">		<span class="keyword">throw</span> IllegalArgumentException(<span class="string">"Out of range"</span>)</span><br><span class="line">	<span class="keyword">return</span> c.toInt() - <span class="string">'0'</span>.toInt() <span class="comment">//显示转换为数值类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">decimalDigitValue</span><span class="token punctuation">(</span>c<span class="token operator">:</span> Char<span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">!</span><span class="token keyword">in</span> <span class="token string">'0'</span><span class="token operator">..</span><span class="token string">'9'</span><span class="token punctuation">)</span> 
+        <span class="token keyword">throw</span> <span class="token function">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">"Out of range"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> c<span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'0'</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//显示转换为数值类型</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <ul>
 <li>布尔值</li>
 </ul>
@@ -513,40 +528,76 @@
 <li>数组</li>
 </ul>
 <p>Arrays在 Kotlin 中由 <code>Array</code> 类表示，有 <code>get</code> 和 <code>set</code> 方法(通过运算符重载可以由[]调用)，以及 <code>size</code>方法，以及一些常用的函数：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Array</span>&lt;<span class="type">T</span>&gt; <span class="keyword">private</span> </span>() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">size</span><span class="params">()</span></span>: <span class="built_in">Int</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">get</span><span class="params">(index: <span class="type">Int</span>)</span></span>: T</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">set</span><span class="params">(Index: <span class="type">Int</span>, value: <span class="type">T</span>)</span></span>: <span class="built_in">Unit</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: Iterator&lt;T&gt;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">class</span> Array<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token keyword">private</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Int
+    <span class="token keyword">fun</span> <span class="token keyword">get</span><span class="token punctuation">(</span>index<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> T
+    <span class="token keyword">fun</span> <span class="token keyword">set</span><span class="token punctuation">(</span>Index<span class="token operator">:</span> Int<span class="token punctuation">,</span> value<span class="token operator">:</span> T<span class="token punctuation">)</span><span class="token operator">:</span> Unit
+    <span class="token keyword">fun</span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Iterator<span class="token operator">&lt;</span>T<span class="token operator">></span>
+    <span class="token comment" spellcheck="true">//...</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <blockquote>
 <p>给库函数 <code>arrayOf()</code> 传递每一项的值来创建Array，<code>arrayOf(1, 2, 3)</code> 创建了一个[1, 2, 3] 这样的数组。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arr1 = arrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>) <span class="comment">//等价于[1,2,3,4,5]</span></span><br><span class="line">&gt; <span class="keyword">for</span> (v <span class="keyword">in</span> arr1)&#123;</span><br><span class="line">&gt;     print(v)</span><br><span class="line">&gt;     print(<span class="string">"\t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">var</span> arr2 = arrayOf(<span class="string">"0"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">'a'</span>,<span class="number">32.3</span>f)</span><br><span class="line">&gt; <span class="keyword">for</span> (v <span class="keyword">in</span> arr2)&#123;</span><br><span class="line">&gt;     print(v)</span><br><span class="line">&gt;     print(<span class="string">"\t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">var</span> arr1 <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//等价于[1,2,3,4,5]</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>v <span class="token keyword">in</span> arr1<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"\t"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> arr2 <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">,</span><span class="token string">"2"</span><span class="token punctuation">,</span><span class="token string">"3"</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token number">32.3f</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>v <span class="token keyword">in</span> arr2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"\t"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 1   2   3   4   5   </span><br><span class="line">&gt; 0   2   3   a   32.3 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>也可以使用库函数 <code>arrayOfNulls()</code> 用于创建一个指定数据类型且可以为空元素的给定元素个数的数组 。例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arr3 = arrayOfNulls&lt;<span class="built_in">Int</span>&gt;(<span class="number">3</span>)</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">//如若不予数组赋值则arr3[0]、arr3[1]、arr3[2]皆为null</span></span><br><span class="line">&gt; <span class="keyword">for</span>(v <span class="keyword">in</span> arr3)&#123;</span><br><span class="line">&gt;     print(v)</span><br><span class="line">&gt;     print(<span class="string">"\t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt; println()</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">//为数组arr3赋值</span></span><br><span class="line">&gt; arr3[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line">&gt; arr3[<span class="number">1</span>] = <span class="number">20</span></span><br><span class="line">&gt; arr3[<span class="number">2</span>] = <span class="number">30</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">for</span>(v <span class="keyword">in</span> arr3)&#123;</span><br><span class="line">&gt;     print(v)</span><br><span class="line">&gt;     print(<span class="string">"\t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<pre><code>1   2   3   4   5   
+0   2   3   a   32.3 
+</code></pre><p>也可以使用库函数 <code>arrayOfNulls()</code> 用于创建一个指定数据类型且可以为空元素的给定元素个数的数组 。例：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">var</span> arr3 <span class="token operator">=</span> arrayOfNulls<span class="token operator">&lt;</span>Int<span class="token operator">></span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">//如若不予数组赋值则arr3[0]、arr3[1]、arr3[2]皆为null</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>v <span class="token keyword">in</span> arr3<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"\t"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">//为数组arr3赋值</span>
+arr3<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span>
+arr3<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">20</span>
+arr3<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">30</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span>v <span class="token keyword">in</span> arr3<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"\t"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; null    null    null    </span><br><span class="line">&gt; 10  20  30   </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>或者通过指定Array大小并提供一个迭代器 </p>
+<pre><code>null    null    null    
+10  20  30   
+</code></pre><p>或者通过指定Array大小并提供一个迭代器 </p>
 <ul>
 <li>使用一个工厂函数<code>Array()</code>，它使用数组大小和返回给定其索引的每个数组元素的初始值的函数。</li>
 <li><code>Array()</code> =&gt; 第一个参数表示数组元素的个数，第二个参数则为使用其元素下标组成的表达式</li>
 </ul>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">// 创建一个 Array&lt;String&gt;  内容为 ["0", "1", "4", "9", "16"]</span></span><br><span class="line">&gt; <span class="keyword">val</span> asc = Array(<span class="number">5</span>, &#123;i -&gt; (i * i).toString() &#125;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">// 创建一个 Array&lt;String>  内容为 ["0", "1", "4", "9", "16"]</span>
+<span class="token keyword">val</span> asc <span class="token operator">=</span> <span class="token function">Array</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>i <span class="token operator">-></span> <span class="token punctuation">(</span>i <span class="token operator">*</span> i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 </blockquote>
 <ul>
 <li>字符串</li>
 </ul>
 <p>Kotlin 有两种类型的 string ：一种是可以带分割符的，一种是可以包含新行以及任意文本的。带分割符的 string 很像 java 的 string:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">"Hello World!\n"</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> s <span class="token operator">=</span> <span class="token string">"Hello World!\n"</span>
+</code></pre>
 <p>整行String 是由三个引号包裹的(“””),不可以包含分割符但可以包含其它字符：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> text = <span class="string">"""</span></span><br><span class="line"><span class="string">	for (c in "foo")</span></span><br><span class="line"><span class="string">		print(c)</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> text <span class="token operator">=</span> <span class="token raw-string string">"""
+    for (c in "foo")
+        print(c)
+"""</span>
+</code></pre>
 <p>打印结果为</p>
 <pre><code>for (c in &quot;foo&quot;)
     print(c)
@@ -554,24 +605,71 @@
 <li>通配符$</li>
 </ul>
 <p>字符串可以包含模板表达式。一个模板表达式由一个 $ 开始并包含另一个简单的名称：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i = <span class="number">10</span></span><br><span class="line"><span class="keyword">val</span> s = <span class="string">"i = <span class="variable">$i</span>"</span> <span class="comment">// 识别为 "i = 10"</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> i <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token keyword">val</span> s <span class="token operator">=</span> <span class="token string">"i = <span class="token interpolation variable">$i</span>"</span> <span class="token comment" spellcheck="true">// 识别为 "i = 10"</span>
+</code></pre>
 <p>或者是一个带大括号的表达式：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">"abc"</span></span><br><span class="line"><span class="keyword">val</span> str = <span class="string">"<span class="variable">$s</span>.length is <span class="subst">$&#123;s.length&#125;</span>"</span> <span class="comment">//识别为 "abc.length is 3"</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> s <span class="token operator">=</span> <span class="token string">"abc"</span>
+<span class="token keyword">val</span> str <span class="token operator">=</span> <span class="token string">"<span class="token interpolation variable">$s</span>.length is <span class="token interpolation"><span class="token delimiter variable">${</span>s<span class="token punctuation">.</span>length<span class="token delimiter variable">}</span></span>"</span> <span class="token comment" spellcheck="true">//识别为 "abc.length is 3"</span>
+</code></pre>
 <h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="if-表达式"><a href="#if-表达式" class="headerlink" title="if 表达式"></a>if 表达式</h4><p>if除了除了传统的用法之外，还可以用作表达式</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传统用法</span></span><br><span class="line"><span class="keyword">var</span> max = a</span><br><span class="line"><span class="keyword">if</span> (a &lt; b)</span><br><span class="line">	max = b</span><br><span class="line"></span><br><span class="line"><span class="comment">//带 else </span></span><br><span class="line"><span class="keyword">var</span> max: <span class="built_in">Int</span></span><br><span class="line"><span class="keyword">if</span> (a &gt; b)</span><br><span class="line">	max = a</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	max = b</span><br><span class="line"></span><br><span class="line"><span class="comment">//作为表达式</span></span><br><span class="line"><span class="keyword">val</span> max = <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">//传统用法</span>
+<span class="token keyword">var</span> max <span class="token operator">=</span> a
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">&lt;</span> b<span class="token punctuation">)</span>
+    max <span class="token operator">=</span> b
+
+<span class="token comment" spellcheck="true">//带 else </span>
+<span class="token keyword">var</span> max<span class="token operator">:</span> Int
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span>
+    max <span class="token operator">=</span> a
+<span class="token keyword">else</span>
+    max <span class="token operator">=</span> b
+
+<span class="token comment" spellcheck="true">//作为表达式</span>
+<span class="token keyword">val</span> max <span class="token operator">=</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span> a <span class="token keyword">else</span> b
+</code></pre>
 <p>原来在java中的写法，在<code>kotlin</code>中报错</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numA = <span class="number">2</span> </span><br><span class="line"><span class="keyword">var</span> numB: <span class="built_in">Int</span> = (numA &gt; <span class="number">2</span>) ? <span class="number">3</span> : <span class="number">5</span></span><br><span class="line"><span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">var</span> numA <span class="token operator">=</span> <span class="token number">2</span> 
+<span class="token keyword">var</span> numB<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token punctuation">(</span>numA <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">3</span> <span class="token operator">:</span> <span class="token number">5</span>
+<span class="token comment" spellcheck="true">//错误</span>
+</code></pre>
 <h4 id="when-表达式"><a href="#when-表达式" class="headerlink" title="when 表达式"></a>when 表达式</h4><p>when取代了 C 风格语言的 switch 。最简单的用法像下面这样 </p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">	<span class="number">1</span> -&gt; print(<span class="string">"x == 1"</span>)</span><br><span class="line">	<span class="number">2</span> -&gt; print(<span class="string">"x == 2"</span>)</span><br><span class="line">	<span class="keyword">else</span> -&gt; &#123; <span class="comment">//Note the block</span></span><br><span class="line">		print(<span class="string">"x is neither 1 nor 2"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">when</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token number">1</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x == 1"</span><span class="token punctuation">)</span>
+    <span class="token number">2</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x == 2"</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//Note the block</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x is neither 1 nor 2"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>在其它分支都不匹配的时候默认匹配 else 分支。如果把 when 做为表达式的话 else 分支是强制的，除非编译器可以提供所有覆盖所有可能的分支条件。</p>
 <p>如果有分支可以用同样的方式处理的话，分支条件可以连在一起，相当于<code>switch</code>语句中不适用<code>break</code>跳转语句：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">	<span class="number">0</span>,<span class="number">1</span> -&gt; print(<span class="string">"x == 0 or x == 1"</span>)</span><br><span class="line">	<span class="keyword">else</span> -&gt; print(<span class="string">"otherwise"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">when</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x == 0 or x == 1"</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"otherwise"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>when 可以用<strong>任意表达式</strong>作为分支的条件，也可以用in或！in判断是否在一个集合当中，只适用于数值类型，用is判断是否是某个类型。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">describe</span><span class="params">(obj: <span class="type">Any</span>)</span></span>: String =</span><br><span class="line">        <span class="keyword">when</span> (obj) &#123;</span><br><span class="line">            <span class="number">1</span> -&gt; <span class="string">"one"</span></span><br><span class="line">            <span class="string">"hello"</span> -&gt; <span class="string">"gretting"</span></span><br><span class="line">            <span class="keyword">is</span> <span class="built_in">Long</span> -&gt; <span class="string">"long"</span></span><br><span class="line">            !<span class="keyword">is</span> String -&gt; <span class="string">"Not a string"</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span> -&gt; <span class="string">"unknown"</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">describe</span><span class="token punctuation">(</span>obj<span class="token operator">:</span> Any<span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token operator">=</span>
+        <span class="token keyword">when</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token number">1</span> <span class="token operator">-></span> <span class="token string">"one"</span>
+            <span class="token string">"hello"</span> <span class="token operator">-></span> <span class="token string">"gretting"</span>
+            <span class="token keyword">is</span> Long <span class="token operator">-></span> <span class="token string">"long"</span>
+            <span class="token operator">!</span><span class="token keyword">is</span> String <span class="token operator">-></span> <span class="token string">"Not a string"</span>
+
+            <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token string">"unknown"</span>
+
+        <span class="token punctuation">}</span>
+</code></pre>
 <h4 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h4><p>for 循环通过任何提供的迭代器进行迭代。语法是下面这样的：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (item <span class="keyword">in</span> collection)</span><br><span class="line">	print(item)</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">for</span> <span class="token punctuation">(</span>item <span class="token keyword">in</span> collection<span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+</code></pre>
 <p>内容可以是一个语句块</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (item: <span class="built_in">Int</span> <span class="keyword">in</span> ints)&#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">for</span> <span class="token punctuation">(</span>item<span class="token operator">:</span> Int <span class="token keyword">in</span> ints<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//...</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <ul>
 <li>新增规则，去满足for（初始值；条件；增减步长）</li>
 </ul>
@@ -579,50 +677,55 @@
 <ol>
 <li><p>递增：until          <code>until</code> [n,m）= &gt;即<code>大于等于n,小于m</code> </p>
 <p>例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;      <span class="comment">// 循环5次，且步长为1的递增</span></span><br><span class="line">&gt;      <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until <span class="number">5</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>   输出结果为</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;    i =&gt; 0  i =&gt; 1  i =&gt; 2  i =&gt; 3  i =&gt; 4</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ol start="2">
+<pre class=" language-kotlin"><code class="language-kotlin">  <span class="token comment" spellcheck="true">// 循环5次，且步长为1的递增</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">0</span> until <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"i => <span class="token interpolation variable">$i</span> \t"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p>输出结果为</p>
+<pre><code>i =&gt; 0  i =&gt; 1  i =&gt; 2  i =&gt; 3  i =&gt; 4
+</code></pre></li>
 <li><p>递减：<code>downTo</code>            <code>downTo[n,m]</code> =&gt; 即<code>小于等于n,大于等于m ,n &gt; m</code> </p>
 <p>例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;    <span class="comment">// 循环5次，且步长为1的递减</span></span><br><span class="line">&gt;    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">15</span> downTo <span class="number">11</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>   输出结果为：</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;    i =&gt; 15     i =&gt; 14     i =&gt; 13     i =&gt; 12     i =&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ol start="3">
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">// 循环5次，且步长为1的递减</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">15</span> downTo <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"i => <span class="token interpolation variable">$i</span> \t"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>输出结果为：</p>
+<pre><code>i =&gt; 15     i =&gt; 14     i =&gt; 13     i =&gt; 12     i =&gt;
+</code></pre></li>
 <li><p>递增：符号<code>..</code>                 <code>..[n,m]</code>=&gt; 即<code>大于等于n，小于等于m</code> </p>
 <p>和<code>until</code>的区别，一个包区间，一个闭区间，<code>..</code>更简单吧！</p>
 <p>例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;    print(<span class="string">"使用 符号`..`的打印结果\n"</span>)</span><br><span class="line">&gt;    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">20</span> .. <span class="number">25</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;    </span><br><span class="line">&gt;    println()</span><br><span class="line">&gt;    </span><br><span class="line">&gt;    print(<span class="string">"使用until的打印结果\n"</span>)</span><br><span class="line">&gt;    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">20</span> until <span class="number">25</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>   输出结果为：</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;    使用 符号`..`的打印结果</span><br><span class="line">&gt;    i =&gt; 20     i =&gt; 21     i =&gt; 22     i =&gt; 23     i =&gt; 24     i =&gt; 25     </span><br><span class="line">&gt;    使用until的打印结果</span><br><span class="line">&gt;    i =&gt; 20     i =&gt; 21     i =&gt; 22     i =&gt; 23     i =&gt; 24 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ol start="4">
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"使用 符号`..`的打印结果\n"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">20</span> <span class="token operator">..</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"i => <span class="token interpolation variable">$i</span> \t"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"使用until的打印结果\n"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">20</span> until <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"i => <span class="token interpolation variable">$i</span> \t"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>输出结果为：</p>
+<pre><code>使用 符号`..`的打印结果
+i =&gt; 20     i =&gt; 21     i =&gt; 22     i =&gt; 23     i =&gt; 24     i =&gt; 25     
+使用until的打印结果
+i =&gt; 20     i =&gt; 21     i =&gt; 22     i =&gt; 23     i =&gt; 24 
+</code></pre></li>
 <li><p>步长：step</p>
 <p>例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">10</span> until <span class="number">16</span> step <span class="number">2</span>)&#123;</span><br><span class="line">&gt;        print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">10</span> until <span class="token number">16</span> step <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"i => <span class="token interpolation variable">$i</span> \t"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>输出结果为：</p>
+<pre><code>i =&gt; 10     i =&gt; 12     i =&gt; 14 
+</code></pre></li>
 </ol>
-</blockquote>
-<blockquote>
-<p>   输出结果为：</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;    i =&gt; 10     i =&gt; 12     i =&gt; 14 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <ul>
 <li>迭代</li>
@@ -630,23 +733,31 @@
 <blockquote>
 <p><strong>使用数组的indices属性遍历</strong></p>
 <p>例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListTwo = arrayOf(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>)</span><br><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> arrayListTwo.indices)&#123;</span><br><span class="line">&gt;     println(<span class="string">"arrayListTwo[<span class="variable">$i</span>] =&gt; "</span> + arrayListTwo[i])</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">var</span> arrayListTwo <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> arrayListTwo<span class="token punctuation">.</span>indices<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"arrayListTwo[<span class="token interpolation variable">$i</span>] => "</span> <span class="token operator">+</span> arrayListTwo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; arrayListTwo[0] =&gt; 1</span><br><span class="line">&gt; arrayListTwo[1] =&gt; 3</span><br><span class="line">&gt; arrayListTwo[2] =&gt; 5</span><br><span class="line">&gt; arrayListTwo[3] =&gt; 7</span><br><span class="line">&gt; arrayListTwo[4] =&gt; 9</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p><strong>使用数组的withIndex()方法遍历</strong></p>
+<pre><code>arrayListTwo[0] =&gt; 1
+arrayListTwo[1] =&gt; 3
+arrayListTwo[2] =&gt; 5
+arrayListTwo[3] =&gt; 7
+arrayListTwo[4] =&gt; 9
+</code></pre><p><strong>使用数组的withIndex()方法遍历</strong></p>
 <p>例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListTwo = arrayOf(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>)</span><br><span class="line">&gt; <span class="keyword">for</span> ((index,value) <span class="keyword">in</span> arrayListTwo.withIndex())&#123;</span><br><span class="line">&gt;     println(<span class="string">"index =&gt; <span class="variable">$index</span> \t value =&gt; <span class="variable">$value</span>"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">var</span> arrayListTwo <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span>value<span class="token punctuation">)</span> <span class="token keyword">in</span> arrayListTwo<span class="token punctuation">.</span><span class="token function">withIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"index => <span class="token interpolation variable">$index</span> \t value => <span class="token interpolation variable">$value</span>"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; index =&gt; 0   value =&gt; 1</span><br><span class="line">&gt; index =&gt; 1   value =&gt; 3</span><br><span class="line">&gt; index =&gt; 2   value =&gt; 5</span><br><span class="line">&gt; index =&gt; 3   value =&gt; 7</span><br><span class="line">&gt; index =&gt; 4   value =&gt; 9</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p><strong>使用列表或数组的扩展函数遍历</strong></p>
+<pre><code>index =&gt; 0   value =&gt; 1
+index =&gt; 1   value =&gt; 3
+index =&gt; 2   value =&gt; 5
+index =&gt; 3   value =&gt; 7
+index =&gt; 4   value =&gt; 9
+</code></pre><p><strong>使用列表或数组的扩展函数遍历</strong></p>
 <blockquote>
 <ul>
 <li>数组或列表有一个成员或扩展函数<code>iterator()</code>实现了<code>Iterator&lt;T&gt;</code>接口，且该接口提供了<code>next()</code>与<code>hasNext()</code>两个成员或扩展函数</li>
@@ -655,30 +766,53 @@
 </blockquote>
 <ol>
 <li><p>可以查看<code>Array.kt</code>这个类。可以看见其中的<code>iterator()</code>函数，而这个函数实现了<code>Iterator</code>接口。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;     <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;       *   Creates an iterator for iterating over the elements of the array.</span></span><br><span class="line"><span class="comment">&gt;       */</span></span><br><span class="line">&gt;     <span class="keyword">public</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: Iterator&lt;T&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"> <span class="token comment" spellcheck="true">/**
+   *   Creates an iterator for iterating over the elements of the array.
+   */</span>
+ <span class="token keyword">public</span> operator <span class="token keyword">fun</span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Iterator<span class="token operator">&lt;</span>T<span class="token operator">></span>
+</code></pre>
 </li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
 <li><p>查看<code>Iterator.kt</code>这个接口类，这个接口提供了<code>hasNext()</code>函数和<code>next()</code>函数。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;     <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="type">out T</span>&gt; </span>&#123;</span><br><span class="line">&gt;    </span><br><span class="line">&gt;     <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;       * Returns the next element in the iteration.</span></span><br><span class="line"><span class="comment">&gt;       */</span></span><br><span class="line">&gt;     <span class="keyword">public</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">next</span><span class="params">()</span></span>: T</span><br><span class="line">&gt;    </span><br><span class="line">&gt;     <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;       * Returns `true` if the iteration has more elements.</span></span><br><span class="line"><span class="comment">&gt;       */</span></span><br><span class="line">&gt;     <span class="keyword">public</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">hasNext</span><span class="params">()</span></span>: <span class="built_in">Boolean</span></span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"> <span class="token keyword">public</span> <span class="token keyword">interface</span> Iterator<span class="token operator">&lt;</span><span class="token keyword">out</span> T<span class="token operator">></span> <span class="token punctuation">{</span>
+
+ <span class="token comment" spellcheck="true">/**
+   * Returns the next element in the iteration.
+   */</span>
+ <span class="token keyword">public</span> operator <span class="token keyword">fun</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> T
+
+ <span class="token comment" spellcheck="true">/**
+   * Returns `true` if the iteration has more elements.
+   */</span>
+ <span class="token keyword">public</span> operator <span class="token keyword">fun</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Boolean
+ <span class="token punctuation">}</span>
+</code></pre>
 </li>
 </ol>
-</blockquote>
-<blockquote>
 <p>例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListThree = arrayOf(<span class="number">2</span>,<span class="string">'a'</span>,<span class="number">3</span>,<span class="literal">false</span>,<span class="number">9</span>)</span><br><span class="line">&gt; <span class="keyword">var</span> iterator: Iterator&lt;Any&gt; = arrayListThree.iterator()</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">&gt;     println(iterator.next())</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">var</span> arrayListThree <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> iterator<span class="token operator">:</span> Iterator<span class="token operator">&lt;</span>Any<span class="token operator">></span> <span class="token operator">=</span> arrayListThree<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 2</span><br><span class="line">&gt; a</span><br><span class="line">&gt; 3</span><br><span class="line">&gt; false</span><br><span class="line">&gt; 9</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>终上所述就是<code>for</code>循环语句常用的用法。</p>
+<pre><code>2
+a
+3
+false
+9
+</code></pre><p>终上所述就是<code>for</code>循环语句常用的用法。</p>
 </blockquote>
 <h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><p>while 和 do…while 像往常那样</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">	x--</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">	<span class="keyword">val</span> y = retrieveData()</span><br><span class="line">&#125; <span class="keyword">while</span> (y != <span class="literal">null</span>) <span class="comment">// y 在这是可见的</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    x<span class="token operator">--</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">do</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> y <span class="token operator">=</span> <span class="token function">retrieveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>y <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// y 在这是可见的</span>
+</code></pre>
 <h4 id="在循环中使用-break-和-continue"><a href="#在循环中使用-break-和-continue" class="headerlink" title="在循环中使用 break 和 continue"></a>在循环中使用 break 和 continue</h4>
       
     </div>
