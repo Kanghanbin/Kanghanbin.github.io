@@ -155,7 +155,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://kanghanbin.github.io/2018/09/29/StaggeredGridLayoutManager瀑布流错乱的解决-1/girl交错.gif">
 <meta property="og:image" content="https://kanghanbin.github.io/2018/09/29/StaggeredGridLayoutManager瀑布流错乱的解决-1/girlsetGapStrategy.gif">
-<meta property="og:updated_time" content="2018-10-08T05:52:51.257Z">
+<meta property="og:updated_time" content="2018-10-08T05:57:25.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="StaggeredGridLayoutManager瀑布流错乱的解决">
 <meta name="twitter:description" content="使用RecyclerView搭配StaggeredGridLayoutManager实现瀑布流时，一般会在Adapter的onBindViewHolder()方法里给每一个item随机生成一个高度，使得item的排布错落有致，不死板。  @Override     public void onBindViewHolder(final ViewHolder holder, int position">
@@ -453,11 +453,12 @@
         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </code></pre>
-<pre><code> mAdapter = new GirlAdapter(mContext, mList);
-        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(SPAN_COUNT,StaggeredGridLayoutManager.VERTICAL);
-        rvGirlContent.setLayoutManager(mStaggeredGridLayoutManager);
-        rvGirlContent.setAdapter(mAdapter);
-</code></pre><p><img src="girl交错.gif" alt=""></p>
+<pre class=" language-java"><code class="language-java"> mAdapter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GirlAdapter</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> mList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mStaggeredGridLayoutManager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StaggeredGridLayoutManager</span><span class="token punctuation">(</span>SPAN_COUNT<span class="token punctuation">,</span>StaggeredGridLayoutManager<span class="token punctuation">.</span>VERTICAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rvGirlContent<span class="token punctuation">.</span><span class="token function">setLayoutManager</span><span class="token punctuation">(</span>mStaggeredGridLayoutManager<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rvGirlContent<span class="token punctuation">.</span><span class="token function">setAdapter</span><span class="token punctuation">(</span>mAdapter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="girl交错.gif" alt=""></p>
 <p>在StaggeredGridLayoutManager瀑布流中,当需要依据图片实际相对高度,不断动态设置ImageView的LayoutParams时,<br>会导致快速滑动状态下产生重新排列,重写getItemViewType并设置StaggeredGridLayoutManager.GAP_HANDLING_NONE解决了这个问题，原因目前未知</p>
 <pre class=" language-java"><code class="language-java">  <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getItemViewType</span><span class="token punctuation">(</span><span class="token keyword">int</span> position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
