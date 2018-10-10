@@ -153,7 +153,7 @@
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
 <meta property="og:description" content="文章链接，之前确实没有接触过，我简单看了一遍，可以说，这也是相对比较完美的方案，我先简单说一下这个方案的思路，它是通过修改density值，强行把所有不同尺寸分辨率的手机的宽度dp值改成一个统一的值，这样就解决了所有的适配问题。 比如，设计稿宽度是360px，那么开发这边就会把目标dp值设为360dp，在不同的设备中，动态修改density值，从而保证(手机像素宽度)px/density这个值始终">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-09T02:03:37.353Z">
+<meta property="og:updated_time" content="2018-10-10T03:15:30.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="今日头条的安卓适配方案，值得收藏">
 <meta name="twitter:description" content="文章链接，之前确实没有接触过，我简单看了一遍，可以说，这也是相对比较完美的方案，我先简单说一下这个方案的思路，它是通过修改density值，强行把所有不同尺寸分辨率的手机的宽度dp值改成一个统一的值，这样就解决了所有的适配问题。 比如，设计稿宽度是360px，那么开发这边就会把目标dp值设为360dp，在不同的设备中，动态修改density值，从而保证(手机像素宽度)px/density这个值始终">
@@ -457,7 +457,33 @@
         activityDisplayMetrics<span class="token punctuation">.</span>densityDpi<span class="token operator">=</span>targetDensityDpi<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </code></pre>
-
+<p>2010-10-10</p>
+<p>今天看到大神<code>blankj</code>根据今日头条改进的方案，<a href="https://juejin.im/post/5b6250bee51d451918537021" target="_blank" rel="noopener">传送门</a>，写的不错</p>
+<p>稀土掘金地址：<a href="https://juejin.im/post/5b6250bee51d451918537021" target="_blank" rel="noopener">https://juejin.im/post/5b6250bee51d451918537021</a></p>
+<ul>
+<li><code>`</code>java<ul>
+<li>Adapt the screen for vertical slide.<br>*</li>
+<li>@param activity        The activity.</li>
+<li>@param designWidthInPx The size of design diagram’s width, in pixel.<br>*/<br>public static void adaptScreen4VerticalSlide(final Activity activity,<pre><code>                                     final int designWidthInPx) {
+</code></pre>adaptScreen(activity, designWidthInPx, true);<br>}<br>/**</li>
+<li>Adapt the screen for horizontal slide.<br>*</li>
+<li>@param activity         The activity.</li>
+<li>@param designHeightInPx The size of design diagram’s height, in pixel.<br>*/<br>public static void adaptScreen4HorizontalSlide(final Activity activity,<pre><code>                                       final int designHeightInPx) {
+</code></pre>adaptScreen(activity, designHeightInPx, false);<br>}<br>/**</li>
+<li>Reference from: <a href="https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA</a><br>*/<br>private static void adaptScreen(final Activity activity,<pre><code>                        final int sizeInPx,
+                        final boolean isVerticalSlide) {
+</code></pre>final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();<br>final DisplayMetrics appDm = Utils.getApp().getResources().getDisplayMetrics();<br>final DisplayMetrics activityDm = activity.getResources().getDisplayMetrics();<br>if (isVerticalSlide) {<pre><code>activityDm.density = activityDm.widthPixels / (float) sizeInPx;
+</code></pre>} else {<pre><code>activityDm.density = activityDm.heightPixels / (float) sizeInPx;
+</code></pre>}<br>activityDm.scaledDensity = activityDm.density <em> (systemDm.scaledDensity / systemDm.dens<br>activityDm.densityDpi = (int) (160 </em> activityDm.density);<br>appDm.density = activityDm.density;<br>appDm.scaledDensity = activityDm.scaledDensity;<br>appDm.densityDpi = activityDm.densityDpi;<br>}<br>/**</li>
+<li>Cancel adapt the screen.<br>*</li>
+<li>@param activity The activity.<br>*/<br>public static void cancelAdaptScreen(final Activity activity) {<br>final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();<br>final DisplayMetrics appDm = Utils.getApp().getResources().getDisplayMetrics();<br>final DisplayMetrics activityDm = activity.getResources().getDisplayMetrics();<br>activityDm.density = systemDm.density;<br>activityDm.scaledDensity = systemDm.scaledDensity;<br>activityDm.densityDpi = systemDm.densityDpi;<br>appDm.density = systemDm.density;<br>appDm.scaledDensity = systemDm.scaledDensity;<br>appDm.densityDpi = systemDm.densityDpi;<br>}<br>/**</li>
+<li>Return whether adapt screen.<br>*</li>
+<li>@return {@code true}: yes<br>{@code false}: no<br>*/<br>public static boolean isAdaptScreen() {<br>final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();<br>final DisplayMetrics appDm = Utils.getApp().getResources().getDisplayMetrics();<br>return systemDm.density != appDm.density;<br>}</li>
+</ul>
+</li>
+</ul>
+<pre><code>```
+</code></pre>
       
     </div>
 
