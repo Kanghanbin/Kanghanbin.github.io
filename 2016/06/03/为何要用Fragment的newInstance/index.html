@@ -154,7 +154,7 @@
 <meta property="og:description" content="Qusetion1:开发中一直在用Fragment,使用Fragment接受参数是经常遇到的问题，为什么不用构造方法，而用newInstance呢？，构造方法不是更快更省事么？Androidstudio中右键直接创建Fragment:  Answer1：默认会生成如下:  /**  * A simple {@link Fragment} subclass.  * Activities that c">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://Kanghanbin.github.io/blog/5.png">
-<meta property="og:updated_time" content="2018-08-10T07:29:37.446Z">
+<meta property="og:updated_time" content="2018-10-24T08:24:54.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为何要用Fragment的newInstance">
 <meta name="twitter:description" content="Qusetion1:开发中一直在用Fragment,使用Fragment接受参数是经常遇到的问题，为什么不用构造方法，而用newInstance呢？，构造方法不是更快更省事么？Androidstudio中右键直接创建Fragment:  Answer1：默认会生成如下:  /**  * A simple {@link Fragment} subclass.  * Activities that c">
@@ -523,7 +523,7 @@
 </code></pre>
 <p>明显，谷歌建议使用<code>newInstance</code>来传递参数，然后在<code>onCreate</code>接受参数的。</p>
 <p>主要通过fragment的<code>setArguments</code>（Bundle）/<code>getArguments</code>方法实现。</p>
-<p>这样做的好处是，（配置发生改变）屏幕旋转时，<code>fragment</code>数据不会丢失。</p>
+<p>这样做的好处是，（配置发生改变）屏幕旋转时，<code>fragment</code>数据不会丢失。调用者只需要关系传递的哪些数据，而无需关心传递数据的Key是什么。</p>
 <h3 id="Question2"><a href="#Question2" class="headerlink" title="Question2:"></a><strong>Question2:</strong></h3><p><code>FragmentPagerAdapter</code>与<code>FragmentStatePagerAdapter</code>有什么区别：</p>
 <h3 id="Answer2："><a href="#Answer2：" class="headerlink" title="Answer2："></a><strong>Answer2：</strong></h3><p>主要区别就在与对于fragment是否销毁，下面细说：</p>
 <p><code>FragmentPagerAdapter</code>：对于不再需要的<code>fragment</code>，选择调用detach方法，仅销毁视图，并不会销毁fragment实例。</p>
@@ -679,7 +679,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
