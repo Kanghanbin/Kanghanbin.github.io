@@ -269,14 +269,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
@@ -288,6 +280,14 @@
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
 
       
@@ -322,6 +322,510 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2017/08/07/带你初识Kotlin-二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/07/带你初识Kotlin-二/" itemprop="url">
+                  带你初识Kotlin(二)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-08-07 09:57:07" itemprop="dateCreated datePublished" datetime="2017-08-07T09:57:07+08:00">2017-08-07</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          上一节 简单认识了下kotlin的基本类型和常用流程控制，这节继续学习
+一、Kotlin 变量声明首先，kotlin变量的声明必须使用关键字var或val
+
+var: 用此关键字声明的变量表示可变变量，即可读且可写。相当于Java中普通变量
+val: 用此关键字声明的变量表示不可变变量，即可读且不可写。相当于Java中用final修饰的变量
+
+1.1基础用法：关键字 变量名：数据类型 = xxx  
+eg:
+//立即初始化
+var var_a: Int = 10 
+//推导出类型
+var var_b = 5
+//没有初始化的时候，必须声明类型
+var var_c :Float
+var_c = 12.4f
+println("var_a => $var_a \t var_b => $var_b \t var_a => $var_c")
+//$符号表示引用的意思
+
+注意：在类中声明变量时，必须初始化，如果不初始化，需要使用lateinit关键字
+1.2声明可空变量：
+在声明的时候一定用标准的声明格式定义。不能用可推断类型的简写。
+变量类型后面的?符号不能省略。不然就和普通的变量没区别了。
+其
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/07/带你初识Kotlin-二/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2017/07/18/带你初识Kotlin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/18/带你初识Kotlin/" itemprop="url">
+                  带你初识Kotlin（一）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-07-18 13:22:06" itemprop="dateCreated datePublished" datetime="2017-07-18T13:22:06+08:00">2017-07-18</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          What is Kotlin?Kotlin是JVM和Android的实用编程语言，结合了OO和功能特性，专注于互操作性，安全性，清晰度和工具支持。 
+本文记录自己学习kotlin认为需要记录的重点，如果需要详细学习，请点击Kotlin中文文档学习。
+基本类型在 Kotlin 中，所有变量的成员方法和属性都是一个对象。一些类型是内建的，它们的实现是优化过的，但对用户来说它们就像普通的类一样。
+
+数值类型
+
+Kotlin 处理数值的方法和 java 很相似，但不是完全一样。比如，不存在隐式转换数值的精度，并且在字面上有一些小小的不同 。Kotlin 提供了如下内建数值类型(和 java 很相似)：
+
+
+
+类型
+
+字宽
+
+
+
+
+Double
+双精度浮点数
+64
+
+
+Float
+浮点数
+32
+
+
+Long
+长整型
+64
+
+
+Int
+整形
+32
+
+
+Short
+短整型
+16
+
+
+Byte
+字节
+8
+
+
+
+在Kotlin中，短类型，不会隐式转化为长类型，这意味着我们必须显式转换才能把 Byte 赋值给 Int。
+error：
+val b: Byte = 1 // OK, literals are 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/18/带你初识Kotlin/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2017/05/06/Source-Insight-初次使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/06/Source-Insight-初次使用/" itemprop="url">
+                  Source Insight 初次使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-06 15:17:44" itemprop="dateCreated datePublished" datetime="2017-05-06T15:17:44+08:00">2017-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          [TOC]
+A. why SI:　　为什么要用Source Insight呢？因为她比完整的IDE要更快啊，比一般的编辑器便捷啊！她有逆天的查看定义，查看调用，查看引用功能以及方便的Context Window上下文显示，像这样的东西非常有利于查看大量代码！
+　　那么问题来了——比如我现在随便找了一份源码，我该要怎么阅读呢？很简单，SI可以极其方便地将一个源码目录变成source insight工程，然后直接操作——来天吞天，来地含地：新建工程——&gt;命名工程——&gt;设置源码目录——&gt;好了，去阅读吧。。。
+　　那么又有一个问题，比如老子要设置字体背景之类的东西哩？呵呵，Options-&gt;Preferences…里面的内容能让你晚上做梦都笑醒了。
+　　所以说到这里，SI的强大之处在于：速度快，阅读方便，设置方便。当然这只是一小部分，她还有强大的自定义指令的功能，这个还在学习，放下不表。但是，就这些基本的功能就已经能支持我很好的工作了啊！
+　  
+B. SI Project初体验与窗口布局介绍：　　新建工程之后是add and remove files这个窗口，一般ad
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/06/Source-Insight-初次使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -818,7 +1322,7 @@ public class BlankFragment extends Fragment {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -855,7 +1359,9 @@ public class BlankFragment extends Fragment {
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -904,7 +1410,7 @@ public class BlankFragment extends Fragment {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
