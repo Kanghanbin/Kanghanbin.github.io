@@ -153,12 +153,12 @@
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
 <meta property="og:description" content="前言两个recycleview同步滚动网上solo的几种方法如下：  作者: Jorge Antonio Díaz-Benito我相信你了解它的工作原理是相关的，所以我将解释我设计解决方案时所遵循的整个过程。请注意，此示例仅适用于两个RecyclerViews，但使用更多的RecyclerViews就像使用RecyclerViews数组一样简单。 想到的第一个选项是在两个ScrollViews上监">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://kanghanbin.github.io/2.gif">
-<meta property="og:updated_time" content="2019-04-17T02:53:59.780Z">
+<meta property="og:image" content="https://kanghanbin.github.io/2019/04/16/两个recycleview同步滚动/2.gif">
+<meta property="og:updated_time" content="2019-04-17T04:22:07.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="两个recycleview同步滚动">
 <meta name="twitter:description" content="前言两个recycleview同步滚动网上solo的几种方法如下：  作者: Jorge Antonio Díaz-Benito我相信你了解它的工作原理是相关的，所以我将解释我设计解决方案时所遵循的整个过程。请注意，此示例仅适用于两个RecyclerViews，但使用更多的RecyclerViews就像使用RecyclerViews数组一样简单。 想到的第一个选项是在两个ScrollViews上监">
-<meta name="twitter:image" content="https://kanghanbin.github.io/2.gif">
+<meta name="twitter:image" content="https://kanghanbin.github.io/2019/04/16/两个recycleview同步滚动/2.gif">
 
 
 
@@ -417,7 +417,7 @@
 
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>两个recycleview同步滚动网上solo的几种方法如下：</p>
-<p><img src="/2.gif" alt=""></p>
+<p><img src="2.gif" alt=""></p>
 <h3 id="作者-Jorge-Antonio-Diaz-Benito"><a href="#作者-Jorge-Antonio-Diaz-Benito" class="headerlink" title="作者: Jorge Antonio Díaz-Benito"></a>作者: Jorge Antonio Díaz-Benito</h3><p>我相信你了解它的工作原理是相关的，所以我将解释我设计解决方案时所遵循的整个过程。请注意，此示例仅适用于两个RecyclerViews，但使用更多的RecyclerViews就像使用RecyclerViews数组一样简单。</p>
 <p>想到的第一个选项是在两个ScrollViews上监听滚动更改，当其中一个滚动时，在另一个上使用<a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html#scrollBy(int,%20int" target="_blank" rel="noopener">scrollBy（int x，int y）</a>)。不幸的是，以编程方式滚动也会触发侦听器，因此您将最终处于循环中。</p>
 <p>要解决此问题，您需要设置OnItemTouchListener，在触摸RecyclerView时添加正确的ScrollListener，并在滚动停止时将其删除。这几乎完美无缺，但是如果你在一个很长的RecyclerView中快速执行，然后在它完成之前再次滚动它，只会传输第一个滚动。</p>
