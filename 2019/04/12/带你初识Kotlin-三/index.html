@@ -154,7 +154,7 @@
 <meta property="og:description" content="前言用kotlin开发android应用，各种新鲜的语法糖层出不穷，真tm香，这篇博文主要记录一些需要重点注意的地方。 记录点1.xxx调用了getXxx()/setXxx方法toolbar = findViewById(R.id.toolbar) setSupportActionBar(toolbar) val actionBar = supportActionBar  在这里supportA">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://kanghanbin.github.io/2019/04/12/带你初识Kotlin-三/1.jpg">
-<meta property="og:updated_time" content="2019-04-12T09:18:57.950Z">
+<meta property="og:updated_time" content="2019-04-23T01:50:48.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带你初识Kotlin-三">
 <meta name="twitter:description" content="前言用kotlin开发android应用，各种新鲜的语法糖层出不穷，真tm香，这篇博文主要记录一些需要重点注意的地方。 记录点1.xxx调用了getXxx()/setXxx方法toolbar = findViewById(R.id.toolbar) setSupportActionBar(toolbar) val actionBar = supportActionBar  在这里supportA">
@@ -532,16 +532,23 @@ window<span class="token punctuation">.</span>statusBarColor <span class="token 
 <td>适用于let,with函数任何场景。</td>
 </tr>
 <tr>
+<td>also</td>
+<td>fun T.also(block: (T) -&gt; Unit): T { block(this); return this }</td>
+<td>it指代当前对象</td>
+<td>返回this</td>
+<td>是</td>
+<td>适用于let函数的任何场景，一般可用于多个扩展函数链式调用</td>
+</tr>
+<tr>
 <td>apply</td>
 <td>fun T.apply(block: T.() -&gt; Unit): T { block(); return this }</td>
 <td>this指代当前对象或者省略</td>
 <td>返回this</td>
 <td>是</td>
-<td>1、适用于run函数的任何场景，一般用于初始化一个对象实例的时候，操作对象属性，并最终返回这个对象。<br>2、动态inflate出一个XML的View的时候需要给View绑定数据也会用到.</td>
+<td>1、适用于run函数的任何场景，一般用于初始化一个对象实例的时候，操作对象属性，并最终返回这个对象。2、动态inflate出一个XML的View的时候需要给View绑定数据也会用到.3、一般可用于多个扩展函数链式调用</td>
 </tr>
 </tbody>
 </table>
-<p>3、一般可用于多个扩展函数链式调用<br>4、数据model多层级包裹判空处理的问题 |<br>| also   | fun T.also(block: (T) -&gt; Unit): T { block(this); return this } | it指代当前对象           | 返回this     | 是             | 适用于let函数的任何场景，一般可用于多个扩展函数链式调用      |</p>
 <p>egg:</p>
 <pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">showProgressDialog</span><span class="token punctuation">(</span>title<span class="token operator">:</span> String<span class="token operator">?</span><span class="token punctuation">,</span> message<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>progressDialog <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
