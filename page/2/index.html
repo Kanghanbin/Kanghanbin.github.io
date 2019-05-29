@@ -338,6 +338,310 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/10/17/一次批量插入数据库上万条记录优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/一次批量插入数据库上万条记录优化/" itemprop="url">
+                  一次批量插入数据库上万条记录优化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-17 16:42:09" itemprop="dateCreated datePublished" datetime="2018-10-17T16:42:09+08:00">2018-10-17</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          由于项目涉及到数据库的东西太多太多，基本所有功能都涉及到数据库。在一个移动客户端上只要涉及到网络数据都得保存到本地，数据量小的情况下还好，如果数据量成千上万，那稳定性，速度效率个方面问题层出不穷。
+问题:上万条数据从服务端下下来，可能会导致程序崩溃？
+解决方案：
+1.首先这个奔溃问题，我不知道是什么奔溃，然后让业务那边在初选收获功能模块中加一些大数据量我这边好测试，业务分别加成功了4000和9040两种，
+2.运行项目，测试了一下，前两次貌似都报了网络环境异常，查看log是com.android.volley.TimeoutError超时，后来再测几次就没出现，估计网络不稳定造成，下载成功后会保存至数据库，下载过程挺快，然后卡在了保存至数据库，加载框也不转了，静静地等着
+
+2.1.如果，在这中间，手指触碰到了安卓事件，系统会弹出ANR对话框，然后强制关闭，系统奔溃。
+
+我认为解决方案就是数据库操作在子线程，可有效避免ANR。
+2.2.如果，在这中间，静静地等着数据库插入操作直至完成，下面是测试保存所需等待时间，其实算了操作数据库两个方法。
+
+   @Override
+         
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/17/一次批量插入数据库上万条记录优化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/09/29/StaggeredGridLayoutManager瀑布流错乱的解决-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/StaggeredGridLayoutManager瀑布流错乱的解决-1/" itemprop="url">
+                  StaggeredGridLayoutManager瀑布流错乱的解决
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-29 11:09:42" itemprop="dateCreated datePublished" datetime="2018-09-29T11:09:42+08:00">2018-09-29</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+           使用RecyclerView搭配StaggeredGridLayoutManager实现瀑布流时，一般会在Adapter的onBindViewHolder()方法里给每一个item随机生成一个高度，使得item的排布错落有致，不死板。
+ @Override
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        //存在记录的高度时先Layout再异步加载图片
+        if (mList.get(holder.getAdapterPosition()).getHeight() > 0) {
+            ViewGroup.LayoutParams layoutParams = holder.ivGirl.getLayoutParams();
+            layoutParams.height = mList.get(holder.getAdapterPosition()).getHeight();
+        }
+        Glide.
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/29/StaggeredGridLayoutManager瀑布流错乱的解决-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/09/20/评论页面的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1550,306 +1854,6 @@ SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleV
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/05/20/今日头条的安卓适配方案值得收藏/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="康汉斌">
-      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kanghanbin's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/20/今日头条的安卓适配方案值得收藏/" itemprop="url">
-                  今日头条的安卓适配方案，值得收藏
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-20 09:23:32" itemprop="dateCreated datePublished" datetime="2018-05-20T09:23:32+08:00">2018-05-20</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          前言文章链接，之前确实没有接触过，我简单看了一遍，可以说，这也是相对比较完美的方案，我先简单说一下这个方案的思路，它是通过修改density值，强行把所有不同尺寸分辨率的手机的宽度dp值改成一个统一的值，这样就解决了所有的适配问题。
-比如，设计稿宽度是360px，那么开发这边就会把目标dp值设为360dp，在不同的设备中，动态修改density值，从而保证(手机像素宽度)px/density这个值始终是360dp,这样的话，就能保证UI在不同的设备上表现一致了。
-这个方案侵入性很低，而且也没有涉及私有API，应该也是极不错的方案，我暂时也想不到强行修改density是否会有其他影响，既然有今日头条的大厂在用，稳定性应当是有保证的。
-但是根据我的观察，这套方案对老项目是不太友好的，因为修改了系统的density值之后，整个布局的实际尺寸都会发生改变，如果想要在老项目文件中使用，恐怕整个布局文件中的尺寸都可能要重新按照设计稿修改一遍才行。因此，如果你是在维护或者改造老项目，使用这套方案就要三思了。
-具体代码实现为：    // 今日头条的屏幕适配方案
-    // 通过修改density值
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/20/今日头条的安卓适配方案值得收藏/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/03/23/DataBinding的用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="康汉斌">
-      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kanghanbin's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/23/DataBinding的用法/" itemprop="url">
-                  DataBinding的用法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-23 17:05:52" itemprop="dateCreated datePublished" datetime="2018-03-23T17:05:52+08:00">2018-03-23</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-首先，为什么要使用DataBinding?
-
-一般写法findViewById  罗里吧嗦，写到想吐
-ButterKnife 代替   解放findViewById  
-DataBinding数据和UI低耦合 
-
-一、简介：The Data Binding Library is a support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
-DataBinding 是一个支持库，它允许您使用声明性格式而不是以编程方式将应用程序中的UI组件绑定到应用程序中的数据源。
-1.1优点：布局文件中的绑定组件允许您在Activtiy中删除许多UI框架调用，使其更简单，更易于维护。这还可以提高应用程序的性能，并有助于防止内存泄漏和空指针异常。 
-常用方式：
-TextView textView = findViewById(R.id.sample_tex
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/23/DataBinding的用法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1901,7 +1905,7 @@ TextView textView = findViewById(R.id.sample_tex
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1940,7 +1944,11 @@ TextView textView = findViewById(R.id.sample_tex
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

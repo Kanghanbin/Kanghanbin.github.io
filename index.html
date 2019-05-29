@@ -338,6 +338,300 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2019/05/29/Groovy快速入门指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/29/Groovy快速入门指南/" itemprop="url">
+                  Groovy快速入门指南
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-29 16:53:53" itemprop="dateCreated datePublished" datetime="2019-05-29T16:53:53+08:00">2019-05-29</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+1.Groovy概述Groovy是Apache 旗下的一种基于JVM的面向对象编程语言，既可以用于面向对象编程，也可以用作纯粹的脚本语言。在语言的设计上它吸纳了Python、Ruby 和 Smalltalk 语言的优秀特性，比如动态类型转换、闭包和元编程支持。Groovy与 Java可以很好的互相调用并结合编程 ，比如在写 Groovy 的时候忘记了语法可以直接按Java的语法继续写，也可以在 Java 中调用 Groovy 脚本。比起Java，Groovy语法更加的灵活和简洁，可以用更少的代码来实现Java实现的同样功能。
+2.Groovy编写和调试Groovy的代码可以在Android Studio和IntelliJ IDEA等IDE中进行编写和调试，缺点是需要配置环境，这里推荐在文本中编写代码并结合命令行进行调试（文本推荐使用Sublime Text）。关于命令行请查看Android Gradle（二）Gradle入门前奏这篇文章。具体的操作步骤就是：在一个目录中新建build.gradle文件，在build.gradle中新建一个task，在task中编写Groovy代码，用
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/29/Groovy快速入门指南/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2019/05/08/解决Android-Studio依赖库版本不一致的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/08/解决Android-Studio依赖库版本不一致的问题/" itemprop="url">
+                  解决Android Studio依赖库版本不一致的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-08 11:21:25" itemprop="dateCreated datePublished" datetime="2019-05-08T11:21:25+08:00">2019-05-08</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          强制指定第三方依赖库内部所依赖的库的版本号具体问题在项目开发和迭代过程中，我们不得不依赖越来越多的第三方库，有些是为了不重复造轮子，有些是要用别人的功能，比如依赖一些直播平台的库。依赖的库越多，就越容易造成依赖版本冲突的问题。在最近项目上线，空闲下来的时间，准备来解决之前一直没有顾得上解决的一个依赖问题，虽然能编译通过，总感觉有一条红色警告线看着不爽。
+就是它…
+
+根据提示，大概意思是说所有com.android.support库所依赖的版本号要一致，多个版本号可能会导致运行崩溃的问题。然后说我的exifinterface库所依赖的版本号是27.1.0，别的support库是用的27.1.1的版本号。
+于是我就整个项目翻了个遍，没有发现我们在gradle配置中有依赖这个库，所以这个库应该是我们依赖的某个第三方库内部所依赖的库。但是要找到这个第三方库，却不是那么容易，于是乎google一下有没有别的解决方案。经过折腾，发现了一个可行的方案。
+解决方案在项目对应module的gradle中配置如下代码：
+configurations.all {
+    //循环每个依赖库
+    reso
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/08/解决Android-Studio依赖库版本不一致的问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2019/04/16/两个recycleview同步滚动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1580,310 +1874,6 @@ public class BottomNavigationViewHelper {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/10/17/一次批量插入数据库上万条记录优化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="康汉斌">
-      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kanghanbin's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/17/一次批量插入数据库上万条记录优化/" itemprop="url">
-                  一次批量插入数据库上万条记录优化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-17 16:42:09" itemprop="dateCreated datePublished" datetime="2018-10-17T16:42:09+08:00">2018-10-17</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          由于项目涉及到数据库的东西太多太多，基本所有功能都涉及到数据库。在一个移动客户端上只要涉及到网络数据都得保存到本地，数据量小的情况下还好，如果数据量成千上万，那稳定性，速度效率个方面问题层出不穷。
-问题:上万条数据从服务端下下来，可能会导致程序崩溃？
-解决方案：
-1.首先这个奔溃问题，我不知道是什么奔溃，然后让业务那边在初选收获功能模块中加一些大数据量我这边好测试，业务分别加成功了4000和9040两种，
-2.运行项目，测试了一下，前两次貌似都报了网络环境异常，查看log是com.android.volley.TimeoutError超时，后来再测几次就没出现，估计网络不稳定造成，下载成功后会保存至数据库，下载过程挺快，然后卡在了保存至数据库，加载框也不转了，静静地等着
-
-2.1.如果，在这中间，手指触碰到了安卓事件，系统会弹出ANR对话框，然后强制关闭，系统奔溃。
-
-我认为解决方案就是数据库操作在子线程，可有效避免ANR。
-2.2.如果，在这中间，静静地等着数据库插入操作直至完成，下面是测试保存所需等待时间，其实算了操作数据库两个方法。
-
-   @Override
-         
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/17/一次批量插入数据库上万条记录优化/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/09/29/StaggeredGridLayoutManager瀑布流错乱的解决-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="康汉斌">
-      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kanghanbin's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/29/StaggeredGridLayoutManager瀑布流错乱的解决-1/" itemprop="url">
-                  StaggeredGridLayoutManager瀑布流错乱的解决
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-29 11:09:42" itemprop="dateCreated datePublished" datetime="2018-09-29T11:09:42+08:00">2018-09-29</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-           使用RecyclerView搭配StaggeredGridLayoutManager实现瀑布流时，一般会在Adapter的onBindViewHolder()方法里给每一个item随机生成一个高度，使得item的排布错落有致，不死板。
- @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        //存在记录的高度时先Layout再异步加载图片
-        if (mList.get(holder.getAdapterPosition()).getHeight() > 0) {
-            ViewGroup.LayoutParams layoutParams = holder.ivGirl.getLayoutParams();
-            layoutParams.height = mList.get(holder.getAdapterPosition()).getHeight();
-        }
-        Glide.
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/29/StaggeredGridLayoutManager瀑布流错乱的解决-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1935,7 +1925,7 @@ public class BottomNavigationViewHelper {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1974,7 +1964,11 @@ public class BottomNavigationViewHelper {
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

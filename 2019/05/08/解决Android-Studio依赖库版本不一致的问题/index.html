@@ -145,25 +145,27 @@
 
 
 
-  <meta name="description" content="About meMy name is Kang hanbin (康汉斌) . I was born in August 1994. BackgroundI was born and raised up in Gansu and finished my college in Beijing. I majored in Software Engineering at Institute of Disa">
-<meta name="keywords" content="北京">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kanghanbin&#39;s Blog">
-<meta property="og:url" content="https://kanghanbin.github.io/about/index.html">
+  <meta name="description" content="强制指定第三方依赖库内部所依赖的库的版本号具体问题在项目开发和迭代过程中，我们不得不依赖越来越多的第三方库，有些是为了不重复造轮子，有些是要用别人的功能，比如依赖一些直播平台的库。依赖的库越多，就越容易造成依赖版本冲突的问题。在最近项目上线，空闲下来的时间，准备来解决之前一直没有顾得上解决的一个依赖问题，虽然能编译通过，总感觉有一条红色警告线看着不爽。 就是它…  根据提示，大概意思是说所有com">
+<meta name="keywords" content="gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决Android Studio依赖库版本不一致的问题">
+<meta property="og:url" content="https://kanghanbin.github.io/2019/05/08/解决Android-Studio依赖库版本不一致的问题/index.html">
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
-<meta property="og:description" content="About meMy name is Kang hanbin (康汉斌) . I was born in August 1994. BackgroundI was born and raised up in Gansu and finished my college in Beijing. I majored in Software Engineering at Institute of Disa">
+<meta property="og:description" content="强制指定第三方依赖库内部所依赖的库的版本号具体问题在项目开发和迭代过程中，我们不得不依赖越来越多的第三方库，有些是为了不重复造轮子，有些是要用别人的功能，比如依赖一些直播平台的库。依赖的库越多，就越容易造成依赖版本冲突的问题。在最近项目上线，空闲下来的时间，准备来解决之前一直没有顾得上解决的一个依赖问题，虽然能编译通过，总感觉有一条红色警告线看着不爽。 就是它…  根据提示，大概意思是说所有com">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-07T07:10:06.034Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3888eecly1ftjxjqbop3j21q203u77w.jpg">
+<meta property="og:updated_time" content="2019-05-08T03:24:55.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kanghanbin&#39;s Blog">
-<meta name="twitter:description" content="About meMy name is Kang hanbin (康汉斌) . I was born in August 1994. BackgroundI was born and raised up in Gansu and finished my college in Beijing. I majored in Software Engineering at Institute of Disa">
+<meta name="twitter:title" content="解决Android Studio依赖库版本不一致的问题">
+<meta name="twitter:description" content="强制指定第三方依赖库内部所依赖的库的版本号具体问题在项目开发和迭代过程中，我们不得不依赖越来越多的第三方库，有些是为了不重复造轮子，有些是要用别人的功能，比如依赖一些直播平台的库。依赖的库越多，就越容易造成依赖版本冲突的问题。在最近项目上线，空闲下来的时间，准备来解决之前一直没有顾得上解决的一个依赖问题，虽然能编译通过，总感觉有一条红色警告线看着不爽。 就是它…  根据提示，大概意思是说所有com">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/a3888eecly1ftjxjqbop3j21q203u77w.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://kanghanbin.github.io/about/"/>
+  <link rel="canonical" href="https://kanghanbin.github.io/2019/05/08/解决Android-Studio依赖库版本不一致的问题/"/>
 
 
 
@@ -173,7 +175,7 @@
   };
 </script>
 
-  <title> | Kanghanbin's Blog</title>
+  <title>解决Android Studio依赖库版本不一致的问题 | Kanghanbin's Blog</title>
   
 
 
@@ -285,7 +287,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
@@ -297,25 +299,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -343,57 +326,218 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2019/05/08/解决Android-Studio依赖库版本不一致的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline"></h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="About-me"><a href="#About-me" class="headerlink" title="About me"></a>About me</h2><p>My name is Kang hanbin (康汉斌) . I was born in August 1994.</p>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>I was born and raised up in Gansu and finished my college in Beijing. I majored in Software Engineering at Institute of Disaster Prevention Science and Technology. By now, I am an Android developer.</p>
-<h2 id="Experiences"><a href="#Experiences" class="headerlink" title="Experiences"></a>Experiences</h2><ul>
-<li>Android Developer  ·.Nine Domain Interconnection Technology Co（北京九域互联科技有限公司） · <em>Jul. 2016 - Aug. 2017, Beijing, China</em></li>
-</ul>
-<ul>
-<li>Android Developer ·National Engineering Research Center for Information Technology in Agriculture((NERCITA)   (国家农业信息技术研究中心). · <em>Aug. 2017 - Present. Beijing, China</em></li>
-</ul>
-<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><ul>
-<li>E-mail：<a href="mailto:hellokanghanbin@163.com" target="_blank" rel="noopener">hellokanghanbin@163.com</a> <code>Or</code> <a href="mailto:kanghb@nercita.org.cn" target="_blank" rel="noopener">kanghb@nercita.org.cn</a></li>
-<li>Tel：18311361659</li>
-</ul>
-<h2 id="Music"><a href="#Music" class="headerlink" title="Music"></a>Music</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=471761412&auto=1&height=66"></iframe>
-
-
+          <h1 class="post-title" itemprop="name headline">解决Android Studio依赖库版本不一致的问题
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-08 11:21:25" itemprop="dateCreated datePublished" datetime="2019-05-08T11:21:25+08:00">2019-05-08</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="强制指定第三方依赖库内部所依赖的库的版本号"><a href="#强制指定第三方依赖库内部所依赖的库的版本号" class="headerlink" title="强制指定第三方依赖库内部所依赖的库的版本号"></a>强制指定第三方依赖库内部所依赖的库的版本号</h2><h2 id="具体问题"><a href="#具体问题" class="headerlink" title="具体问题"></a>具体问题</h2><p>在项目开发和迭代过程中，我们不得不依赖越来越多的第三方库，有些是为了不重复造轮子，有些是要用别人的功能，比如依赖一些直播平台的库。依赖的库越多，就越容易造成依赖版本冲突的问题。在最近项目上线，空闲下来的时间，准备来解决之前一直没有顾得上解决的一个依赖问题，虽然能编译通过，总感觉有一条红色警告线看着不爽。</p>
+<p>就是它…</p>
+<p><img src="https://ws1.sinaimg.cn/large/a3888eecly1ftjxjqbop3j21q203u77w.jpg" alt="img"></p>
+<p>根据提示，大概意思是说所有com.android.support库所依赖的版本号要一致，多个版本号可能会导致运行崩溃的问题。然后说我的exifinterface库所依赖的版本号是27.1.0，别的support库是用的27.1.1的版本号。</p>
+<p>于是我就整个项目翻了个遍，没有发现我们在gradle配置中有依赖这个库，所以这个库应该是我们依赖的某个第三方库内部所依赖的库。但是要找到这个第三方库，却不是那么容易，于是乎google一下有没有别的解决方案。经过折腾，发现了一个可行的方案。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在项目对应module的gradle中配置如下代码：</p>
+<pre class=" language-groovy"><code class="language-groovy">configurations<span class="token operator">.</span>all <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//循环每个依赖库</span>
+    resolutionStrategy<span class="token operator">.</span>eachDependency <span class="token punctuation">{</span> DependencyResolveDetails details <span class="token operator">-></span>
+        <span class="token comment" spellcheck="true">//获取当前循环到的依赖库</span>
+        <span class="token keyword">def</span> requested <span class="token operator">=</span> details<span class="token operator">.</span>requested
+        <span class="token comment" spellcheck="true">//如果这个依赖库群组的名字是com.android.support</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>requested<span class="token operator">.</span>group <span class="token operator">==</span> <span class="token string">'com.android.support'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//且其名字不是以multidex开头的</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>requested<span class="token operator">.</span>name<span class="token operator">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"multidex"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//这里指定需要统一的依赖版本 比如我的需要配置成27.1.1</span>
+                details<span class="token operator">.</span>useVersion <span class="token string">'27.1.1'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>配置完如下代码以后，再同步一下，就完美解决了提示版本号不一致的问题。当然你也可以通过此方法指定某个第三方库中内部的某个依赖库强制依赖你指定的版本号，例如：</p>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token punctuation">...</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>requested<span class="token operator">.</span>name<span class="token operator">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"design"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//这里指定需要的依赖版本</span>
+        details<span class="token operator">.</span>useVersion <span class="token string">'27.1.0'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">...</span>
+</code></pre>
+<p>不过不建议这么干，版本号修改后可能导致第三方库出现不兼容的问题。</p>
+<p>另外想说的一点是：我们在自己编写库的时候，建议使用<strong>implementation</strong>来依赖第三方库，这样别人依赖我们的库时，不会依赖到我们内部依赖的第三方库。</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="康汉斌 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="康汉斌 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gradle/" rel="tag"><i class="fa fa-tag"></i> gradle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/两个recycleview同步滚动/" rel="next" title="两个recycleview同步滚动">
+                <i class="fa fa-chevron-left"></i> 两个recycleview同步滚动
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/29/Groovy快速入门指南/" rel="prev" title="Groovy快速入门指南">
+                Groovy快速入门指南 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -540,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#About-me"><span class="nav-number">1.</span> <span class="nav-text">About me</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiences"><span class="nav-number">3.</span> <span class="nav-text">Experiences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contact"><span class="nav-number">4.</span> <span class="nav-text">Contact</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Music"><span class="nav-number">5.</span> <span class="nav-text">Music</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#强制指定第三方依赖库内部所依赖的库的版本号"><span class="nav-number">1.</span> <span class="nav-text">强制指定第三方依赖库内部所依赖的库的版本号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体问题"><span class="nav-number">2.</span> <span class="nav-text">具体问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
             
 
           </div>
