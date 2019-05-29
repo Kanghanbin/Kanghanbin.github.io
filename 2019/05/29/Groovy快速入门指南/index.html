@@ -145,20 +145,18 @@
 
 
 
-  <meta name="description" content="1.Groovy概述Groovy是Apache 旗下的一种基于JVM的面向对象编程语言，既可以用于面向对象编程，也可以用作纯粹的脚本语言。在语言的设计上它吸纳了Python、Ruby 和 Smalltalk 语言的优秀特性，比如动态类型转换、闭包和元编程支持。Groovy与 Java可以很好的互相调用并结合编程 ，比如在写 Groovy 的时候忘记了语法可以直接按Java的语法继续写，也可以在">
+  <meta name="description" content="&amp;lt;img  width=600 height = 400src=”https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/2019/05/29/Groovy%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.jpg?raw=true&amp;gt; 1.Groovy概述">
 <meta name="keywords" content="groovy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Groovy快速入门指南">
 <meta property="og:url" content="https://kanghanbin.github.io/2019/05/29/Groovy快速入门指南/index.html">
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
-<meta property="og:description" content="1.Groovy概述Groovy是Apache 旗下的一种基于JVM的面向对象编程语言，既可以用于面向对象编程，也可以用作纯粹的脚本语言。在语言的设计上它吸纳了Python、Ruby 和 Smalltalk 语言的优秀特性，比如动态类型转换、闭包和元编程支持。Groovy与 Java可以很好的互相调用并结合编程 ，比如在写 Groovy 的时候忘记了语法可以直接按Java的语法继续写，也可以在">
+<meta property="og:description" content="&amp;lt;img  width=600 height = 400src=”https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/2019/05/29/Groovy%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.jpg?raw=true&amp;gt; 1.Groovy概述">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://kanghanbin.github.io/1.jpg">
-<meta property="og:updated_time" content="2019-05-29T09:03:23.779Z">
+<meta property="og:updated_time" content="2019-05-29T09:20:12.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Groovy快速入门指南">
-<meta name="twitter:description" content="1.Groovy概述Groovy是Apache 旗下的一种基于JVM的面向对象编程语言，既可以用于面向对象编程，也可以用作纯粹的脚本语言。在语言的设计上它吸纳了Python、Ruby 和 Smalltalk 语言的优秀特性，比如动态类型转换、闭包和元编程支持。Groovy与 Java可以很好的互相调用并结合编程 ，比如在写 Groovy 的时候忘记了语法可以直接按Java的语法继续写，也可以在">
-<meta name="twitter:image" content="https://kanghanbin.github.io/1.jpg">
+<meta name="twitter:description" content="&amp;lt;img  width=600 height = 400src=”https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/2019/05/29/Groovy%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.jpg?raw=true&amp;gt; 1.Groovy概述">
 
 
 
@@ -416,7 +414,7 @@
       
 
       
-        <p><img src="/1.jpg" alt=""></p>
+        <p>&lt;img  width=600 height = 400<br>src=”<a href="https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/2019/05/29/Groovy%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.jpg?raw=true&gt;" target="_blank" rel="noopener">https://github.com/Kanghanbin/Kanghanbin.github.io/blob/master/2019/05/29/Groovy%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.jpg?raw=true&gt;</a></p>
 <h3 id="1-Groovy概述"><a href="#1-Groovy概述" class="headerlink" title="1.Groovy概述"></a><strong>1.Groovy概述</strong></h3><p>Groovy是Apache 旗下的一种基于JVM的面向对象编程语言，既可以用于面向对象编程，也可以用作纯粹的脚本语言。在语言的设计上它吸纳了Python、Ruby 和 Smalltalk 语言的优秀特性，比如动态类型转换、闭包和元编程支持。<br>Groovy与 Java可以很好的互相调用并结合编程 ，比如在写 Groovy 的时候忘记了语法可以直接按Java的语法继续写，也可以在 Java 中调用 Groovy 脚本。比起Java，Groovy语法更加的灵活和简洁，可以用更少的代码来实现Java实现的同样功能。</p>
 <h3 id="2-Groovy编写和调试"><a href="#2-Groovy编写和调试" class="headerlink" title="2.Groovy编写和调试"></a><strong>2.Groovy编写和调试</strong></h3><p>Groovy的代码可以在Android Studio和IntelliJ IDEA等IDE中进行编写和调试，缺点是需要配置环境，这里推荐在文本中编写代码并结合命令行进行调试（文本推荐使用Sublime Text）。关于命令行请查看<a href="http://liuwangshu.cn/application/gradle/2-primer.html" target="_blank" rel="noopener">Android Gradle（二）Gradle入门前奏</a>这篇文章。<br>具体的操作步骤就是：在一个目录中新建build.gradle文件，在build.gradle中新建一个task，在task中编写Groovy代码，用命令行进入这个build.gradle文件所在的目录，运行gradle task名称 等命令行对代码进行调试，本文中的例子都是这样编写和调试的。</p>
 <h3 id="3-变量"><a href="#3-变量" class="headerlink" title="3.变量"></a><strong>3.变量</strong></h3><p>Groovy中用def关键字来定义变量，可以不指定变量的类型，默认访问修饰符是public。</p>
