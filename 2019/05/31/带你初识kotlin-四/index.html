@@ -145,27 +145,25 @@
 
 
 
-  <meta name="description" content="上一节 简单认识了下kotlin的基本类型和常用流程控制，这节继续学习 一、Kotlin 变量声明首先，kotlin变量的声明必须使用关键字var或val  var: 用此关键字声明的变量表示可变变量，即可读且可写。相当于Java中普通变量 val: 用此关键字声明的变量表示不可变变量，即可读且不可写。相当于Java中用final修饰的变量  1.1基础用法：关键字 变量名：数据类型 = xxx">
-<meta name="keywords" content="Kotlin">
+  <meta name="description" content="头等函数 头等函数（first-class function）是指在程序设计语言中，函数被当作头等公民。这意味着，函数可以作为别的函数的参数、函数的返回值，赋值给变量或存储在数据结构中。 Kotlin 函数都是头等的，这意味着它们可以存储在变量与数据结构中、作为参数传递给其他高阶函数以及从其他高阶函数返回。可以像操作任何其他非函数值一样操作函数。 高阶函数 高阶函数是将函数用作参数或返回值的函数。">
+<meta name="keywords" content="kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="带你初识Kotlin(二)">
-<meta property="og:url" content="https://kanghanbin.github.io/2017/08/07/带你初识Kotlin-二/index.html">
+<meta property="og:title" content="带你初识kotlin（四）">
+<meta property="og:url" content="https://kanghanbin.github.io/2019/05/31/带你初识kotlin-四/index.html">
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
-<meta property="og:description" content="上一节 简单认识了下kotlin的基本类型和常用流程控制，这节继续学习 一、Kotlin 变量声明首先，kotlin变量的声明必须使用关键字var或val  var: 用此关键字声明的变量表示可变变量，即可读且可写。相当于Java中普通变量 val: 用此关键字声明的变量表示不可变变量，即可读且不可写。相当于Java中用final修饰的变量  1.1基础用法：关键字 变量名：数据类型 = xxx">
+<meta property="og:description" content="头等函数 头等函数（first-class function）是指在程序设计语言中，函数被当作头等公民。这意味着，函数可以作为别的函数的参数、函数的返回值，赋值给变量或存储在数据结构中。 Kotlin 函数都是头等的，这意味着它们可以存储在变量与数据结构中、作为参数传递给其他高阶函数以及从其他高阶函数返回。可以像操作任何其他非函数值一样操作函数。 高阶函数 高阶函数是将函数用作参数或返回值的函数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://Kanghanbin.github.io/blog/7.png">
-<meta property="og:updated_time" content="2018-11-29T07:20:10.513Z">
+<meta property="og:updated_time" content="2019-05-31T03:22:48.969Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="带你初识Kotlin(二)">
-<meta name="twitter:description" content="上一节 简单认识了下kotlin的基本类型和常用流程控制，这节继续学习 一、Kotlin 变量声明首先，kotlin变量的声明必须使用关键字var或val  var: 用此关键字声明的变量表示可变变量，即可读且可写。相当于Java中普通变量 val: 用此关键字声明的变量表示不可变变量，即可读且不可写。相当于Java中用final修饰的变量  1.1基础用法：关键字 变量名：数据类型 = xxx">
-<meta name="twitter:image" content="https://Kanghanbin.github.io/blog/7.png">
+<meta name="twitter:title" content="带你初识kotlin（四）">
+<meta name="twitter:description" content="头等函数 头等函数（first-class function）是指在程序设计语言中，函数被当作头等公民。这意味着，函数可以作为别的函数的参数、函数的返回值，赋值给变量或存储在数据结构中。 Kotlin 函数都是头等的，这意味着它们可以存储在变量与数据结构中、作为参数传递给其他高阶函数以及从其他高阶函数返回。可以像操作任何其他非函数值一样操作函数。 高阶函数 高阶函数是将函数用作参数或返回值的函数。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://kanghanbin.github.io/2017/08/07/带你初识Kotlin-二/"/>
+  <link rel="canonical" href="https://kanghanbin.github.io/2019/05/31/带你初识kotlin-四/"/>
 
 
 
@@ -175,7 +173,7 @@
   };
 </script>
 
-  <title>带你初识Kotlin(二) | Kanghanbin's Blog</title>
+  <title>带你初识kotlin（四） | Kanghanbin's Blog</title>
   
 
 
@@ -340,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2017/08/07/带你初识Kotlin-二/">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2019/05/31/带你初识kotlin-四/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="康汉斌">
@@ -357,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">带你初识Kotlin(二)
+          <h1 class="post-title" itemprop="name headline">带你初识kotlin（四）
               
             
           </h1>
@@ -382,7 +380,7 @@
                 
               
 
-              <time title="创建时间：2017-08-07 09:57:07" itemprop="dateCreated datePublished" datetime="2017-08-07T09:57:07+08:00">2017-08-07</time>
+              <time title="创建时间：2019-05-31 10:48:48" itemprop="dateCreated datePublished" datetime="2019-05-31T10:48:48+08:00">2019-05-31</time>
             
 
             
@@ -416,96 +414,54 @@
       
 
       
-        <p><a href="https://kanghanbin.github.io/2015/07/18/%E5%B8%A6%E4%BD%A0%E5%88%9D%E8%AF%86Kotlin/">上一节</a> 简单认识了下<code>kotlin</code>的基本类型和常用流程控制，这节继续学习</p>
-<h3 id="一、Kotlin-变量声明"><a href="#一、Kotlin-变量声明" class="headerlink" title="一、Kotlin 变量声明"></a>一、<code>Kotlin</code> 变量声明</h3><p>首先，<code>kotlin</code>变量的声明必须使用关键字<code>var</code>或<code>val</code></p>
-<ul>
-<li><code>var</code>: 用此关键字声明的变量表示可变变量，即可读且可写。相当于<code>Java</code>中普通变量</li>
-<li><code>val</code>: 用此关键字声明的变量表示不可变变量，即可读且不可写。相当于<code>Java</code>中用<code>final</code>修饰的变量</li>
-</ul>
-<h4 id="1-1基础用法："><a href="#1-1基础用法：" class="headerlink" title="1.1基础用法："></a>1.1基础用法：</h4><p>关键字 变量名：数据类型 = xxx  </p>
-<p>eg:</p>
-<pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">//立即初始化</span>
-<span class="token keyword">var</span> var_a<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">10</span> 
-<span class="token comment" spellcheck="true">//推导出类型</span>
-<span class="token keyword">var</span> var_b <span class="token operator">=</span> <span class="token number">5</span>
-<span class="token comment" spellcheck="true">//没有初始化的时候，必须声明类型</span>
-<span class="token keyword">var</span> var_c <span class="token operator">:</span>Float
-var_c <span class="token operator">=</span> <span class="token number">12.4f</span>
-<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"var_a => <span class="token interpolation variable">$var_a</span> \t var_b => <span class="token interpolation variable">$var_b</span> \t var_a => <span class="token interpolation variable">$var_c</span>"</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">//$符号表示引用的意思</span>
-</code></pre>
-<p>注意：在类中声明变量时，必须初始化，如果不初始化，需要使用<code>lateinit</code>关键字<img src="https://Kanghanbin.github.io/blog/7.png" alt="IntelliJ IEDA中爆红并提示"></p>
-<h4 id="1-2声明可空变量："><a href="#1-2声明可空变量：" class="headerlink" title="1.2声明可空变量："></a>1.2声明可空变量：</h4><ul>
-<li>在声明的时候一定用标准的声明格式定义。不能用可推断类型的简写。</li>
-<li>变量类型后面的<code>?</code>符号不能省略。不然就和普通的变量没区别了。</li>
-<li>其初始化的值可以为<code>null</code>或确定的变量值。</li>
-</ul>
-<p>定义：</p>
-<p><code>var/val</code> 变量名 ： 类型？ = null/确定的值</p>
-<p>eg：</p>
-<pre class=" language-kotlin"><code class="language-kotlin">  <span class="token keyword">var</span> var_a <span class="token operator">:</span> Int<span class="token operator">?</span> <span class="token operator">=</span> <span class="token number">0</span>
-  <span class="token keyword">val</span> val_a <span class="token operator">:</span> Int<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword">null</span>
-</code></pre>
-<h4 id="1-3后期初始化"><a href="#1-3后期初始化" class="headerlink" title="1.3后期初始化"></a>1.3后期初始化</h4><p>前面提到在类中定义一个变量（属性）时是必须初始化的，但是在平时<code>Android</code>开发中我们对组件变量的声明是不需要直接初始化，这。。。。，<code>Kotlin</code>中后期初始化满足了你。</p>
-<ul>
-<li>使用<code>lateinit</code>关键字</li>
-<li>必须是可读且可写的变量，即用<code>var</code>声明的变量</li>
-<li>不能声明于可空变量。</li>
-<li>不能声明于基本数据类型变量。例：<code>Int</code>、<code>Float</code>、<code>Double</code>等，注意：<code>String</code>类型是可以的。</li>
-<li>声明后，在使用该变量前必须赋值，不然会抛出<code>UninitializedPropertyAccessException</code>异常</li>
-</ul>
-<p>eg：</p>
-<pre class=" language-kotlin"><code class="language-kotlin">
-</code></pre>
-<h4 id="1-4延迟初始化"><a href="#1-4延迟初始化" class="headerlink" title="1.4延迟初始化"></a>1.4延迟初始化</h4><p>程序第一次使用到这个变量（属性）时再初始化</p>
-<ul>
-<li>使用<code>lazy{}</code>高阶函数，不能用于类型推断。且该函数在变量的数据类型后面，用<code>by</code>链接。</li>
-<li>必须是只读变量，即用<code>val</code>声明的变量。</li>
-</ul>
-<p>eg：</p>
-<pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">// 声明一个延迟初始化的字符串数组变量</span>
-<span class="token keyword">private</span> <span class="token keyword">val</span> mTitles <span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span> <span class="token keyword">by</span> lazy <span class="token punctuation">{</span>
-    <span class="token function">arrayOf</span><span class="token punctuation">(</span>
-            ctx<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>string<span class="token punctuation">.</span>tab_title_android<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            ctx<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>string<span class="token punctuation">.</span>tab_title_ios<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            ctx<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>string<span class="token punctuation">.</span>tab_title_h5<span class="token punctuation">)</span>
-    <span class="token punctuation">)</span>
+        <p>头等函数</p>
+<p><strong>头等函数</strong>（first-class function）是指在<a href="https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener">程序设计语言</a>中，函数被当作<a href="https://zh.wikipedia.org/wiki/%E5%A4%B4%E7%AD%89%E5%85%AC%E6%B0%91" target="_blank" rel="noopener">头等公民</a>。这意味着，函数可以作为别的函数的参数、函数的返回值，赋值给变量或存储在数据结构中。 Kotlin 函数都是<a href="https://zh.wikipedia.org/wiki/%E5%A4%B4%E7%AD%89%E5%87%BD%E6%95%B0" target="_blank" rel="noopener"><em>头等的</em></a>，这意味着它们可以存储在变量与数据结构中、作为参数传递给其他<a href="https://www.kotlincn.net/docs/reference/lambdas.html#%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">高阶函数</a>以及从其他高阶函数返回。可以像操作任何其他非函数值一样操作函数。</p>
+<p>高阶函数</p>
+<p>高阶函数是将函数用作参数或返回值的函数。</p>
+<p>比如集合的[函数式风格的 <code>fold</code>， 它接受一个初始累积值与一个接合函数，并通过将当前累积值与每个集合元素连续接合起来代入累积值来构建返回值，<code>fold</code>高阶函数定义如下：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token operator">&lt;</span>T<span class="token punctuation">,</span> R<span class="token operator">></span> Collection<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">fold</span><span class="token punctuation">(</span>
+    initial<span class="token operator">:</span> R<span class="token punctuation">,</span> 
+    combine<span class="token operator">:</span> <span class="token punctuation">(</span>acc<span class="token operator">:</span> R<span class="token punctuation">,</span> nextElement<span class="token operator">:</span> T<span class="token punctuation">)</span> <span class="token operator">-></span> R
+<span class="token punctuation">)</span><span class="token operator">:</span> R <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> accumulator<span class="token operator">:</span> R <span class="token operator">=</span> initial
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>element<span class="token operator">:</span> T <span class="token keyword">in</span> <span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        accumulator <span class="token operator">=</span> <span class="token function">combine</span><span class="token punctuation">(</span>accumulator<span class="token punctuation">,</span> element<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> accumulator
 <span class="token punctuation">}</span>
+</code></pre>
+<p>在上述代码中，参数 <code>combine</code> 具有函数类型(R, T) -&gt; R<code>，因此</code>fold<code>接受一个函数作为参数， 该函数接受类型分别为</code>R<code>与</code>T<code>的两个参数并返回一个</code>R<code>类型的值。 在 *for*-循环内部调用该函数，然后将其返回值赋值给</code>accumulator<code>。为了调用</code>fold<code>，需要传给它一个</code>函数类型的实例`作为参数，而在高阶函数调用处，lambda 表达 式广泛用于此目的。</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> items <span class="token operator">=</span> <span class="token function">listOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true">// 声明一个延迟初始化的字符串</span>
-<span class="token keyword">private</span> <span class="token keyword">val</span> mStr <span class="token operator">:</span> String <span class="token keyword">by</span> lazy<span class="token punctuation">{</span>
-    <span class="token string">"我是延迟初始化字符串变量"</span>
-<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// Lambdas 表达式是花括号括起来的代码块。</span>
+items<span class="token punctuation">.</span><span class="token function">fold</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+    <span class="token comment" spellcheck="true">// 如果一个 lambda 表达式有参数，前面是参数，后跟“->”</span>
+    acc<span class="token operator">:</span> Int<span class="token punctuation">,</span> i<span class="token operator">:</span> Int <span class="token operator">-></span> 
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"acc = <span class="token interpolation variable">$acc</span>, i = <span class="token interpolation variable">$i</span>, "</span><span class="token punctuation">)</span> 
+    <span class="token keyword">val</span> result <span class="token operator">=</span> acc <span class="token operator">+</span> i
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"result = <span class="token interpolation variable">$result</span>"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// lambda 表达式中的最后一个表达式是返回值：</span>
+    result
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// lambda 表达式的参数类型是可选的，如果能够推断出来的话：</span>
+<span class="token keyword">val</span> joinedToString <span class="token operator">=</span> items<span class="token punctuation">.</span><span class="token function">fold</span><span class="token punctuation">(</span><span class="token string">"Elements:"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> acc<span class="token punctuation">,</span> i <span class="token operator">-></span> acc <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> i <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 函数引用也可以用于高阶函数调用：</span>
+<span class="token keyword">val</span> product <span class="token operator">=</span> items<span class="token punctuation">.</span><span class="token function">fold</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> Int<span class="token operator">::</span>times<span class="token punctuation">)</span>
 </code></pre>
-<h3 id="二、Kotlin注释"><a href="#二、Kotlin注释" class="headerlink" title="二、Kotlin注释"></a>二、<code>Kotlin</code>注释</h3><p><code>kotlin</code>中注释和java基本一样，只是多了个多行注释（嵌套多行注释），个人觉得没卵用，只是看起来有点层次感</p>
-<p>eg：</p>
-<pre class=" language-kotlin"><code class="language-kotlin">  <span class="token comment" spellcheck="true">/*
-    第一层块注释
-    /*
-        第二层块注释
-        /*
-            第三层快注释
-            这种注释方式在java中是不支持的，但是在kotlin中是支持的。算是一个亮点吧（貌似意义不大）。
-         */</span>
-     <span class="token operator">*</span><span class="token operator">/</span>
- <span class="token operator">*</span><span class="token operator">/</span>
-</code></pre>
-<p>其他注释和java一个样</p>
-<h3 id="三、进制数"><a href="#三、进制数" class="headerlink" title="三、进制数"></a>三、进制数</h3><ul>
-<li>二进制数</li>
-<li><strong>八进制数（Kotlin不支持）</strong></li>
-<li>十进制数</li>
-<li>十六进制数</li>
-</ul>
-<p>eg：</p>
-<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">var</span> g <span class="token operator">=</span> <span class="token number">0x0F</span>            <span class="token comment" spellcheck="true">//十六进制数</span>
-<span class="token keyword">var</span> h <span class="token operator">=</span> <span class="token number">0b00001011</span>      <span class="token comment" spellcheck="true">//二进制数</span>
-<span class="token keyword">var</span> k <span class="token operator">=</span> <span class="token number">123</span>             <span class="token comment" spellcheck="true">//十进制数</span>
-<span class="token comment" spellcheck="true">// ps：Kotlin不支持八进制数</span>
-<span class="token function">println</span><span class="token punctuation">(</span>" g <span class="token operator">=</span><span class="token operator">></span> $g \n h <span class="token operator">=</span><span class="token operator">></span> $h \n k <span class="token operator">=</span><span class="token operator">></span> $k<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>输出结果：</p>
-<p>g =&gt; 15  h =&gt; 11  k =&gt; 123  </p>
+<p>执行结果：</p>
+<pre><code>acc = 0, i = 1, result = 1
+acc = 1, i = 2, result = 3
+acc = 3, i = 3, result = 6
+acc = 6, i = 4, result = 10
+acc = 10, i = 5, result = 15
+joinedToString = Elements: 1 2 3 4 5
+product = 120
+</code></pre><p>函数类型</p>
+<p>Kotlin 使用类似 <code>(Int) -&gt; String</code> 的一系列函数类型来处理函数的声明： <code>val onClick: () -&gt; Unit = ……</code>。</p>
+<p>这些类型具有与函数签名相对应的特殊表示法，即它们的参数和返回值：</p>
+<p>所有函数类型都有一个圆括号括起来的参数类型列表以及一个返回类型：<code>(A, B) -&gt; C</code> 表示接受类型分别为 <code>A</code> 与 <code>B</code> 两个参数并返回一个 <code>C</code> 类型值的函数类型。 参数类型列表可以为空，如 <code>() -&gt; A</code>。<a href="https://www.kotlincn.net/docs/reference/functions.html#%E8%BF%94%E5%9B%9E-unit-%E7%9A%84%E5%87%BD%E6%95%B0" target="_blank" rel="noopener"><code>Unit</code> 返回类型</a>不可省略。</p>
 
       
     </div>
@@ -555,7 +511,7 @@ var_c <span class="token operator">=</span> <span class="token number">12.4f</sp
       
         <div class="post-tags">
           
-            <a href="/tags/Kotlin/" rel="tag"><i class="fa fa-tag"></i> Kotlin</a>
+            <a href="/tags/kotlin/" rel="tag"><i class="fa fa-tag"></i> kotlin</a>
           
         </div>
       
@@ -568,8 +524,8 @@ var_c <span class="token operator">=</span> <span class="token number">12.4f</sp
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/18/带你初识Kotlin/" rel="next" title="带你初识Kotlin（一）">
-                <i class="fa fa-chevron-left"></i> 带你初识Kotlin（一）
+              <a href="/2019/05/29/Groovy快速入门指南/" rel="next" title="Groovy快速入门指南">
+                <i class="fa fa-chevron-left"></i> Groovy快速入门指南
               </a>
             
           </div>
@@ -577,10 +533,6 @@ var_c <span class="token operator">=</span> <span class="token number">12.4f</sp
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/23/DataBinding的用法/" rel="prev" title="DataBinding的用法">
-                DataBinding的用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -625,17 +577,8 @@ var_c <span class="token operator">=</span> <span class="token number">12.4f</sp
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -734,22 +677,6 @@ var_c <span class="token operator">=</span> <span class="token number">12.4f</sp
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Kotlin-变量声明"><span class="nav-number">1.</span> <span class="nav-text">一、Kotlin 变量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1基础用法："><span class="nav-number">1.1.</span> <span class="nav-text">1.1基础用法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2声明可空变量："><span class="nav-number">1.2.</span> <span class="nav-text">1.2声明可空变量：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3后期初始化"><span class="nav-number">1.3.</span> <span class="nav-text">1.3后期初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4延迟初始化"><span class="nav-number">1.4.</span> <span class="nav-text">1.4延迟初始化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Kotlin注释"><span class="nav-number">2.</span> <span class="nav-text">二、Kotlin注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、进制数"><span class="nav-number">3.</span> <span class="nav-text">三、进制数</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
