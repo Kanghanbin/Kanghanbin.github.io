@@ -420,10 +420,10 @@
       
         
           
-          头等函数
-头等函数（first-class function）是指在程序设计语言中，函数被当作头等公民。这意味着，函数可以作为别的函数的参数、函数的返回值，赋值给变量或存储在数据结构中。 Kotlin 函数都是头等的，这意味着它们可以存储在变量与数据结构中、作为参数传递给其他高阶函数以及从其他高阶函数返回。可以像操作任何其他非函数值一样操作函数。
-高阶函数
-高阶函数是将函数用作参数或返回值的函数。
+          [TOC]
+这一节主要学习高阶函数及其涉及到的一系列函数
+头等函数头等函数（first-class function）是指在程序设计语言中，函数被当作头等公民。这意味着，函数可以作为别的函数的参数、函数的返回值，赋值给变量或存储在数据结构中。 Kotlin 函数都是头等的，这意味着它们可以存储在变量与数据结构中、作为参数传递给其他高阶函数以及从其他高阶函数返回。可以像操作任何其他非函数值一样操作函数。
+高阶函数高阶函数是将函数用作参数或返回值的函数。
 比如集合的[函数式风格的 fold， 它接受一个初始累积值与一个接合函数，并通过将当前累积值与每个集合元素连续接合起来代入累积值来构建返回值，fold高阶函数定义如下：
 fun &lt;T, R> Collection&lt;T>.fold(
     initial: R, 
@@ -431,7 +431,7 @@ fun &lt;T, R> Collection&lt;T>.fold(
 ): R {
     var accumulator: R = initial
     for (element: T in this) {
-        accumulator = combine(accumulator, ele
+        accumulator
           ...
           <!--noindex-->
           <div class="post-button text-center">
