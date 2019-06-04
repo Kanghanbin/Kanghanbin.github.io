@@ -338,6 +338,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/10/30/BottomNavigationView去除动画，大于3项是不显示文字的最新解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="康汉斌">
+      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanghanbin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/BottomNavigationView去除动画，大于3项是不显示文字的最新解决方案/" itemprop="url">
+                  BottomNavigationView去除动画，大于3项时不显示文字的最新解决方案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-30 18:21:13" itemprop="dateCreated datePublished" datetime="2018-10-30T18:21:13+08:00">2018-10-30</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          背景今天在用 BottomNavigationView实现底部导航栏时出现了个小问题，效果如下：
+
+当使用BottomNavigationView菜单项多于3个时，去除动画效果，显示菜单项文字。
+初级方案在网上看到解决方案是这样：
+/**
+ * 创建时间：2018/10/30
+ * 编写人：kanghb
+ * 功能描述：当使用BottomNavigationView菜单项多于3个时，去除动画效果，显示菜单项文字
+ */
+public class BottomNavigationViewHelper {
+    @SuppressLint("RestrictedApi")
+    public static void disableShiftMode(BottomNavigationView view) {
+        //获取子View BottomNavigationMenuView的对象
+        BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
+     
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/30/BottomNavigationView去除动画，大于3项是不显示文字的最新解决方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/10/25/com-android-support冲突的解决办法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1692,159 +1848,6 @@ Binder 之复杂远远不是一篇文章就能说清楚的，本文想站在一�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2018/07/19/你所知道的Support-Library/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="康汉斌">
-      <meta itemprop="description" content="夜路走多了，总会遇到鬼">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kanghanbin's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/19/你所知道的Support-Library/" itemprop="url">
-                  你所知道的Support Library
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-19 16:27:22" itemprop="dateCreated datePublished" datetime="2018-07-19T16:27:22+08:00">2018-07-19</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一、前言作为安卓开发，天天跟Support Library打交道，动不动来个 Support Library相关类，如下：
-    implementation 'com.android.support:support-v4:27.0.2'
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    implementation 'com.android.support:design:27.0.2'
-    implementation 'com.android.support:cardview-v7:27.0.2'
-
-这样做是没错，但是有时候我们只需要用到一个小小的类，导入了一个很大的包，有点小题大做了，所以一起来了解了解Support Library吧!
-二、介绍Android 支持库提供了诸多未内置于框架的功能。这些库提供向后兼容版本的新功能、框架中未包含的实用 UI 元素，以及应用可以利用的一系列实用程序。 
-支持库提供一系列不同的功能：
-
-向后兼容版本的框架组件。
-用于实现建议的 Android 布局模式的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/19/你所知道的Support-Library/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1896,7 +1899,7 @@ Binder 之复杂远远不是一篇文章就能说清楚的，本文想站在一�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1939,9 +1942,7 @@ Binder 之复杂远远不是一篇文章就能说清楚的，本文想站在一�
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

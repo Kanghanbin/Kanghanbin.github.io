@@ -145,25 +145,27 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="Hexo">
+  <meta name="description" content="介绍集合是大多数编程语言的常见概念通常包含相同类型的一些（数目也可以为零）对象。集合中的对象称为元素或条目。 集合类型Kotlin标准库提供了基本集合类型的实现：集合，列表和映射。 一对接口代表每种集合类型：  A read-only interface that provides operations for accessing collection elements. A mutable in">
+<meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建博客常用命令">
-<meta property="og:url" content="https://kanghanbin.github.io/2016/07/15/Hexo搭建博客常用命令/index.html">
+<meta property="og:title" content="带你初识kotlin(五)">
+<meta property="og:url" content="https://kanghanbin.github.io/2019/06/03/带你初识kotlin-五/index.html">
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="介绍集合是大多数编程语言的常见概念通常包含相同类型的一些（数目也可以为零）对象。集合中的对象称为元素或条目。 集合类型Kotlin标准库提供了基本集合类型的实现：集合，列表和映射。 一对接口代表每种集合类型：  A read-only interface that provides operations for accessing collection elements. A mutable in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-09T01:14:26.438Z">
+<meta property="og:image" content="https://kanghanbin.github.io/1.png">
+<meta property="og:updated_time" content="2019-06-03T09:34:47.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建博客常用命令">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="带你初识kotlin(五)">
+<meta name="twitter:description" content="介绍集合是大多数编程语言的常见概念通常包含相同类型的一些（数目也可以为零）对象。集合中的对象称为元素或条目。 集合类型Kotlin标准库提供了基本集合类型的实现：集合，列表和映射。 一对接口代表每种集合类型：  A read-only interface that provides operations for accessing collection elements. A mutable in">
+<meta name="twitter:image" content="https://kanghanbin.github.io/1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://kanghanbin.github.io/2016/07/15/Hexo搭建博客常用命令/"/>
+  <link rel="canonical" href="https://kanghanbin.github.io/2019/06/03/带你初识kotlin-五/"/>
 
 
 
@@ -173,7 +175,7 @@
   };
 </script>
 
-  <title>Hexo搭建博客常用命令 | Kanghanbin's Blog</title>
+  <title>带你初识kotlin(五) | Kanghanbin's Blog</title>
   
 
 
@@ -338,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2016/07/15/Hexo搭建博客常用命令/">
+    <link itemprop="mainEntityOfPage" href="https://kanghanbin.github.io/2019/06/03/带你初识kotlin-五/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="康汉斌">
@@ -355,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo搭建博客常用命令
+          <h1 class="post-title" itemprop="name headline">带你初识kotlin(五)
               
             
           </h1>
@@ -380,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2016-07-15 17:05:52" itemprop="dateCreated datePublished" datetime="2016-07-15T17:05:52+08:00">2016-07-15</time>
+              <time title="创建时间：2019-06-03 16:53:57" itemprop="dateCreated datePublished" datetime="2019-06-03T16:53:57+08:00">2019-06-03</time>
             
 
             
@@ -414,20 +416,52 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>集合是大多数编程语言的常见概念通常包含相同类型的一些（数目也可以为零）对象。集合中的对象称为<em>元素</em>或<em>条目</em>。</p>
+<h2 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h2><p>Kotlin标准库提供了基本集合类型的实现：集合，列表和映射。 一对接口代表每种集合类型：</p>
+<ul>
+<li>A <em>read-only</em> interface that provides operations for accessing collection elements.</li>
+<li>A <em>mutable</em> interface that extends the corresponding read-only interface with write operations: adding, removing, and updating its elements.</li>
+</ul>
+<ol>
+<li>List是一个有序集合，可以通过索引访问元素 （反映其位置的整数）。 元素可以在列表中出现多次。 list就像是是一个句子：它是一组单词，它们的顺序很重要，它们可以重复。</li>
+<li>Set是一系列唯一元素。 它反映了集合的数学抽象：一组没有重复的对象。 通常，集合元素的顺序没有意义。 例如，字母表是一组字母。</li>
+<li>Map（或dictionary）是一组键值对。 键是唯一的，每个键都映射到一个值。 值可以是重复的。 映射对于存储对象之间的逻辑连接很有用，例如，员工的ID和位置。</li>
+</ol>
+<p>下面是kotlin接口的结构图</p>
+<p><img src="/1.png" alt=""></p>
+<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>Collection <t>是集合层次结构的根。 此接口表示只读集合的常见行为：检索大小，检查项目成员资格等。 集合继承自Iterable <t>接口，该接口定义迭代元素的操作。 您可以使用Collection作为适用于不同集合类型的函数的参数。 对于更具体的情况，请使用Collection的继承者：List和Set。</t></t></p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">printAll</span><span class="token punctuation">(</span>strings<span class="token operator">:</span> Collection<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>s <span class="token keyword">in</span> strings<span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"<span class="token interpolation variable">$s</span> "</span><span class="token punctuation">)</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> stringList <span class="token operator">=</span> <span class="token function">listOf</span><span class="token punctuation">(</span><span class="token string">"one"</span><span class="token punctuation">,</span> <span class="token string">"two"</span><span class="token punctuation">,</span> <span class="token string">"one"</span><span class="token punctuation">)</span>
+    <span class="token function">printAll</span><span class="token punctuation">(</span>stringList<span class="token punctuation">)</span>
+
+    <span class="token keyword">val</span> stringSet <span class="token operator">=</span> <span class="token function">setOf</span><span class="token punctuation">(</span><span class="token string">"one"</span><span class="token punctuation">,</span> <span class="token string">"two"</span><span class="token punctuation">,</span> <span class="token string">"three"</span><span class="token punctuation">)</span>
+    <span class="token function">printAll</span><span class="token punctuation">(</span>stringSet<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<a id="more"></a>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<p>运行结果：</p>
+<p>one two one<br>one two three </p>
+<p>MutableCollection是一个具有写操作的Collection，例如add和remove。</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> List<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">getShortWordsTo</span><span class="token punctuation">(</span>shortWords<span class="token operator">:</span> MutableList<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">,</span> maxLength<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">filterTo</span><span class="token punctuation">(</span>shortWords<span class="token punctuation">)</span> <span class="token punctuation">{</span> it<span class="token punctuation">.</span>length <span class="token operator">&lt;=</span> maxLength<span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// throwing away the articles</span>
+    <span class="token keyword">val</span> articles <span class="token operator">=</span> <span class="token function">setOf</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"an"</span><span class="token punctuation">,</span> <span class="token string">"An"</span><span class="token punctuation">,</span> <span class="token string">"the"</span><span class="token punctuation">,</span> <span class="token string">"The"</span><span class="token punctuation">)</span>
+    shortWords <span class="token operator">-=</span> articles
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> words <span class="token operator">=</span> <span class="token string">"A long time ago in a galaxy far far away"</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> shortWords <span class="token operator">=</span> mutableListOf<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    words<span class="token punctuation">.</span><span class="token function">getShortWordsTo</span><span class="token punctuation">(</span>shortWords<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>shortWords<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>运行结果：</p>
+<p>[ago, in, far, far]</p>
 
       
     </div>
@@ -477,7 +511,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+            <a href="/tags/Kotlin/" rel="tag"><i class="fa fa-tag"></i> Kotlin</a>
           
         </div>
       
@@ -490,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/03/为何要用Fragment的newInstance/" rel="next" title="为何要用Fragment的newInstance">
-                <i class="fa fa-chevron-left"></i> 为何要用Fragment的newInstance
+              <a href="/2019/05/31/带你初识kotlin-四/" rel="next" title="带你初识kotlin（四）">
+                <i class="fa fa-chevron-left"></i> 带你初识kotlin（四）
               </a>
             
           </div>
@@ -499,10 +533,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/27/Git团队协作常见命令的记录/" rel="prev" title="Git团队协作常见命令的记录">
-                Git团队协作常见命令的记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -664,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合类型"><span class="nav-number">2.</span> <span class="nav-text">集合类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection"><span class="nav-number">2.1.</span> <span class="nav-text">Collection</span></a></li></ol></li></ol></div>
             
 
           </div>
