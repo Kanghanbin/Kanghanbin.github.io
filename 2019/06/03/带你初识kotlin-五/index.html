@@ -154,7 +154,7 @@
 <meta property="og:description" content="介绍集合是大多数编程语言的常见概念通常包含相同类型的一些（数目也可以为零）对象。集合中的对象称为元素或条目。 集合类型Kotlin标准库提供了基本集合类型的实现：集合，列表和映射。 一对接口代表每种集合类型：  A read-only interface that provides operations for accessing collection elements. A mutable in">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://kanghanbin.github.io/1.png">
-<meta property="og:updated_time" content="2019-06-03T09:34:47.054Z">
+<meta property="og:updated_time" content="2019-06-04T01:52:28.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带你初识kotlin(五)">
 <meta name="twitter:description" content="介绍集合是大多数编程语言的常见概念通常包含相同类型的一些（数目也可以为零）对象。集合中的对象称为元素或条目。 集合类型Kotlin标准库提供了基本集合类型的实现：集合，列表和映射。 一对接口代表每种集合类型：  A read-only interface that provides operations for accessing collection elements. A mutable in">
@@ -428,7 +428,7 @@
 <li>Map（或dictionary）是一组键值对。 键是唯一的，每个键都映射到一个值。 值可以是重复的。 映射对于存储对象之间的逻辑连接很有用，例如，员工的ID和位置。</li>
 </ol>
 <p>下面是kotlin接口的结构图</p>
-<p><img src="/1.png" alt=""></p>
+<p><img src="\1.png" alt=""></p>
 <h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>Collection <t>是集合层次结构的根。 此接口表示只读集合的常见行为：检索大小，检查项目成员资格等。 集合继承自Iterable <t>接口，该接口定义迭代元素的操作。 您可以使用Collection作为适用于不同集合类型的函数的参数。 对于更具体的情况，请使用Collection的继承者：List和Set。</t></t></p>
 <pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">printAll</span><span class="token punctuation">(</span>strings<span class="token operator">:</span> Collection<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">for</span><span class="token punctuation">(</span>s <span class="token keyword">in</span> strings<span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"<span class="token interpolation variable">$s</span> "</span><span class="token punctuation">)</span>
