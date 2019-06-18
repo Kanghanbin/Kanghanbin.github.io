@@ -158,7 +158,9 @@
 <meta property="og:image" content="https://flutter-io.cn/assets/tools/android-studio/main-toolbar-857fe8c36d38020e27b502ec643ea8b1716edbe150cc6e39e3560f8fb7bda5b2.png">
 <meta property="og:image" content="https://flutter-io.cn/assets/get-started/ios/starter-app-5e284e57b8dce587ea1dfdac7da616e6ec9dc263a409a9a8f99cf836340f47b8.png">
 <meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/2.jpg">
-<meta property="og:updated_time" content="2019-06-18T01:36:35.826Z">
+<meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/3.png">
+<meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/4.png">
+<meta property="og:updated_time" content="2019-06-18T08:54:47.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一个Flutter应用之Helloworld">
 <meta name="twitter:description" content="背景Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面。 Flutter可以与现有的代码一起工作。在全世界，Flutter正在被越来越多的开发者和组织使用，并且Flutter是完全免费、开源的。1.0版本于2018年12月5日(北京时间)发布。  安装环境和配置1.获取 Flutter SDK 下载下面的安装包以获取最新版本 stable 的 Flutt">
@@ -637,6 +639,199 @@
 <li>一个 widget 的主要工作是提供一个 <code>build()</code> 方法来描述如何根据其他较低级别的 widgets 来显示自己。</li>
 <li>本示例中的 body 的 widget 树中包含了一个 <code>Center</code> widget， Center widget 又包含一个 <code>Text</code> 子 widget， Center widget 可以将其子 widget 树对齐到屏幕中心。</li>
 </ul>
+<h2 id="使用外部-package"><a href="#使用外部-package" class="headerlink" title="使用外部 package"></a>使用外部 package</h2><p>使用一个名为 <a href="https://pub.flutter-io.cn/packages/english_words" target="_blank" rel="noopener">english_words</a> 的开源软件包，其中包含数千个最常用的英文单词以及一些实用功能。</p>
+<p>你可以在 <a href="https://pub.flutter-io.cn/flutter" target="_blank" rel="noopener">Pub site</a> 上找到 <code>english_words</code> 软件包以及其他许多开源软件包。</p>
+<ol>
+<li><p>pubspec 文件管理 Flutter 应用程序的 assets（资源，如图片、package等）。 在pubspec.yaml 中，将 english_words（3.1.0或更高版本）添加到依赖项列表， 如下面高亮显示的行：</p>
+<pre class=" language-dart"><code class="language-dart">dependencies<span class="token punctuation">:</span>
+  flutter<span class="token punctuation">:</span>
+    sdk<span class="token punctuation">:</span> flutter
+
+  # The following adds the Cupertino Icons font to your application<span class="token punctuation">.</span>
+  # Use <span class="token keyword">with</span> the CupertinoIcons <span class="token keyword">class</span> <span class="token class-name">for</span> iOS style icons<span class="token punctuation">.</span>
+  cupertino_icons<span class="token punctuation">:</span> <span class="token operator">^</span><span class="token number">0.1</span><span class="token punctuation">.</span><span class="token number">2</span>
+  english_words<span class="token punctuation">:</span> <span class="token operator">^</span><span class="token number">3.1</span><span class="token punctuation">.</span><span class="token number">0</span>
+</code></pre>
+</li>
+<li><p>在Android Studio 的编辑器视图中查看 pubspec 时， 单击右上角的 Packages get，这会将依赖包安装到你的项目。 你可以在控制台中看到以下内容：</p>
+<pre class=" language-cmd"><code class="language-cmd">$ flutter pub get
+Running "flutter pub get" in startup_namer...
+Process finished with exit code 0
+</code></pre>
+<p>在执行 <code>Packages get</code> 命令的时候，同时会自动生成一个名为 <code>pubspec.lock</code> 的文件，这里包含了你依赖 package</p>
+<p>s 的名称和版本。</p>
+</li>
+<li><p>在 <code>lib/main.dart</code> 中引入，如下所示：</p>
+<p>lib/main.dart</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'package:english_words/english_words.dart'</span><span class="token punctuation">;</span>
+</code></pre>
+<p>在你输入时，Android Studio会为你提供有关库导入的建议。 然后它将呈现灰色的导入字符串，让你知道导入的库截至目前尚未被使用。</p>
+</li>
+<li><p>接下来，我们使用 English words 包生成文本来替换字符串”Hello World”：</p>
+<p>{step1_base → step2_use_package}/lib/main.dart</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> wordPair <span class="token operator">=</span> WordPair<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> <span class="token string">'Welcome to Flutter'</span><span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+        appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'Welcome to Flutter'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        body<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>
+<span class="token comment" spellcheck="true">//          child: Text('Hello World'),</span>
+            child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>wordPair<span class="token punctuation">.</span>asPascalCase<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
+<p>   5.如果应用程序正在运行，请使用热重载按钮 <em>offline_bolt</em> 更新正在运行的应用程序。每次单击热重载或保存项目时，都会在正在运行的应用程序中随机选择不同的单词对。 这是因为单词对是在 build 方法内部生成的。每次 MaterialApp 需要渲染时或者在 Flutter Inspector 中切换平台时 build 都会运行。</p>
+<p>   <img src="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/3.png" alt=""></p>
+<h2 id="添加一个-Stateful-widget"><a href="#添加一个-Stateful-widget" class="headerlink" title="添加一个 Stateful widget"></a>添加一个 Stateful widget</h2><p>State<em>less</em> widgets 是不可变的，这意味着它们的属性不能改变 —— 所有的值都是 final。</p>
+<p>State<em>ful</em> widgets 持有的状态可能在 widget 生命周期中发生变化， 实现一个 stateful widget 至少需要两个类： 1）一个 StatefulWidget 类；2）一个 State 类，StatefulWidget 类本身是不变的， 但是 State 类在 widget 生命周期中始终存在。</p>
+<p>添加一个 stateful widget（有状态的 widget）—— <code>RandomWords</code>， 它会创建自己的状态类 —— <code>RandomWordsState</code>，然后你需要将 <code>RandomWords</code> 内嵌到已有的无状态的 <code>MyApp</code> widget</p>
+<ol>
+<li><p>创建一个最简的 state 类，这个类可以在任意地方创建而不一定非要在 MyApp 里， 我们的示例代码是放在 MyApp 类的最下面了：</p>
+<p>Create a minimal state class. Add the following to the bottom of <code>main.dart</code>:</p>
+<p>lib/main.dart (RandomWordsState)</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">RandomWordsState</span> <span class="token keyword">extends</span> <span class="token class-name">State</span><span class="token operator">&lt;</span>RandomWords<span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// TODO Add build() method</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>注意一下 <code>State&lt;RandomWords&gt;</code> 的声明。这表明我们在使用专门用于 <code>RandomWords</code> 的 <a href="https://api.flutter.dev/flutter/widgets/State-class.html" target="_blank" rel="noopener">State</a> 泛型类。 应用的大部分逻辑和状态都在这里 —— 它会维护 RandomWords widget 的状态。 这个类会保存代码生成的单词对，这个单词对列表会随着用户滑动而无限增长， 另外还会保存用户喜爱的单词对（第二部分）， 也即当用户点击爱心图标的时候会从喜爱的列表中添加或者移除当前单词对。</p>
+<p><code>RandomWordsState</code> 依赖 <code>RandomWords</code>，我们接下来会创建这个类。</p>
+</li>
+<li><p>添加有状态的 <code>RandomWords</code> widget 到 <code>main.dart</code>，<code>RandomWords</code> widget 除了创建 State 类之外几乎没有其他任何东西：</p>
+<p>lib/main.dart (RandomWords)</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">RandomWords</span> <span class="token keyword">extends</span> <span class="token class-name">StatefulWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  RandomWordsState <span class="token function">createState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">RandomWordsState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在添加状态类后，IDE 会提示该类缺少 build 方法。 接下来，你将添加一个基本的 build 方法， 该方法通过将生成单词对的代码从 <code>MyApp</code> 移动到 <code>RandomWordsState</code> 来生成单词对。</p>
+</li>
+<li><p>将 <code>build()</code> 方法添加到 <code>RandomWordState</code> 中，如下所示：</p>
+<p>lib/main.dart (RandomWordsState)</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">RandomWordsState</span> <span class="token keyword">extends</span> <span class="token class-name">State</span><span class="token operator">&lt;</span>RandomWords<span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> wordPair <span class="token operator">=</span> WordPair<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">Text</span><span class="token punctuation">(</span>wordPair<span class="token punctuation">.</span>asPascalCase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p>如下所示，删除 <code>MyApp</code> 里生成文字的代码：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> <span class="token string">'Welcome to Flutter'</span><span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+        appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'Welcome to Flutter'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        body<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>
+<span class="token comment" spellcheck="true">//            child: Text(wordPair.asPascalCase),</span>
+              child<span class="token punctuation">:</span> <span class="token function">RandomWords</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p>重启应用。 应用应该像之前一样运行，每次热重载或保存应用程序时都会显示一个单词对。</p>
+</li>
+</ol>
+<h2 id="第四步：创建一个无限滚动的-ListView"><a href="#第四步：创建一个无限滚动的-ListView" class="headerlink" title="第四步：创建一个无限滚动的 ListView"></a>第四步：创建一个无限滚动的 ListView</h2><p>在这一步中，你将扩展（继承）<code>RandomWordsState</code> 类，以生成并显示单词对列表。 当用户滚动时，<code>ListView</code> 中显示的列表将无限增长。 <code>ListView</code> 的 <code>builder</code> 工厂构造函数允许你按需建立一个懒加载的列表视图。</p>
+<ol>
+<li><p>向 <code>RandomWordsState</code> 类中添加一个 <code>_suggestions</code> 列表以保存建议的单词对， 同时，添加一个 <code>_biggerFont</code> 变量来增大字体大小。</p>
+<p>lib/main.dart</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">RandomWordsState</span> <span class="token keyword">extends</span> <span class="token class-name">State</span><span class="token operator">&lt;</span>RandomWords<span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> _suggestions <span class="token operator">=</span> <span class="token operator">&lt;</span>WordPair<span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">final</span> _biggerFont <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">:</span> <span class="token number">18.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// ···</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p> <strong>备忘</strong></p>
+<p>在 Dart 语言中使用下划线前缀标识符，会<a href="https://dart.dev/guides/language/language-tour" target="_blank" rel="noopener">强制其变成私有</a>。</p>
+<p>接下来，我们将向 <code>RandomWordsState</code> 类添加一个 <code>_buildSuggestions()</code> 方法， 此方法构建显示建议单词对的 <code>ListView</code>。</p>
+<p><code>ListView</code> 类提供了一个名为 <code>itemBuilder</code> 的 builder 属性，这是一个工厂匿名回调函数， 接受两个参数 <code>BuildContext</code> 和行迭代器 <code>i</code>。迭代器从 0 开始，每调用一次该函数 <code>i</code> 就会自增， 每次建议的单词对都会让其递增两次，一次是 ListTile，另一次是 Divider。 它用于创建一个在用户滚动时候无限增长的列表。</p>
+</li>
+<li><p>向 <code>RandomWordsState</code> 类添加 <code>_buildSuggestions()</code> 方法，内容如下：</p>
+<p>lib/main.dart (_buildSuggestions)</p>
+<pre class=" language-dart"><code class="language-dart">Widget <span class="token function">_buildSuggestions</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> ListView<span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span>
+      padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">16.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      itemBuilder<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">/*1*/</span> <span class="token punctuation">(</span>context<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token punctuation">.</span>isOdd<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*2*/</span>
+
+        <span class="token keyword">final</span> index <span class="token operator">=</span> i <span class="token operator">~/</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*3*/</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">>=</span> _suggestions<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          _suggestions<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span><span class="token function">generateWordPairs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*4*/</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">_buildRow</span><span class="token punctuation">(</span>_suggestions<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol>
+<li>对于每个建议的单词对都会调用一次 itemBuilder，然后将单词对添加到 ListTile 行中。 在偶数行，该函数会为单词对添加一个 ListTile row， 在奇数行，该函数会添加一个分割线的 widget，来分隔相邻的词对。 注意，在小屏幕上，分割线看起来可能比较吃力。</li>
+<li>在每一列之前，添加一个1像素高的分隔线 widget。</li>
+<li>语法 “i ~/ 2” 表示i除以2，但返回值是整形（向下取整）， 比如 i 为：1, 2, 3, 4, 5 时，结果为 0, 1, 1, 2, 2， 这个可以计算出 ListView 中减去分隔线后的实际单词对数量。</li>
+<li>如果是建议列表中最后一个单词对，接着再生成10个单词对，然后添加到建议列表。</li>
+</ol>
+<p>对于每一个单词对，<code>_buildSuggestions()</code> 都会调用一次 <code>_buildRow()</code>。 这个函数在 <code>ListTile</code> 中显示每个新词对， 这使你在下一步中可以生成更漂亮的显示行，详见本 codelab 的第二部分。</p>
+</li>
+<li><p>在 <code>RandomWordsState</code> 中添加 <code>_buildRow()</code> 函数 :</p>
+<p>lib/main.dart (_buildRow)</p>
+<pre class=" language-dart"><code class="language-dart">Widget <span class="token function">_buildRow</span><span class="token punctuation">(</span>WordPair pair<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">ListTile</span><span class="token punctuation">(</span>
+    title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+      pair<span class="token punctuation">.</span>asPascalCase<span class="token punctuation">,</span>
+      style<span class="token punctuation">:</span> _biggerFont<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p>更新 RandomWordsState 的 build 方法以使用 _buildSuggestions()， 而不是直接调用单词生成库，代码更改后如下： （使用 <a href="https://api.flutter.dev/flutter/material/Scaffold-class.html" target="_blank" rel="noopener">Scaffold</a> 类实现基础的 Material Design 布局）</p>
+<p>lib/main.dart (build)</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token metadata symbol">@override</span>
+Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+    appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'Startup Name Generator'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    body<span class="token punctuation">:</span> <span class="token function">_buildSuggestions</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p>更新 <code>MyApp</code> 的 <code>build()</code> 方法，修改 <code>title</code> 的值来改变标题， 修改 <code>home</code> 的值为 <code>RandomWords</code> widget。</p>
+<p>{step3_stateful_widget → step4_infinite_list}/lib/main.dart</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> <span class="token string">'Startup Name Generator'</span><span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span>  <span class="token function">RandomWords</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p>重新启动你的项目工程应用，你应该看到一个单词对列表。 尽可能地向下滚动，你将继续看到新的单词对。</p>
+<p><img src="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/4.png" alt=""></p>
+</li>
+</ol>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>会遇到提示 <strong>Waiting for another flutter command to release the startup lock…</strong><br>然后就一直卡着不动了。</p>
 <h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>1.先关闭Android Studio，打开任务管理器，看看有没有Dart.exe运行着，有的话全部结束了，然后重启试试<br>2.还是不行的话就删除掉 flutter\bin\cache目录下的lockfile文件，然后再次重启Android Studio即可</p>
 <p><code>flutter issue：</code> <a href="https://github.com/flutter/flutter/issues/7768" target="_blank" rel="noopener">https://github.com/flutter/flutter/issues/7768</a></p>
@@ -874,7 +1069,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装环境和配置"><span class="nav-number">2.</span> <span class="nav-text">安装环境和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-获取-Flutter-SDK"><span class="nav-number">2.1.</span> <span class="nav-text">1.获取 Flutter SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-更新-path-环境变量"><span class="nav-number">2.2.</span> <span class="nav-text">2.更新 path 环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-运行-flutter-doctor"><span class="nav-number">2.3.</span> <span class="nav-text">3.运行 flutter doctor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建应用"><span class="nav-number">3.</span> <span class="nav-text">创建应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行程序"><span class="nav-number">4.</span> <span class="nav-text">运行程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试热重载-hot-reload"><span class="nav-number">5.</span> <span class="nav-text">尝试热重载 (hot reload)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Helloworld来了"><span class="nav-number">6.</span> <span class="nav-text">Helloworld来了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#观察和分析"><span class="nav-number">6.1.</span> <span class="nav-text">观察和分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">7.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法："><span class="nav-number">7.1.</span> <span class="nav-text">解决办法：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装环境和配置"><span class="nav-number">2.</span> <span class="nav-text">安装环境和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-获取-Flutter-SDK"><span class="nav-number">2.1.</span> <span class="nav-text">1.获取 Flutter SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-更新-path-环境变量"><span class="nav-number">2.2.</span> <span class="nav-text">2.更新 path 环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-运行-flutter-doctor"><span class="nav-number">2.3.</span> <span class="nav-text">3.运行 flutter doctor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建应用"><span class="nav-number">3.</span> <span class="nav-text">创建应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行程序"><span class="nav-number">4.</span> <span class="nav-text">运行程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试热重载-hot-reload"><span class="nav-number">5.</span> <span class="nav-text">尝试热重载 (hot reload)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Helloworld来了"><span class="nav-number">6.</span> <span class="nav-text">Helloworld来了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#观察和分析"><span class="nav-number">6.1.</span> <span class="nav-text">观察和分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用外部-package"><span class="nav-number">7.</span> <span class="nav-text">使用外部 package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加一个-Stateful-widget"><span class="nav-number">8.</span> <span class="nav-text">添加一个 Stateful widget</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：创建一个无限滚动的-ListView"><span class="nav-number">9.</span> <span class="nav-text">第四步：创建一个无限滚动的 ListView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">10.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法："><span class="nav-number">10.1.</span> <span class="nav-text">解决办法：</span></a></li></ol></li></ol></div>
             
 
           </div>
