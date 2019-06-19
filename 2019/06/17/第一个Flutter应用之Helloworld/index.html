@@ -161,11 +161,11 @@
 <meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/3.png">
 <meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/4.png">
 <meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/5.png">
-<meta property="og:image" content="https://codelabs.flutter-io.cn/codelabs/first-flutter-app-pt2-cn/img/e401ba8d3a9e2379.png">
-<meta property="og:image" content="https://codelabs.flutter-io.cn/codelabs/first-flutter-app-pt2-cn/img/e401ba8d3a9e2379.png">
+<meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/menu.png">
+<meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/menu.png">
 <meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/6.png">
 <meta property="og:image" content="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/7.png">
-<meta property="og:updated_time" content="2019-06-19T03:17:24.068Z">
+<meta property="og:updated_time" content="2019-06-19T06:10:10.857Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一个Flutter应用之Helloworld">
 <meta name="twitter:description" content="背景Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面。 Flutter可以与现有的代码一起工作。在全世界，Flutter正在被越来越多的开发者和组织使用，并且Flutter是完全免费、开源的。1.0版本于2018年12月5日(北京时间)发布。  安装环境和配置1.获取 Flutter SDK 下载下面的安装包以获取最新版本 stable 的 Flutt">
@@ -935,7 +935,7 @@ Widget <span class="token function">build</span><span class="token punctuation">
   <span class="token comment" spellcheck="true">// 新增代码结束 </span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p> 热重载应用，列表图标（<img src="https://codelabs.flutter-io.cn/codelabs/first-flutter-app-pt2-cn/img/e401ba8d3a9e2379.png" alt="img">）将会出现在导航栏中。现在点击它不会有任何反应，因为 <code>_pushSaved</code> 函数还是空的。</p>
+<p> 热重载应用，列表图标（<img src="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/menu.png" alt="img">）将会出现在导航栏中。现在点击它不会有任何反应，因为 <code>_pushSaved</code> 函数还是空的。</p>
 <p>接下来，（当用户点击导航栏中的列表图标时）我们会建立一个路由并将其推入到导航管理器栈中。此操作会切换页面以显示新路由，新页面的内容会在 MaterialPageRoute 的 <code>builder</code> 属性中构建，<code>builder</code> 是一个匿名函数。</p>
 <p>添加 <code>Navigator.push</code> 调用，这会使路由入栈（以后路由入栈均指推入到导航管理器的栈）</p>
 <pre class=" language-dart"><code class="language-dart"><span class="token keyword">void</span> <span class="token function">_pushSaved</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1002,7 +1002,7 @@ Widget <span class="token function">build</span><span class="token punctuation">
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>热重载应用程序，点击列表项收藏一些项，点击列表图标（<img src="https://codelabs.flutter-io.cn/codelabs/first-flutter-app-pt2-cn/img/e401ba8d3a9e2379.png" alt="img">），在新的 route（路由）页面中显示收藏的内容。Navigator（导航器）会在应用栏中自动添加一个”返回”按钮，无需调用<code>Navigator.pop</code>，点击后退按钮就会返回到主页路由.</p>
+<p>热重载应用程序，点击列表项收藏一些项，点击列表图标（<img src="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/menu.png" alt="img">），在新的 route（路由）页面中显示收藏的内容。Navigator（导航器）会在应用栏中自动添加一个”返回”按钮，无需调用<code>Navigator.pop</code>，点击后退按钮就会返回到主页路由.</p>
 <p><img src="https://Kanghanbin.github.io/2019/06/17/第一个Flutter应用之Helloworld/6.png" alt=""></p>
 <p>10.使用 Themes 修改 UI</p>
 <p>这一部分，我们将会一起修改应用的主题。Flutter 里我们使用 <em>theme</em> 来控制你应用的外观和风格，你可以使用默认主题，该主题取决于物理设备或模拟器，也可以自定义主题以适应您的品牌。</p>
