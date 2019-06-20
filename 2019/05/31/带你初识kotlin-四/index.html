@@ -973,6 +973,7 @@ Hello, world!
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script scr="/js/src/md5.js></script>"
    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: 'b616b9776e839330aa0f',
@@ -980,7 +981,7 @@ Hello, world!
           repo: 'kanghanbin.github.io',
           owner: 'kanghanbin',
           admin: ['kanghanbin'],
-          id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           
