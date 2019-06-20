@@ -918,7 +918,7 @@
           repo: 'kanghanbin.github.io',
           owner: 'kanghanbin',
           admin: ['kanghanbin'],
-          id: location.pathname,
+          id: decodeURI(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           

@@ -1479,7 +1479,7 @@ Widget <span class="token function">build</span><span class="token punctuation">
           repo: 'kanghanbin.github.io',
           owner: 'kanghanbin',
           admin: ['kanghanbin'],
-          id: location.pathname,
+          id: decodeURI(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           

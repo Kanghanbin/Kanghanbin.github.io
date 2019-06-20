@@ -1114,7 +1114,7 @@ mutableListIterator<span class="token punctuation">.</span><span class="token fu
           repo: 'kanghanbin.github.io',
           owner: 'kanghanbin',
           admin: ['kanghanbin'],
-          id: location.pathname,
+          id: decodeURI(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           
