@@ -498,9 +498,7 @@ private void smoothScrollRecycleviewtoPositionTop(int position) {
         checked = true;
         postion = position;
         //获取第一个和最后一个可见项
-        int firstItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
-        int lastItemPosition = linearLayoutManager.findLastVisibleItemPosition();
-        if (position &lt; firstItemPosition) 
+        int
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -684,10 +682,7 @@ private void smoothScrollRecycleviewtoPositionTop(int position) {
  */
 public class BottomNavigationViewHelper {
     @SuppressLint("RestrictedApi")
-    public static void disableShiftMode(BottomNavigationView view) {
-        //获取子View BottomNavigationMenuView的对象
-        BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
-     
+    public 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -864,10 +859,7 @@ public class BottomNavigationViewHelper {
   implementation 'com.android.support:appcompat-v7:27.0.0'
 
 项目报All com.android.support libraries must use the exact same version specification (mixing versions can lead to runtime crashes错误
-看意思大概是引用 com.android.support 包冲突了，版本号要保持一致，但是可能我们自己新建的项目的com.android.support包版本号要高一些，一些第三方的库的com.android.support可能没有及时更新support库，就会出现这个错误。
-网上解决方法：（同样的适用于其他的依赖冲突。）
-修改自己项目中的com.android.support的版本号，与所依赖的库版本号一致，但是当我们依赖的库中的com.android.support版本号有好几个版本就不行了。（不推荐）
-依赖第三方库时候排除掉对com.android.support包的依赖，这样自己的
+看意思大概是引用 com.android.support 包冲突了，版本号要保持一致，但是可能我们自己新建的项目的com.android.support包版本号要高一些，一些第三方的库的com.a
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1044,15 +1036,7 @@ public class BottomNavigationViewHelper {
 问题:上万条数据从服务端下下来，可能会导致程序崩溃？
 解决方案：
 1.首先这个奔溃问题，我不知道是什么奔溃，然后让业务那边在初选收获功能模块中加一些大数据量我这边好测试，业务分别加成功了4000和9040两种，
-2.运行项目，测试了一下，前两次貌似都报了网络环境异常，查看log是com.android.volley.TimeoutError超时，后来再测几次就没出现，估计网络不稳定造成，下载成功后会保存至数据库，下载过程挺快，然后卡在了保存至数据库，加载框也不转了，静静地等着
-
-2.1.如果，在这中间，手指触碰到了安卓事件，系统会弹出ANR对话框，然后强制关闭，系统奔溃。
-
-我认为解决方案就是数据库操作在子线程，可有效避免ANR。
-2.2.如果，在这中间，静静地等着数据库插入操作直至完成，下面是测试保存所需等待时间，其实算了操作数据库两个方法。
-
-   @Override
-         
+2.运行项目，测试了一下，前两次貌似都报了网络环境异常，查看log是com.android.volley.TimeoutError超时，后来再测几次就没出现，估计网络不稳定造成，下载成功后会
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1229,11 +1213,7 @@ public class BottomNavigationViewHelper {
  @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         //存在记录的高度时先Layout再异步加载图片
-        if (mList.get(holder.getAdapterPosition()).getHeight() > 0) {
-            ViewGroup.LayoutParams layoutParams = holder.ivGirl.getLayoutParams();
-            layoutParams.height = mList.get(holder.getAdapterPosition()).getHeight();
-        }
-        Glide.
+        if (mList.get(holder.getAdapterPosition()).getHeight() 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1414,10 +1394,7 @@ public class CommentBean {
 
     /**
      * author : xiaowei
-     * content : 正解啊，比如中午登机，早上不吃空腹上，到时候飞机餐就算是两个圆圆的小面包都吃得有滋有味！开始怀疑，到底是飞机旅行、真是高大上呀！??哈哈…我见不少人特意留着飞机上发的食物带回去，落地后送人吃，很拽的来一句：飞机食品哦！…笑得不行鸟
-     * avatar : http://pic1.zhimg.com/da8e974dc_im.jpg
-     * time : 1413603692
-     * reply_to : {"c
+     * content : 正解啊，比如中午登机，早上不吃空腹
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1598,23 +1575,7 @@ setScrollFlags(int)
 2.xmL方式:
 app:layout_scrollFlags
 
-具体的app:layout_scrollFlags有这么几个： scroll, exitUntilCollapsed, enterAlways, enterAlwaysCollapsed, snap 
-
-
-
-常量
-常数值
-解释
-
-
-
-
-SCROLL_FLAG_ENTER_ALWAYS
-4（0x00000004）
-当进入（在屏幕上滚动）时，无论滚动视图是否也在滚动，视图都将滚动任何向下滚动事件。这通常被称为“快速返回”模式。
-
-
-SCROLL_FLAG_ENTER_ALWAY
+具体的app:layout_scrollFlags有这么几个： scroll,
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1795,12 +1756,7 @@ SCROLL_FLAG_ENTER_ALWAY
 具体实现对应xml代码如下，不多做解释：
 &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/tabbgcolor2"
-    andr
+    xmlns:app="http://s
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1975,8 +1931,7 @@ SCROLL_FLAG_ENTER_ALWAY
           
           
 Dagger ，早有耳闻，但一直没有与他正真的认识过。Dagger 英文翻译为“匕首”，这可能就是把它称作神兵利器的原因。当我看一些开源项目在使用dagger2 时，我停止了前进的步伐，查阅了网上一些层差不齐的资料后，感觉还是懵逼状态，正当我感受到了从入门到放弃的状态时，看到了一篇相对好理解一写的博文，我又开始踏上了从放弃到入门之路。
-背景（日常念经，了解一下）Dagger ，鼎鼎大名的Square公司 开发的，光听Square，就知道肯定不简单(okhttp，Picasso，leakcanary，等等等等）起初Square公司受到Guice的启发而开发了Dagger，但是Dagger这种半静态半运行时的框架还是有些性能问题（虽说依赖注入是完全静态的，但是其有向无环图(Directed Acyclic Graph)还是基于反射来生成的，这无论在大型的服务端应用还是在Android应用上都不是最优方案）。因此Google工程师Fork了Dagger项目，对它进行了改造。于是变演变出了今天我们要讨论的Dagger2，所以说Dagger2其实就是高配版的Dagger。 
-Dagger2 基
+背景（日常念经，了解一下）Dagger ，鼎鼎大名的Square公司 开发的，光听Square，就知道肯定不简单(okhttp，Picasso，leakcanary，等等等等）起初Square公司受到Guice的启发而开发了Dagger，但是Dagger这种半
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2151,15 +2106,7 @@ Dagger2 基
           
           一、aidl简介aidl（Android Interface Definition Language ）,安卓接口定义语言，在 Android 中，每一个进程都有自己的Dalvik VM实例，都有自己的一块独立的内存，都在自己的内存上存储自己的数据，执行着自己的操作，都在自己的那片狭小的空间里过完自己的一生。每个进程之间都你不知我，我不知你，就像是隔江相望的两座小岛一样，都在同一个世界里，但又各自有着自己的世界  ，AIDL就像是两座小岛之间的桥梁，用它可以的一种进程间通信 (IPC) 。 
 设计这门语言的目的是为了实现进程间通信，尤其是在涉及多进程并发情况下的进程间通信。 
-二、支持的数据类型1.java八种基本数据类型包括byte，short，int，long，float，double，boolean，char,.String类型,CharSequence类型
-2.List 和 Map 
-
-元素必须是 AIDL 支持的数据类型
-Server 端具体的类里则必须是 ArrayList 或者 HashMap
-
-3.其他 AIDL 生成的接口
-4.实现 Parcelable 的实体
-三、
+二、支持的数据类
           ...
           <!--noindex-->
           <div class="post-button text-center">

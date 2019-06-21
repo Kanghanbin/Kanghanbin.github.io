@@ -495,13 +495,7 @@
 flutter_windows_v1.5.4-hotfix.2-stable.zip
 要查看其他发行通道和以往的版本，请参阅SDK 归档页面。
 
-将压缩包解压，然后把其中的 flutter 目录整个放在你预想的 Flutter SDK 安装目录中（比如 C:\src\flutter；请勿将该目录放在一些需要额外操作权限的目录，比如 C:\Program Files\）。
-
-找到 flutter 目录中的 `flutter_console.bat’ 文件，双击执行该批处理脚本。
-
-
-好的，现在你可以在控制台当中使用 Flutter 的命令了。
-2.更新 path 环境变量如果你想要
+将压缩包解压，然后把其中的 flutte
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -678,12 +672,7 @@ flutter_windows_v1.5.4-hotfix.2-stable.zip
 集合类型Kotlin标准库提供了基本集合类型的实现：集合，列表和映射。 一对接口代表每种集合类型：
 
 A read-only interface that provides operations for accessing collection elements.
-A mutable interface that extends the corresponding read-only interface with write operations: adding, removing, and updating its elements.
-
-
-List是一个有序集合，可以通过索引访问元素 （反映其位置的整数）。 元素可以在列表中出现多次。 list就像是是一个句子：它是一组单词，它们的顺序很重要，它们可以重复。
-Set是一系列唯一元素。 它反映了集合的数学抽象：一组没有重复的对象。 通常，集合元素的顺序没有意义。 例如，字母表是一组字母。
-Map（或dictionary）是一组键
+A mutable interface that extends the corresponding read-only interface with write operations: adding, removing, 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -859,14 +848,7 @@ Map（或dictionary）是一组键
           这一节主要学习高阶函数及其涉及到的一系列函数
 头等函数头等函数（first-class function）是指在程序设计语言中，函数被当作头等公民。这意味着，函数可以作为别的函数的参数、函数的返回值，赋值给变量或存储在数据结构中。 Kotlin 函数都是头等的，这意味着它们可以存储在变量与数据结构中、作为参数传递给其他高阶函数以及从其他高阶函数返回。可以像操作任何其他非函数值一样操作函数。
 高阶函数高阶函数是将函数用作参数或返回值的函数。
-比如集合的[函数式风格的 fold， 它接受一个初始累积值与一个接合函数，并通过将当前累积值与每个集合元素连续接合起来代入累积值来构建返回值，fold高阶函数定义如下：
-fun &lt;T, R> Collection&lt;T>.fold(
-    initial: R, 
-    combine: (acc: R, nextElement: T) -> R
-): R {
-    var accumulator: R = initial
-    for (element: T in this) {
-        accumulator = com
+比如集合的[函数式风格的 fold， 它接受一个初始累积值与一个接合函数，并通过将当前累积值与每个集合元素连续接合起来代入累积值来构建返回值，fold高阶函
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1041,7 +1023,7 @@ fun &lt;T, R> Collection&lt;T>.fold(
           
           
 1.Groovy概述Groovy是Apache 旗下的一种基于JVM的面向对象编程语言，既可以用于面向对象编程，也可以用作纯粹的脚本语言。在语言的设计上它吸纳了Python、Ruby 和 Smalltalk 语言的优秀特性，比如动态类型转换、闭包和元编程支持。Groovy与 Java可以很好的互相调用并结合编程 ，比如在写 Groovy 的时候忘记了语法可以直接按Java的语法继续写，也可以在 Java 中调用 Groovy 脚本。比起Java，Groovy语法更加的灵活和简洁，可以用更少的代码来实现Java实现的同样功能。
-2.Groovy编写和调试Groovy的代码可以在Android Studio和IntelliJ IDEA等IDE中进行编写和调试，缺点是需要配置环境，这里推荐在文本中编写代码并结合命令行进行调试（文本推荐使用Sublime Text）。具体的操作步骤就是：在一个目录中新建build.gradle文件，在build.gradle中新建一个task，在task中编写Groovy代码，用命令行进入这个build.gradle文件所在的目录，运行gradle task
+2.Groovy编写和调试Groovy的代码可以在Android 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1217,12 +1199,7 @@ fun &lt;T, R> Collection&lt;T>.fold(
           强制指定第三方依赖库内部所依赖的库的版本号具体问题在项目开发和迭代过程中，我们不得不依赖越来越多的第三方库，有些是为了不重复造轮子，有些是要用别人的功能，比如依赖一些直播平台的库。依赖的库越多，就越容易造成依赖版本冲突的问题。在最近项目上线，空闲下来的时间，准备来解决之前一直没有顾得上解决的一个依赖问题，虽然能编译通过，总感觉有一条红色警告线看着不爽。
 就是它…
 
-根据提示，大概意思是说所有com.android.support库所依赖的版本号要一致，多个版本号可能会导致运行崩溃的问题。然后说我的exifinterface库所依赖的版本号是27.1.0，别的support库是用的27.1.1的版本号。
-于是我就整个项目翻了个遍，没有发现我们在gradle配置中有依赖这个库，所以这个库应该是我们依赖的某个第三方库内部所依赖的库。但是要找到这个第三方库，却不是那么容易，于是乎google一下有没有别的解决方案。经过折腾，发现了一个可行的方案。
-解决方案在项目对应module的gradle中配置如下代码：
-configurations.all {
-    //循环每个依赖库
-    reso
+根据提示，大概意思是说所有com.android.support库所依赖的版本号要一致，多个版本号可能会导致运行崩溃的问题。然后说我的exifinterface库所依赖的版本号是27.1.0，别的support库是用的27.1.1的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1399,10 +1376,7 @@ configurations.all {
 
 作者: Jorge Antonio Díaz-Benito我相信你了解它的工作原理是相关的，所以我将解释我设计解决方案时所遵循的整个过程。请注意，此示例仅适用于两个RecyclerViews，但使用更多的RecyclerViews就像使用RecyclerViews数组一样简单。
 想到的第一个选项是在两个ScrollViews上监听滚动更改，当其中一个滚动时，在另一个上使用scrollBy（int x，int y）)。不幸的是，以编程方式滚动也会触发侦听器，因此您将最终处于循环中。
-要解决此问题，您需要设置OnItemTouchListener，在触摸RecyclerView时添加正确的ScrollListener，并在滚动停止时将其删除。这几乎完美无缺，但是如果你在一个很长的RecyclerView中快速执行，然后在它完成之前再次滚动它，只会传输第一个滚动。
-要解决此问题，您需要确保仅在RecyclerView空闲时添加OnScrollListener。
-我们来看看来源：
-    public class SelfR
+要解决此问题，您需要设置OnItemTouc
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1583,11 +1557,7 @@ val actionBar = supportActionBar
 
 在这里supportActionBar其实时调用了AppCompatActivity的getSupportActionBar()方法。
 val decorView = window.decorView
-decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-window.statusBarColor = Color.TRANSPARENT
-
-在这里window其实时调用了Activity的getWindow()方法。
-2.Kotlin null safety相关
+decorView.
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1769,13 +1739,7 @@ window.statusBarColor = Color.TRANSPARENT
 
 在“文件名”字段中键入名称，例如“nav_graph”。
 
-从 Resource type下拉列表中选择Navigation。
-
-单击确定。 发生以下情况：
-​    在res目录中创建navigation资源目录。​    在navigation目录中创建nav_graph.xml文件。​    nav_graph.xml文件在导航编辑器中打开。 此XML文件包含导航图。
-
-单击 Text选项卡以切换到XML文本视图。 您应该看到一个空的导航图，如以下示例所示：
-&lt;?xm
+从 Resource t
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1953,10 +1917,7 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
         applicationId "com.kanghanbin.wanandroid"
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionName rootProject.ext.android.versionName
-        testInstrumentationRunner 
+        minSdkVe
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2137,45 +2098,7 @@ android {
  导航模块
  项目模块
  TODO模块，增加，删除，修改
- 公众号模块，支持搜索
- 文章详情页
- 收藏，取消收藏
- 登录，注册，登出
- 设置，自动缓存，无图模式，夜间模式，清理缓存
- 关于
 
-Tips
-本人能力有限，大佬勿喷。发现bug或有好的建议欢迎issue
-本项目仅做学习交流使用，API数据内容均来自玩Android，感谢大佬
-
-Preview
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-DownApk
-点击下载
-
-扫码下载
-
-
-
-Third lirba
           ...
           <!--noindex-->
           <div class="post-button text-center">

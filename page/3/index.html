@@ -490,8 +490,7 @@
           
           一. 前言这篇文章我酝酿了很久，参考了很多资料，读了很多源码，却依旧不敢下笔。生怕自己理解上还有偏差，对大家造成误解，贻笑大方。又怕自己理解不够透彻，无法用清晰直白的文字准确的表达出 Binder 的设计精髓。直到今天提笔写作时还依旧战战兢兢。
 Binder 之复杂远远不是一篇文章就能说清楚的，本文想站在一个更高的维度来俯瞰 Binder 的设计，最终帮助大家形成一个完整的概念。对于应用层开发的同学来说，理解到本文这个程度也就差不多了。希望更加深入理解 Binder 实现机制的，可以阅读文末的参考资料以及相关源码。
-二. Binder 概述简单介绍下什么是 Binder。Binder 是一种进程间通信机制，基于开源的 OpenBinder 实现；OpenBinder 起初由 Be Inc. 开发，后由 Plam Inc. 接手。从字面上来解释 Binder 有胶水、粘合剂的意思，顾名思义就是粘和不同的进程，使之实现通信。对于 Binder 更全面的定义，等我们介绍完 Binder 通信原理后再做详细说明。
-2.1 为什么必须理解 Binder ？作为 Android 工程师的你，是不是
+二. Binder 概述简单介绍下什么是 Binder。Binder 是一种进
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -670,12 +669,7 @@ Binder 之复杂远远不是一篇文章就能说清楚的，本文想站在一�
     implementation 'com.android.support:design:27.0.2'
     implementation 'com.android.support:cardview-v7:27.0.2'
 
-这样做是没错，但是有时候我们只需要用到一个小小的类，导入了一个很大的包，有点小题大做了，所以一起来了解了解Support Library吧!
-二、介绍Android 支持库提供了诸多未内置于框架的功能。这些库提供向后兼容版本的新功能、框架中未包含的实用 UI 元素，以及应用可以利用的一系列实用程序。 
-支持库提供一系列不同的功能：
-
-向后兼容版本的框架组件。
-用于实现建议的 Android 布局模式的
+这样
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -852,19 +846,7 @@ Binder 之复杂远远不是一篇文章就能说清楚的，本文想站在一�
 SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleView滚动结束时，将Item对其到某个位置。SnapHelper是个抽象类，继承了RecycleView.OnFlingListener类
 1.recycleview使用SnapHelper非常简单，只需要调用一行代码：attachToRecyclerView(mRecyclerView)，SnapHelper里方法如下： public void attachToRecyclerView(@Nullable RecyclerView recyclerView)
 
-            throws IllegalStateException {
-
-        //如果之前已经附着过该recyclerView，则不作任何处理
-
-        if (mRecyclerView == recyclerView) {
-
-            return; // nothing to do
-
-        }
-
-        //如果不一致，则清理监听
-
-        if 
+            thr
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1039,10 +1021,7 @@ SnapHelper是RecycleView在24.2.0版本中新增的辅助类，用于在RecycleV
           
           前言文章链接，之前确实没有接触过，我简单看了一遍，可以说，这也是相对比较完美的方案，我先简单说一下这个方案的思路，它是通过修改density值，强行把所有不同尺寸分辨率的手机的宽度dp值改成一个统一的值，这样就解决了所有的适配问题。
 比如，设计稿宽度是360px，那么开发这边就会把目标dp值设为360dp，在不同的设备中，动态修改density值，从而保证(手机像素宽度)px/density这个值始终是360dp,这样的话，就能保证UI在不同的设备上表现一致了。
-这个方案侵入性很低，而且也没有涉及私有API，应该也是极不错的方案，我暂时也想不到强行修改density是否会有其他影响，既然有今日头条的大厂在用，稳定性应当是有保证的。
-但是根据我的观察，这套方案对老项目是不太友好的，因为修改了系统的density值之后，整个布局的实际尺寸都会发生改变，如果想要在老项目文件中使用，恐怕整个布局文件中的尺寸都可能要重新按照设计稿修改一遍才行。因此，如果你是在维护或者改造老项目，使用这套方案就要三思了。
-具体代码实现为：    // 今日头条的屏幕适配方案
-    // 通过修改density值
+这个方案侵入性很低，而且也没有涉及私有API，应该也是极不错的方案，我暂时也想不到强行修改density是否会有其他影响，既然有今日
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1223,10 +1202,7 @@ ButterKnife 代替   解放findViewById
 DataBinding数据和UI低耦合 
 
 一、简介：The Data Binding Library is a support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
-DataBinding 是一个支持库，它允许您使用声明性格式而不是以编程方式将应用程序中的UI组件绑定到应用程序中的数据源。
-1.1优点：布局文件中的绑定组件允许您在Activtiy中删除许多UI框架调用，使其更简单，更易于维护。这还可以提高应用程序的性能，并有助于防止内存泄漏和空指针异常。 
-常用方式：
-TextView textView = findViewById(R.id.sample_tex
+Da
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1413,15 +1389,7 @@ var var_a: Int = 10
 var var_b = 5
 //没有初始化的时候，必须声明类型
 var var_c :Float
-var_c = 12.4f
-println("var_a => $var_a \t var_b => $var_b \t var_a => $var_c")
-//$符号表示引用的意思
-
-注意：在类中声明变量时，必须初始化，如果不初始化，需要使用lateinit关键字
-1.2声明可空变量：
-在声明的时候一定用标准的声明格式定义。不能用可推断类型的简写。
-变量类型后面的?符号不能省略。不然就和普通的变量没区别了。
-其
+var_c = 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1601,50 +1569,6 @@ println("var_a => $var_a \t var_b => $var_b \t var_a => $var_c")
 数值类型
 
 Kotlin 处理数值的方法和 java 很相似，但不是完全一样。比如，不存在隐式转换数值的精度，并且在字面上有一些小小的不同 。Kotlin 提供了如下内建数值类型(和 java 很相似)：
-
-
-
-类型
-
-字宽
-
-
-
-
-Double
-双精度浮点数
-64
-
-
-Float
-浮点数
-32
-
-
-Long
-长整型
-64
-
-
-Int
-整形
-32
-
-
-Short
-短整型
-16
-
-
-Byte
-字节
-8
-
-
-
-在Kotlin中，短类型，不会隐式转化为长类型，这意味着我们必须显式转换才能把 Byte 赋值给 Int。
-error：
-val b: Byte = 1 // OK, literals are 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1820,10 +1744,7 @@ val b: Byte = 1 // OK, literals are
           [TOC]
 A. why SI:　　为什么要用Source Insight呢？因为她比完整的IDE要更快啊，比一般的编辑器便捷啊！她有逆天的查看定义，查看调用，查看引用功能以及方便的Context Window上下文显示，像这样的东西非常有利于查看大量代码！
 　　那么问题来了——比如我现在随便找了一份源码，我该要怎么阅读呢？很简单，SI可以极其方便地将一个源码目录变成source insight工程，然后直接操作——来天吞天，来地含地：新建工程——&gt;命名工程——&gt;设置源码目录——&gt;好了，去阅读吧。。。
-　　那么又有一个问题，比如老子要设置字体背景之类的东西哩？呵呵，Options-&gt;Preferences…里面的内容能让你晚上做梦都笑醒了。
-　　所以说到这里，SI的强大之处在于：速度快，阅读方便，设置方便。当然这只是一小部分，她还有强大的自定义指令的功能，这个还在学习，放下不表。但是，就这些基本的功能就已经能支持我很好的工作了啊！
-　  
-B. SI Project初体验与窗口布局介绍：　　新建工程之后是add and remove files这个窗口，一般ad
+　　那么又有一个问题，比如老子要设置字体背景之类的东西哩？呵呵，Optio
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1998,9 +1919,7 @@ B. SI Project初体验与窗口布局介绍：　　新建工程之后是add and
           
           
 一、Git简介一个分布式版本管理系统，重点在分布式，CVS和SVN都是集中式版本控制系统，那么问题来了，分布式和集中式有何区别呢？
-先说集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。 集中式版本控制系统最大的毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网速慢的话，可能提交一个10M的文件就需要5分钟，这还不得把人给憋死啊。 
-
-分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库，那多个人如何协作呢？比方说你在自己电脑上改了文件A，你的同事也在他的电脑上改了文件A，这时，你们俩之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。和集中式版本控制系统相比，分布式版本控制系统的安
+先说集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。 集中式版本控制系统最大的毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网速慢的话，可能提交一个10M的文件就需要5分钟，这还不得把人给憋
           ...
           <!--noindex-->
           <div class="post-button text-center">
