@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -56,6 +60,10 @@
 
 
 
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -123,8 +131,8 @@
     root: '/',
     scheme: 'Mist',
     version: '6.4.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -153,13 +161,13 @@
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
 <meta property="og:description" content="由于项目涉及到数据库的东西太多太多，基本所有功能都涉及到数据库。在一个移动客户端上只要涉及到网络数据都得保存到本地，数据量小的情况下还好，如果数据量成千上万，那稳定性，速度效率个方面问题层出不穷。 问题:上万条数据从服务端下下来，可能会导致程序崩溃？ 解决方案： 1.首先这个奔溃问题，我不知道是什么奔溃，然后让业务那边在初选收获功能模块中加一些大数据量我这边好测试，业务分别加成功了4000和904">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://kanghanbin.github.io/2018/10/17/一次批量插入数据库上万条记录优化/1.jpeg">
-<meta property="og:image" content="https://kanghanbin.github.io/2018/10/17/一次批量插入数据库上万条记录优化/2.png">
+<meta property="og:image" content="https://kanghanbin.github.io/.io//1.jpeg">
+<meta property="og:image" content="https://kanghanbin.github.io/.io//2.png">
 <meta property="og:updated_time" content="2018-10-17T09:43:38.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一次批量插入数据库上万条记录优化">
 <meta name="twitter:description" content="由于项目涉及到数据库的东西太多太多，基本所有功能都涉及到数据库。在一个移动客户端上只要涉及到网络数据都得保存到本地，数据量小的情况下还好，如果数据量成千上万，那稳定性，速度效率个方面问题层出不穷。 问题:上万条数据从服务端下下来，可能会导致程序崩溃？ 解决方案： 1.首先这个奔溃问题，我不知道是什么奔溃，然后让业务那边在初选收获功能模块中加一些大数据量我这边好测试，业务分别加成功了4000和904">
-<meta name="twitter:image" content="https://kanghanbin.github.io/2018/10/17/一次批量插入数据库上万条记录优化/1.jpeg">
+<meta name="twitter:image" content="https://kanghanbin.github.io/.io//1.jpeg">
 
 
 
@@ -367,6 +375,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -433,6 +443,34 @@
           
 
           
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">22k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">20 分钟</span>
+              
+            </div>
+          
 
           
 
@@ -454,9 +492,9 @@
 <p><strong>解决方案</strong>：</p>
 <p>1.首先这个奔溃问题，我不知道是什么奔溃，然后让业务那边在初选收获功能模块中加一些大数据量我这边好测试，业务分别加成功了4000和9040两种，</p>
 <p>2.运行项目，测试了一下，前两次貌似都报了网络环境异常，查看log是<code>com.android.volley.TimeoutError</code>超时，后来再测几次就没出现，估计网络不稳定造成，下载成功后会保存至数据库，下载过程挺快，然后卡在了保存至数据库，加载框也不转了，静静地等着</p>
-<p><img src="1.jpeg" alt=""></p>
+<p><img src="/.io//1.jpeg" alt=""></p>
 <p>2.1.如果，在这中间，手指触碰到了安卓事件，系统会弹出ANR对话框，然后强制关闭，系统奔溃。</p>
-<p><img src="2.png" alt=""></p>
+<p><img src="/.io//2.png" alt=""></p>
 <p>我认为解决方案就是数据库操作在子线程，可有效避免ANR。</p>
 <p>2.2.如果，在这中间，静静地等着数据库插入操作直至完成，下面是测试保存所需等待时间，其实算了操作数据库两个方法。</p>
 <ul>
@@ -588,6 +626,11 @@
     
     
     
+    <div>
+     
+       <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束 ------</div>
+     
+   </div>
 
     
 
@@ -634,6 +677,26 @@
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
       
       
 
@@ -692,6 +755,8 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
     
     <div class="sidebar-inner">
 
@@ -826,6 +891,13 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -839,27 +911,40 @@
       <div class="footer-inner">
         <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">康汉斌</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">NaNm</span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">NaN:aN</span>
   
 </div>
 
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
-  <span class="post-meta-divider">|</span>
 
-
-
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
 
 
 
@@ -878,12 +963,13 @@
     </footer>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 	
     
@@ -910,19 +996,32 @@
 
 
 
+  
+
 
 
   
 
 
 
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
 
 
 
 
 
-
-
+  
 
 
 
@@ -943,7 +1042,37 @@
 
   
   
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
     <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
 
 
@@ -1339,6 +1468,37 @@
 
   
   
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
 
   
 
@@ -1350,6 +1510,78 @@
 
   
 
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
   <script type="text/javascript" src="/js/src/clicklove.js"></script>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"width":100,"height":200,"position":"left","hOffset":40,"vOffset":10},"mobile":{"show":false,"scale":0.05},"react":{"opacityDefault":0.7,"opacityOnHover":0.2}});</script></body>
 </html>

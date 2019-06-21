@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -56,6 +60,10 @@
 
 
 
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -123,8 +131,8 @@
     root: '/',
     scheme: 'Mist',
     version: '6.4.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -153,15 +161,15 @@
 <meta property="og:site_name" content="Kanghanbin&#39;s Blog">
 <meta property="og:description" content="前言Navigation 是应用程序设计的重要组成部分。 通过Navigation ，可以设计允许用户在应用内的不同内容区域中移动，移入和移出的交互。说白了其实是用来管理 APP 里页面跳转的。  使用如果您想使用Android Studio导航，则必须使用Android Studio 3.3或更高版本。 要向项目添加导航图，请执行以下操作：  在“项目”窗口中，右键单击res目录，然后选择“ N">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://kanghanbin.github.io/2019/02/26/Navigation-of-Jetpack-s-Architecture-Components/0.png">
-<meta property="og:image" content="https://kanghanbin.github.io/2019/02/26/Navigation-of-Jetpack-s-Architecture-Components/1.png">
-<meta property="og:image" content="https://kanghanbin.github.io/2019/02/26/Navigation-of-Jetpack-s-Architecture-Components/2.png">
+<meta property="og:image" content="https://kanghanbin.github.io/.io//0.png">
+<meta property="og:image" content="https://kanghanbin.github.io/.io//1.png">
+<meta property="og:image" content="https://kanghanbin.github.io/.io//2.png">
 <meta property="og:image" content="https://developer.android.google.cn/images/topic/libraries/architecture/navigation-new-destination-icon.png">
 <meta property="og:updated_time" content="2019-02-27T09:08:13.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Navigation of Jetpack&#39;s Architecture Components">
 <meta name="twitter:description" content="前言Navigation 是应用程序设计的重要组成部分。 通过Navigation ，可以设计允许用户在应用内的不同内容区域中移动，移入和移出的交互。说白了其实是用来管理 APP 里页面跳转的。  使用如果您想使用Android Studio导航，则必须使用Android Studio 3.3或更高版本。 要向项目添加导航图，请执行以下操作：  在“项目”窗口中，右键单击res目录，然后选择“ N">
-<meta name="twitter:image" content="https://kanghanbin.github.io/2019/02/26/Navigation-of-Jetpack-s-Architecture-Components/0.png">
+<meta name="twitter:image" content="https://kanghanbin.github.io/.io//0.png">
 
 
 
@@ -369,6 +377,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -435,6 +445,34 @@
           
 
           
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">55k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">50 分钟</span>
+              
+            </div>
+          
 
           
 
@@ -452,8 +490,8 @@
 
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Navigation 是应用程序设计的重要组成部分。 通过Navigation ，可以设计允许用户在应用内的不同内容区域中移动，移入和移出的交互。说白了其实是用来管理 APP 里页面跳转的。</p>
-<p><img src="0.png" alt=""></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>如果您想使用Android Studio导航，则必须使用Android Studio 3.3或更高版本。<img src="1.png" alt=""></p>
+<p><img src="/.io//0.png" alt=""></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>如果您想使用Android Studio导航，则必须使用Android Studio 3.3或更高版本。<img src="/.io//1.png" alt=""></p>
 <p>要向项目添加导航图，请执行以下操作：</p>
 <ol>
 <li><p>在“项目”窗口中，右键单击res目录，然后选择“ <strong>New &gt; Android Resource File</strong>。 出现 <strong>New Resource File</strong> 对话框。</p>
@@ -474,7 +512,7 @@
 <li><p>单击<strong>Design</strong> 返回“导航编辑器”。</p>
 </li>
 </ol>
-<p><img src="2.png" alt=""></p>
+<p><img src="/.io//2.png" alt=""></p>
 <h3 id="创建destinations"><a href="#创建destinations" class="headerlink" title="创建destinations"></a>创建<code>destinations</code></h3><ol>
 <li>在导航栏编辑器中, 点击<strong>New Destination</strong> <img src="https://developer.android.google.cn/images/topic/libraries/architecture/navigation-new-destination-icon.png" alt="img">, 然后点击 <strong>Create blank destination</strong>.</li>
 <li><strong>New Android Component</strong> 弹窗出现,  输入一个<strong>Fragment Name</strong>.作为 Fragment类的名字</li>
@@ -706,6 +744,11 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
     
     
     
+    <div>
+     
+       <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束 ------</div>
+     
+   </div>
 
     
 
@@ -752,6 +795,26 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
       
       
 
@@ -810,6 +873,8 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
     
     <div class="sidebar-inner">
 
@@ -944,6 +1009,13 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -957,27 +1029,40 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
       <div class="footer-inner">
         <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">康汉斌</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">NaNm</span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">NaN:aN</span>
   
 </div>
 
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
-  <span class="post-meta-divider">|</span>
 
-
-
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
 
 
 
@@ -996,12 +1081,13 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
     </footer>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 	
     
@@ -1028,19 +1114,32 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
 
 
 
+  
+
 
 
   
 
 
 
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
 
 
 
 
 
-
-
+  
 
 
 
@@ -1061,7 +1160,37 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
 
   
   
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
     <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
 
 
@@ -1457,6 +1586,37 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
 
   
   
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
 
   
 
@@ -1468,6 +1628,78 @@ Navigation<span class="token punctuation">.</span><span class="token function">f
 
   
 
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
   <script type="text/javascript" src="/js/src/clicklove.js"></script>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"width":100,"height":200,"position":"left","hOffset":40,"vOffset":10},"mobile":{"show":false,"scale":0.05},"react":{"opacityDefault":0.7,"opacityOnHover":0.2}});</script></body>
 </html>
